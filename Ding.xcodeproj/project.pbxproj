@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D5C6EC718F0A21B00C8B392 /* DNNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C6EC618F0A21B00C8B392 /* DNNavigationController.m */; };
+		4D5C6ECA18F0A22C00C8B392 /* DNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C6EC918F0A22C00C8B392 /* DNViewController.m */; };
+		4D5C6ECD18F0A23A00C8B392 /* DNTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C6ECC18F0A23A00C8B392 /* DNTableViewController.m */; };
 		4D911CD018F08ADE007BE775 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CCF18F08ADE007BE775 /* Foundation.framework */; };
 		4D911CD218F08ADE007BE775 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CD118F08ADE007BE775 /* CoreGraphics.framework */; };
 		4D911CD418F08ADE007BE775 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CD318F08ADE007BE775 /* UIKit.framework */; };
@@ -35,6 +38,12 @@
 
 /* Begin PBXFileReference section */
 		3EA3209F8B0D4B028BC98960 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D5C6EC518F0A21B00C8B392 /* DNNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNNavigationController.h; path = Base/DNNavigationController.h; sourceTree = "<group>"; };
+		4D5C6EC618F0A21B00C8B392 /* DNNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNNavigationController.m; path = Base/DNNavigationController.m; sourceTree = "<group>"; };
+		4D5C6EC818F0A22C00C8B392 /* DNViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNViewController.h; path = Base/DNViewController.h; sourceTree = "<group>"; };
+		4D5C6EC918F0A22C00C8B392 /* DNViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNViewController.m; path = Base/DNViewController.m; sourceTree = "<group>"; };
+		4D5C6ECB18F0A23A00C8B392 /* DNTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNTableViewController.h; path = Base/DNTableViewController.h; sourceTree = "<group>"; };
+		4D5C6ECC18F0A23A00C8B392 /* DNTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNTableViewController.m; path = Base/DNTableViewController.m; sourceTree = "<group>"; };
 		4D911CCC18F08ADE007BE775 /* Ding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D911CCF18F08ADE007BE775 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4D911CD118F08ADE007BE775 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -81,6 +90,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D5C6EC118F0A18800C8B392 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		4D5C6EC218F0A18C00C8B392 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		4D5C6EC318F0A1AF00C8B392 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Compose;
+			sourceTree = "<group>";
+		};
+		4D5C6EC418F0A1D400C8B392 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				4D5C6EC518F0A21B00C8B392 /* DNNavigationController.h */,
+				4D5C6EC618F0A21B00C8B392 /* DNNavigationController.m */,
+				4D5C6EC818F0A22C00C8B392 /* DNViewController.h */,
+				4D5C6EC918F0A22C00C8B392 /* DNViewController.m */,
+				4D5C6ECB18F0A23A00C8B392 /* DNTableViewController.h */,
+				4D5C6ECC18F0A23A00C8B392 /* DNTableViewController.m */,
+			);
+			name = Base;
+			sourceTree = "<group>";
+		};
 		4D911CC318F08ADE007BE775 = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +161,10 @@
 		4D911CD518F08ADE007BE775 /* Ding */ = {
 			isa = PBXGroup;
 			children = (
+				4D5C6EC418F0A1D400C8B392 /* Base */,
+				4D5C6EC118F0A18800C8B392 /* Home */,
+				4D5C6EC218F0A18C00C8B392 /* Login */,
+				4D5C6EC318F0A1AF00C8B392 /* Compose */,
 				4D911CDE18F08ADE007BE775 /* DNAppDelegate.h */,
 				4D911CDF18F08ADE007BE775 /* DNAppDelegate.m */,
 				4D911CE718F08ADE007BE775 /* DNViewController.h */,
@@ -290,7 +337,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D911CE018F08ADE007BE775 /* DNAppDelegate.m in Sources */,
+				4D5C6ECD18F0A23A00C8B392 /* DNTableViewController.m in Sources */,
+				4D5C6EC718F0A21B00C8B392 /* DNNavigationController.m in Sources */,
 				4D911CE918F08ADE007BE775 /* DNViewController.m in Sources */,
+				4D5C6ECA18F0A22C00C8B392 /* DNViewController.m in Sources */,
 				4D911CDC18F08ADE007BE775 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
