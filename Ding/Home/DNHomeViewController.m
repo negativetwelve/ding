@@ -42,10 +42,7 @@
      
      self.navigationItem.leftBarButtonItems = titleButtonArray;
     
-    /*UIView *navView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 160, 80)];
-    self.navigationItem.leftBarButtonItem = nil;
-    [navView addSubview:clientControl];
-    self.navigationItem.titleView = navView;*/
+    
 }
 
 -(void)setupLeftMenuButton {

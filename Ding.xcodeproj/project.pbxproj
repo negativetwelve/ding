@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3F6E770B18F0A75600D798BC /* DNHomeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6E770A18F0A75600D798BC /* DNHomeNavigationController.m */; };
+		3FBA665F18F0C2D9008B5640 /* DNVoiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA665E18F0C2D9008B5640 /* DNVoiceViewController.m */; };
+		3FBA666218F0C2EB008B5640 /* DNChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA666118F0C2EB008B5640 /* DNChatViewController.m */; };
+		3FBA666518F0C2F8008B5640 /* DNFBChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBA666418F0C2F8008B5640 /* DNFBChatViewController.m */; };
 		4D5C6EC718F0A21B00C8B392 /* DNNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C6EC618F0A21B00C8B392 /* DNNavigationController.m */; };
 		4D5C6ECA18F0A22C00C8B392 /* DNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C6EC918F0A22C00C8B392 /* DNViewController.m */; };
 		4D5C6ECD18F0A23A00C8B392 /* DNTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C6ECC18F0A23A00C8B392 /* DNTableViewController.m */; };
@@ -45,6 +48,12 @@
 		3EA3209F8B0D4B028BC98960 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6E770918F0A75600D798BC /* DNHomeNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNHomeNavigationController.h; path = Home/DNHomeNavigationController.h; sourceTree = "<group>"; };
 		3F6E770A18F0A75600D798BC /* DNHomeNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNHomeNavigationController.m; path = Home/DNHomeNavigationController.m; sourceTree = "<group>"; };
+		3FBA665D18F0C2D9008B5640 /* DNVoiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNVoiceViewController.h; path = Home/Voice/DNVoiceViewController.h; sourceTree = "<group>"; };
+		3FBA665E18F0C2D9008B5640 /* DNVoiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNVoiceViewController.m; path = Home/Voice/DNVoiceViewController.m; sourceTree = "<group>"; };
+		3FBA666018F0C2EB008B5640 /* DNChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNChatViewController.h; path = Home/Chat/DNChatViewController.h; sourceTree = "<group>"; };
+		3FBA666118F0C2EB008B5640 /* DNChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNChatViewController.m; path = Home/Chat/DNChatViewController.m; sourceTree = "<group>"; };
+		3FBA666318F0C2F8008B5640 /* DNFBChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNFBChatViewController.h; path = Home/FBChat/DNFBChatViewController.h; sourceTree = "<group>"; };
+		3FBA666418F0C2F8008B5640 /* DNFBChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNFBChatViewController.m; path = Home/FBChat/DNFBChatViewController.m; sourceTree = "<group>"; };
 		4D5C6EC518F0A21B00C8B392 /* DNNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNNavigationController.h; path = Base/DNNavigationController.h; sourceTree = "<group>"; };
 		4D5C6EC618F0A21B00C8B392 /* DNNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNNavigationController.m; path = Base/DNNavigationController.m; sourceTree = "<group>"; };
 		4D5C6EC818F0A22C00C8B392 /* DNViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNViewController.h; path = Base/DNViewController.h; sourceTree = "<group>"; };
@@ -105,6 +114,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3FBA665A18F0C24B008B5640 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Chat;
+			sourceTree = "<group>";
+		};
+		3FBA665B18F0C253008B5640 /* Voice */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Voice;
+			sourceTree = "<group>";
+		};
+		3FBA665C18F0C276008B5640 /* FBChat */ = {
+			isa = PBXGroup;
+			children = (
+				3FBA665D18F0C2D9008B5640 /* DNVoiceViewController.h */,
+				3FBA665E18F0C2D9008B5640 /* DNVoiceViewController.m */,
+				3FBA666018F0C2EB008B5640 /* DNChatViewController.h */,
+				3FBA666118F0C2EB008B5640 /* DNChatViewController.m */,
+				3FBA666318F0C2F8008B5640 /* DNFBChatViewController.h */,
+				3FBA666418F0C2F8008B5640 /* DNFBChatViewController.m */,
+			);
+			name = FBChat;
+			sourceTree = "<group>";
+		};
 		4D5C6EC118F0A18800C8B392 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +148,9 @@
 				3F6E770A18F0A75600D798BC /* DNHomeNavigationController.m */,
 				4D7CA4BB18F0AF6E00D9EFD4 /* DNHomeViewController.h */,
 				4D7CA4BC18F0AF6E00D9EFD4 /* DNHomeViewController.m */,
+				3FBA665C18F0C276008B5640 /* FBChat */,
+				3FBA665B18F0C253008B5640 /* Voice */,
+				3FBA665A18F0C24B008B5640 /* Chat */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -371,6 +410,7 @@
 			files = (
 				4D5C6ED018F0A71A00C8B392 /* DNLoginNavigationController.m in Sources */,
 				4D911CE018F08ADE007BE775 /* DNAppDelegate.m in Sources */,
+				3FBA666218F0C2EB008B5640 /* DNChatViewController.m in Sources */,
 				4D7CA4B718F0AE0000D9EFD4 /* DNSettingsNavigationController.m in Sources */,
 				4D7CA4BD18F0AF6E00D9EFD4 /* DNHomeViewController.m in Sources */,
 				4D5C6ECD18F0A23A00C8B392 /* DNTableViewController.m in Sources */,
@@ -378,7 +418,9 @@
 				4D7CA4BA18F0AE2600D9EFD4 /* DNFriendsNavigationController.m in Sources */,
 				4D5C6ECA18F0A22C00C8B392 /* DNViewController.m in Sources */,
 				3F6E770B18F0A75600D798BC /* DNHomeNavigationController.m in Sources */,
+				3FBA665F18F0C2D9008B5640 /* DNVoiceViewController.m in Sources */,
 				4D5C6ED318F0A76000C8B392 /* DNComposeNavigationController.m in Sources */,
+				3FBA666518F0C2F8008B5640 /* DNFBChatViewController.m in Sources */,
 				4D911CDC18F08ADE007BE775 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
