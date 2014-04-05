@@ -13,6 +13,8 @@
 		4D5C6ECD18F0A23A00C8B392 /* DNTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C6ECC18F0A23A00C8B392 /* DNTableViewController.m */; };
 		4D5C6ED018F0A71A00C8B392 /* DNLoginNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C6ECF18F0A71A00C8B392 /* DNLoginNavigationController.m */; };
 		4D5C6ED318F0A76000C8B392 /* DNComposeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C6ED218F0A76000C8B392 /* DNComposeNavigationController.m */; };
+		4D7CA4B718F0AE0000D9EFD4 /* DNSettingsNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4B618F0AE0000D9EFD4 /* DNSettingsNavigationController.m */; };
+		4D7CA4BA18F0AE2600D9EFD4 /* DNFriendsNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4B918F0AE2600D9EFD4 /* DNFriendsNavigationController.m */; };
 		4D911CD018F08ADE007BE775 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CCF18F08ADE007BE775 /* Foundation.framework */; };
 		4D911CD218F08ADE007BE775 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CD118F08ADE007BE775 /* CoreGraphics.framework */; };
 		4D911CD418F08ADE007BE775 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CD318F08ADE007BE775 /* UIKit.framework */; };
@@ -52,6 +54,10 @@
 		4D5C6ECF18F0A71A00C8B392 /* DNLoginNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNLoginNavigationController.m; path = Login/DNLoginNavigationController.m; sourceTree = "<group>"; };
 		4D5C6ED118F0A76000C8B392 /* DNComposeNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNComposeNavigationController.h; path = Compose/DNComposeNavigationController.h; sourceTree = "<group>"; };
 		4D5C6ED218F0A76000C8B392 /* DNComposeNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNComposeNavigationController.m; path = Compose/DNComposeNavigationController.m; sourceTree = "<group>"; };
+		4D7CA4B518F0AE0000D9EFD4 /* DNSettingsNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNSettingsNavigationController.h; path = Drawer/DNSettingsNavigationController.h; sourceTree = "<group>"; };
+		4D7CA4B618F0AE0000D9EFD4 /* DNSettingsNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNSettingsNavigationController.m; path = Drawer/DNSettingsNavigationController.m; sourceTree = "<group>"; };
+		4D7CA4B818F0AE2600D9EFD4 /* DNFriendsNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNFriendsNavigationController.h; path = Drawer/DNFriendsNavigationController.h; sourceTree = "<group>"; };
+		4D7CA4B918F0AE2600D9EFD4 /* DNFriendsNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNFriendsNavigationController.m; path = Drawer/DNFriendsNavigationController.m; sourceTree = "<group>"; };
 		4D911CCC18F08ADE007BE775 /* Ding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D911CCF18F08ADE007BE775 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4D911CD118F08ADE007BE775 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -136,6 +142,17 @@
 			name = Base;
 			sourceTree = "<group>";
 		};
+		4D7CA4B418F0ADBC00D9EFD4 /* Drawer */ = {
+			isa = PBXGroup;
+			children = (
+				4D7CA4B518F0AE0000D9EFD4 /* DNSettingsNavigationController.h */,
+				4D7CA4B618F0AE0000D9EFD4 /* DNSettingsNavigationController.m */,
+				4D7CA4B818F0AE2600D9EFD4 /* DNFriendsNavigationController.h */,
+				4D7CA4B918F0AE2600D9EFD4 /* DNFriendsNavigationController.m */,
+			);
+			name = Drawer;
+			sourceTree = "<group>";
+		};
 		4D911CC318F08ADE007BE775 = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +194,7 @@
 				4D5C6EC118F0A18800C8B392 /* Home */,
 				4D5C6EC218F0A18C00C8B392 /* Login */,
 				4D5C6EC318F0A1AF00C8B392 /* Compose */,
+				4D7CA4B418F0ADBC00D9EFD4 /* Drawer */,
 				4D911CDE18F08ADE007BE775 /* DNAppDelegate.h */,
 				4D911CDF18F08ADE007BE775 /* DNAppDelegate.m */,
 				4D911CEA18F08ADE007BE775 /* Images.xcassets */,
@@ -348,8 +366,10 @@
 			files = (
 				4D5C6ED018F0A71A00C8B392 /* DNLoginNavigationController.m in Sources */,
 				4D911CE018F08ADE007BE775 /* DNAppDelegate.m in Sources */,
+				4D7CA4B718F0AE0000D9EFD4 /* DNSettingsNavigationController.m in Sources */,
 				4D5C6ECD18F0A23A00C8B392 /* DNTableViewController.m in Sources */,
 				4D5C6EC718F0A21B00C8B392 /* DNNavigationController.m in Sources */,
+				4D7CA4BA18F0AE2600D9EFD4 /* DNFriendsNavigationController.m in Sources */,
 				4D5C6ECA18F0A22C00C8B392 /* DNViewController.m in Sources */,
 				3F6E770B18F0A75600D798BC /* DNHomeNavigationController.m in Sources */,
 				4D5C6ED318F0A76000C8B392 /* DNComposeNavigationController.m in Sources */,

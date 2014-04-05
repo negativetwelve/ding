@@ -8,10 +8,22 @@
 
 #import "DNAppDelegate.h"
 
+#import "MMDrawerController.h"
+
 @implementation DNAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    [self setWindow:[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]];
+    
+    UIViewController *leftDrawer = [[UIViewController alloc] init];
+    DN
+    UIViewController *center = [[UIViewController alloc] init];
+    UIViewController *rightDrawer = [[UIViewController alloc] init];
+    
+    MMDrawerController * drawerController = [[MMDrawerController alloc] initWithCenterViewController:center leftDrawerViewController:leftDrawer rightDrawerViewController:rightDrawer];
+
+    
     return YES;
 }
 							
