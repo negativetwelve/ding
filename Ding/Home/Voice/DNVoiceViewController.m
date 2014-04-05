@@ -1,24 +1,24 @@
 //
-//  DNHomeNavigationController.m
+//  DNVoiceViewController.m
 //  Ding
 //
 //  Created by Melissa on 4/5/14.
 //  Copyright (c) 2014 Mark Miyashita. All rights reserved.
 //
 
-#import "DNHomeNavigationController.h"
+#import "DNVoiceViewController.h"
 
-@interface DNHomeNavigationController ()
+@interface DNVoiceViewController ()
 
 @end
 
-@implementation DNHomeNavigationController
+@implementation DNVoiceViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        // Custom initialization
     }
     return self;
 }
@@ -27,10 +27,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    
-    
-
 }
 
 - (void)didReceiveMemoryWarning

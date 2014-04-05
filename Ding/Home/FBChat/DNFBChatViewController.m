@@ -1,24 +1,24 @@
 //
-//  DNHomeNavigationController.m
+//  DNFBChatViewController.m
 //  Ding
 //
 //  Created by Melissa on 4/5/14.
 //  Copyright (c) 2014 Mark Miyashita. All rights reserved.
 //
 
-#import "DNHomeNavigationController.h"
+#import "DNFBChatViewController.h"
 
-@interface DNHomeNavigationController ()
+@interface DNFBChatViewController ()
 
 @end
 
-@implementation DNHomeNavigationController
+@implementation DNFBChatViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        // Custom initialization
     }
     return self;
 }
@@ -27,10 +27,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    
-    
-
 }
 
 - (void)didReceiveMemoryWarning
