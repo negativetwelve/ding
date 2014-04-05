@@ -36,6 +36,11 @@
         
         MMDrawerController * drawerController = [[MMDrawerController alloc] initWithCenterViewController:homeNavigationController leftDrawerViewController:settingsNavigationController rightDrawerViewController:friendsNavigationController];
         
+        [drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModePanningCenterView];
+        [drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModePanningCenterView];
+        
+        [homeViewController setDrawerController:drawerController];
+        
         [self.window setRootViewController:drawerController];
     }
 
