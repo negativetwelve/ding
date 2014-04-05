@@ -31,6 +31,7 @@
 		4D7CA4E218F0CB2600D9EFD4 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4D918F0CB2600D9EFD4 /* ContextFilterLogFormatter.m */; };
 		4D7CA4E318F0CB2600D9EFD4 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4DB18F0CB2600D9EFD4 /* DispatchQueueLogFormatter.m */; };
 		4D7CA4E418F0CB2600D9EFD4 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4D7CA4DC18F0CB2600D9EFD4 /* README.txt */; };
+		4D7CA4E818F0CB6400D9EFD4 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4E718F0CB6400D9EFD4 /* GCDAsyncSocket.m */; };
 		4D911CD018F08ADE007BE775 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CCF18F08ADE007BE775 /* Foundation.framework */; };
 		4D911CD218F08ADE007BE775 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CD118F08ADE007BE775 /* CoreGraphics.framework */; };
 		4D911CD418F08ADE007BE775 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CD318F08ADE007BE775 /* UIKit.framework */; };
@@ -105,6 +106,8 @@
 		4D7CA4DA18F0CB2600D9EFD4 /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
 		4D7CA4DB18F0CB2600D9EFD4 /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
 		4D7CA4DC18F0CB2600D9EFD4 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		4D7CA4E618F0CB6400D9EFD4 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		4D7CA4E718F0CB6400D9EFD4 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		4D911CCC18F08ADE007BE775 /* Ding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D911CCF18F08ADE007BE775 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4D911CD118F08ADE007BE775 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -250,6 +253,7 @@
 		4D7CA4CB18F0CB2600D9EFD4 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				4D7CA4E518F0CB6400D9EFD4 /* CocoaAsyncSocket */,
 				4D7CA4CC18F0CB2600D9EFD4 /* CocoaLumberjack */,
 			);
 			path = Libraries;
@@ -283,6 +287,15 @@
 				4D7CA4DC18F0CB2600D9EFD4 /* README.txt */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4D7CA4E518F0CB6400D9EFD4 /* CocoaAsyncSocket */ = {
+			isa = PBXGroup;
+			children = (
+				4D7CA4E618F0CB6400D9EFD4 /* GCDAsyncSocket.h */,
+				4D7CA4E718F0CB6400D9EFD4 /* GCDAsyncSocket.m */,
+			);
+			path = CocoaAsyncSocket;
 			sourceTree = "<group>";
 		};
 		4D911CC318F08ADE007BE775 = {
@@ -513,6 +526,7 @@
 				4D7CA4DD18F0CB2600D9EFD4 /* DDAbstractDatabaseLogger.m in Sources */,
 				4D7CA4DF18F0CB2600D9EFD4 /* DDFileLogger.m in Sources */,
 				4D5C6EC718F0A21B00C8B392 /* DNNavigationController.m in Sources */,
+				4D7CA4E818F0CB6400D9EFD4 /* GCDAsyncSocket.m in Sources */,
 				4D7CA4BA18F0AE2600D9EFD4 /* DNFriendsNavigationController.m in Sources */,
 				4D5C6ECA18F0A22C00C8B392 /* DNViewController.m in Sources */,
 				3F6E770B18F0A75600D798BC /* DNHomeNavigationController.m in Sources */,
