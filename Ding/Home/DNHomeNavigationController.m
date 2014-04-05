@@ -28,8 +28,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    UISegmentedControl *clientControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"gChat", @"Voice", @"fb", nil]];
-    self.navigationItem.titleView = clientControl;
+    
+    
+
 }
 
 - (void)didReceiveMemoryWarning

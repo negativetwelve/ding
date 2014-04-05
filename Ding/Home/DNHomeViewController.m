@@ -20,7 +20,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self setTitle:@"Home"];
         [self.view setBackgroundColor:[UIColor whiteColor]];
     }
     return self;
@@ -31,16 +30,32 @@
     [super viewDidLoad];
     [self setupLeftMenuButton];
     [self setupRightMenuButton];
+    //Create a Segmented Control tab
+    UISegmentedControl *clientControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"gChat", @"Voice", @"fb", nil]];
+    
+    //Array of NavBar buttons
+    NSMutableArray *titleButtonArray = [[NSMutableArray alloc] init];
+     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+     [titleButtonArray addObject:flexibleSpace];
+     [titleButtonArray addObject:[[UIBarButtonItem alloc] initWithCustomView:clientControl]];
+     [titleButtonArray addObject:flexibleSpace];
+     
+     self.navigationItem.leftBarButtonItems = titleButtonArray;
+    
+    /*UIView *navView = [[UIView alloc] initWithFrame:CGRectMake(10, 10, 160, 80)];
+    self.navigationItem.leftBarButtonItem = nil;
+    [navView addSubview:clientControl];
+    self.navigationItem.titleView = navView;*/
 }
 
 -(void)setupLeftMenuButton {
     MMDrawerBarButtonItem *leftDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(leftDrawerButtonPress:)];
-    [self.navigationItem setLeftBarButtonItem:leftDrawerButton animated:YES];
+    //[self.navigationItem setLeftBarButtonItem:leftDrawerButton animated:YES];
 }
 
 -(void)setupRightMenuButton {
     MMDrawerBarButtonItem *rightDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(rightDrawerButtonPress:)];
-    [self.navigationItem setRightBarButtonItem:rightDrawerButton animated:YES];
+    //[self.navigationItem setRightBarButtonItem:rightDrawerButton animated:YES];
 }
 
 -(void)leftDrawerButtonPress:(id)sender {
