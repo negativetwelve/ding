@@ -7,6 +7,9 @@
 //
 
 #import "DNAppDelegate.h"
+#import "DNSettingsNavigationController.h"
+#import "DNFriendsNavigationController.h"
+#import "DNHomeNavigationController.h"
 
 #import "MMDrawerController.h"
 
@@ -16,12 +19,18 @@
     
     [self setWindow:[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]];
     
-    UIViewController *leftDrawer = [[UIViewController alloc] init];
-    DN
-    UIViewController *center = [[UIViewController alloc] init];
-    UIViewController *rightDrawer = [[UIViewController alloc] init];
-    
-    MMDrawerController * drawerController = [[MMDrawerController alloc] initWithCenterViewController:center leftDrawerViewController:leftDrawer rightDrawerViewController:rightDrawer];
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
+        splitViewController.delegate = (id)navigationController.topViewController;
+        self.window.rootViewController = splitViewController;
+    } else {
+        DNSettingsNavigationController *settingsNavigationController = [[DNSettingsNavigationController alloc] init];
+        DNHomeNavigationController *homeNavigationController = [[DNHomeNavigationController alloc] init];
+        DNFriendsNavigationController *friendsNavigationController = [[DNFriendsNavigationController alloc] init];
+        
+        MMDrawerController * drawerController = [[MMDrawerController alloc] initWithCenterViewController:homeNavigationController leftDrawerViewController:settingsNavigationController rightDrawerViewController:friendsNavigationController];
+    }
 
     
     return YES;
