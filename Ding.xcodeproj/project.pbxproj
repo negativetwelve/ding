@@ -15,6 +15,7 @@
 		4D5C6ED318F0A76000C8B392 /* DNComposeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C6ED218F0A76000C8B392 /* DNComposeNavigationController.m */; };
 		4D7CA4B718F0AE0000D9EFD4 /* DNSettingsNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4B618F0AE0000D9EFD4 /* DNSettingsNavigationController.m */; };
 		4D7CA4BA18F0AE2600D9EFD4 /* DNFriendsNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4B918F0AE2600D9EFD4 /* DNFriendsNavigationController.m */; };
+		4D7CA4BD18F0AF6E00D9EFD4 /* DNHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4BC18F0AF6E00D9EFD4 /* DNHomeViewController.m */; };
 		4D911CD018F08ADE007BE775 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CCF18F08ADE007BE775 /* Foundation.framework */; };
 		4D911CD218F08ADE007BE775 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CD118F08ADE007BE775 /* CoreGraphics.framework */; };
 		4D911CD418F08ADE007BE775 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CD318F08ADE007BE775 /* UIKit.framework */; };
@@ -58,6 +59,8 @@
 		4D7CA4B618F0AE0000D9EFD4 /* DNSettingsNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNSettingsNavigationController.m; path = Drawer/DNSettingsNavigationController.m; sourceTree = "<group>"; };
 		4D7CA4B818F0AE2600D9EFD4 /* DNFriendsNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNFriendsNavigationController.h; path = Drawer/DNFriendsNavigationController.h; sourceTree = "<group>"; };
 		4D7CA4B918F0AE2600D9EFD4 /* DNFriendsNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNFriendsNavigationController.m; path = Drawer/DNFriendsNavigationController.m; sourceTree = "<group>"; };
+		4D7CA4BB18F0AF6E00D9EFD4 /* DNHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNHomeViewController.h; path = Home/DNHomeViewController.h; sourceTree = "<group>"; };
+		4D7CA4BC18F0AF6E00D9EFD4 /* DNHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNHomeViewController.m; path = Home/DNHomeViewController.m; sourceTree = "<group>"; };
 		4D911CCC18F08ADE007BE775 /* Ding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D911CCF18F08ADE007BE775 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4D911CD118F08ADE007BE775 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -107,6 +110,8 @@
 			children = (
 				3F6E770918F0A75600D798BC /* DNHomeNavigationController.h */,
 				3F6E770A18F0A75600D798BC /* DNHomeNavigationController.m */,
+				4D7CA4BB18F0AF6E00D9EFD4 /* DNHomeViewController.h */,
+				4D7CA4BC18F0AF6E00D9EFD4 /* DNHomeViewController.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -367,6 +372,7 @@
 				4D5C6ED018F0A71A00C8B392 /* DNLoginNavigationController.m in Sources */,
 				4D911CE018F08ADE007BE775 /* DNAppDelegate.m in Sources */,
 				4D7CA4B718F0AE0000D9EFD4 /* DNSettingsNavigationController.m in Sources */,
+				4D7CA4BD18F0AF6E00D9EFD4 /* DNHomeViewController.m in Sources */,
 				4D5C6ECD18F0A23A00C8B392 /* DNTableViewController.m in Sources */,
 				4D5C6EC718F0A21B00C8B392 /* DNNavigationController.m in Sources */,
 				4D7CA4BA18F0AE2600D9EFD4 /* DNFriendsNavigationController.m in Sources */,
