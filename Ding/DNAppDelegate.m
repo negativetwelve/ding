@@ -8,11 +8,14 @@
 
 #import "DNAppDelegate.h"
 
-#import "DNSettingsNavigationController.h"
-#import "DNFriendsNavigationController.h"
 #import "DNHomeNavigationController.h"
-
 #import "DNHomeViewController.h"
+#import "DNSettingsNavigationController.h"
+#import "DNSettingsViewController.h"
+#import "DNFriendsNavigationController.h"
+#import "DNFriendsViewController.h"
+#import "DNLoginNavigationController.h"
+#import "DNLoginViewController.h"
 
 #import "MMDrawerController.h"
 
@@ -32,10 +35,12 @@
     } else {
         NSLog(@"Device is iPhone");
         DNHomeViewController *homeViewController = [[DNHomeViewController alloc] init];
+        DNSettingsViewController *settingsViewController = [[DNSettingsViewController alloc] init];
+        DNFriendsViewController *friendsViewController = [[DNFriendsViewController alloc] init];
         
-        DNSettingsNavigationController *settingsNavigationController = [[DNSettingsNavigationController alloc] init];
+        DNSettingsNavigationController *settingsNavigationController = [[DNSettingsNavigationController alloc] initWithRootViewController:settingsViewController];
         DNHomeNavigationController *homeNavigationController = [[DNHomeNavigationController alloc] initWithRootViewController:homeViewController];
-        DNFriendsNavigationController *friendsNavigationController = [[DNFriendsNavigationController alloc] init];
+        DNFriendsNavigationController *friendsNavigationController = [[DNFriendsNavigationController alloc] initWithRootViewController:friendsViewController];
         
         MMDrawerController * drawerController = [[MMDrawerController alloc] initWithCenterViewController:homeNavigationController leftDrawerViewController:settingsNavigationController rightDrawerViewController:friendsNavigationController];
         
@@ -46,9 +51,25 @@
         
         [self.window setRootViewController:drawerController];
     }
-
+    
     [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (void)checkUser {
+    if (!self.user) {
+        NSLog(@"User not logged in");
+        
+        if ([self.window.rootViewController.presentedViewController isMemberOfClass:NSClassFromString(@"DNLoginNavigationController")]) {
+            NSLog(@"In Login nav controller");
+            DNLoginNavigationController *loginNavigationController = (DNLoginNavigationController *)self.window.rootViewController.presentedViewController;
+            
+        } else {
+            DNLoginViewController *loginViewController = [[DNLoginViewController alloc] init];
+            DNLoginNavigationController *loginNavigationController = [[DNLoginNavigationController alloc] initWithRootViewController:loginViewController];
+            [self.window.rootViewController presentViewController:loginNavigationController animated:YES completion:nil];
+        }
+    }
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application {
@@ -67,6 +88,7 @@
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
   // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [self checkUser];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
