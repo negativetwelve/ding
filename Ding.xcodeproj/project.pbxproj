@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F6E770B18F0A75600D798BC /* DNHomeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F6E770A18F0A75600D798BC /* DNHomeNavigationController.m */; };
 		4D5C6EC718F0A21B00C8B392 /* DNNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C6EC618F0A21B00C8B392 /* DNNavigationController.m */; };
 		4D5C6ECA18F0A22C00C8B392 /* DNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C6EC918F0A22C00C8B392 /* DNViewController.m */; };
 		4D5C6ECD18F0A23A00C8B392 /* DNTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C6ECC18F0A23A00C8B392 /* DNTableViewController.m */; };
@@ -38,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		3EA3209F8B0D4B028BC98960 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F6E770918F0A75600D798BC /* DNHomeNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNHomeNavigationController.h; path = Home/DNHomeNavigationController.h; sourceTree = "<group>"; };
+		3F6E770A18F0A75600D798BC /* DNHomeNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNHomeNavigationController.m; path = Home/DNHomeNavigationController.m; sourceTree = "<group>"; };
 		4D5C6EC518F0A21B00C8B392 /* DNNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNNavigationController.h; path = Base/DNNavigationController.h; sourceTree = "<group>"; };
 		4D5C6EC618F0A21B00C8B392 /* DNNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNNavigationController.m; path = Base/DNNavigationController.m; sourceTree = "<group>"; };
 		4D5C6EC818F0A22C00C8B392 /* DNViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNViewController.h; path = Base/DNViewController.h; sourceTree = "<group>"; };
@@ -93,6 +96,8 @@
 		4D5C6EC118F0A18800C8B392 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				3F6E770918F0A75600D798BC /* DNHomeNavigationController.h */,
+				3F6E770A18F0A75600D798BC /* DNHomeNavigationController.m */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -341,6 +346,7 @@
 				4D5C6EC718F0A21B00C8B392 /* DNNavigationController.m in Sources */,
 				4D911CE918F08ADE007BE775 /* DNViewController.m in Sources */,
 				4D5C6ECA18F0A22C00C8B392 /* DNViewController.m in Sources */,
+				3F6E770B18F0A75600D798BC /* DNHomeNavigationController.m in Sources */,
 				4D911CDC18F08ADE007BE775 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
