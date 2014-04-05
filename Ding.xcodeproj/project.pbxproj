@@ -32,6 +32,13 @@
 		4D7CA4E318F0CB2600D9EFD4 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4DB18F0CB2600D9EFD4 /* DispatchQueueLogFormatter.m */; };
 		4D7CA4E418F0CB2600D9EFD4 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4D7CA4DC18F0CB2600D9EFD4 /* README.txt */; };
 		4D7CA4E818F0CB6400D9EFD4 /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4E718F0CB6400D9EFD4 /* GCDAsyncSocket.m */; };
+		4D7CA4FB18F0CBC100D9EFD4 /* NSString+DDXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4EC18F0CBC100D9EFD4 /* NSString+DDXML.m */; };
+		4D7CA4FC18F0CBC100D9EFD4 /* DDXMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4EF18F0CBC100D9EFD4 /* DDXMLDocument.m */; };
+		4D7CA4FD18F0CBC100D9EFD4 /* DDXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4F118F0CBC100D9EFD4 /* DDXMLElement.m */; };
+		4D7CA4FE18F0CBC100D9EFD4 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4F318F0CBC100D9EFD4 /* DDXMLNode.m */; };
+		4D7CA4FF18F0CBC100D9EFD4 /* build-libidn.sh in Resources */ = {isa = PBXBuildFile; fileRef = 4D7CA4F718F0CBC100D9EFD4 /* build-libidn.sh */; };
+		4D7CA50018F0CBC100D9EFD4 /* libidn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7CA4F918F0CBC100D9EFD4 /* libidn.a */; };
+		4D7CA50218F0CC7E00D9EFD4 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7CA50118F0CC7E00D9EFD4 /* libxml2.dylib */; };
 		4D911CD018F08ADE007BE775 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CCF18F08ADE007BE775 /* Foundation.framework */; };
 		4D911CD218F08ADE007BE775 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CD118F08ADE007BE775 /* CoreGraphics.framework */; };
 		4D911CD418F08ADE007BE775 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CD318F08ADE007BE775 /* UIKit.framework */; };
@@ -108,6 +115,21 @@
 		4D7CA4DC18F0CB2600D9EFD4 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		4D7CA4E618F0CB6400D9EFD4 /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
 		4D7CA4E718F0CB6400D9EFD4 /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		4D7CA4EB18F0CBC100D9EFD4 /* NSString+DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DDXML.h"; sourceTree = "<group>"; };
+		4D7CA4EC18F0CBC100D9EFD4 /* NSString+DDXML.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DDXML.m"; sourceTree = "<group>"; };
+		4D7CA4ED18F0CBC100D9EFD4 /* DDXML.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXML.h; sourceTree = "<group>"; };
+		4D7CA4EE18F0CBC100D9EFD4 /* DDXMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLDocument.h; sourceTree = "<group>"; };
+		4D7CA4EF18F0CBC100D9EFD4 /* DDXMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLDocument.m; sourceTree = "<group>"; };
+		4D7CA4F018F0CBC100D9EFD4 /* DDXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLElement.h; sourceTree = "<group>"; };
+		4D7CA4F118F0CBC100D9EFD4 /* DDXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLElement.m; sourceTree = "<group>"; };
+		4D7CA4F218F0CBC100D9EFD4 /* DDXMLNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLNode.h; sourceTree = "<group>"; };
+		4D7CA4F318F0CBC100D9EFD4 /* DDXMLNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDXMLNode.m; sourceTree = "<group>"; };
+		4D7CA4F518F0CBC100D9EFD4 /* DDXMLPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDXMLPrivate.h; sourceTree = "<group>"; };
+		4D7CA4F718F0CBC100D9EFD4 /* build-libidn.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = "build-libidn.sh"; sourceTree = "<group>"; };
+		4D7CA4F818F0CBC100D9EFD4 /* idn-int.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "idn-int.h"; sourceTree = "<group>"; };
+		4D7CA4F918F0CBC100D9EFD4 /* libidn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libidn.a; sourceTree = "<group>"; };
+		4D7CA4FA18F0CBC100D9EFD4 /* stringprep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringprep.h; sourceTree = "<group>"; };
+		4D7CA50118F0CC7E00D9EFD4 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		4D911CCC18F08ADE007BE775 /* Ding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D911CCF18F08ADE007BE775 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4D911CD118F08ADE007BE775 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -132,7 +154,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7CA50218F0CC7E00D9EFD4 /* libxml2.dylib in Frameworks */,
 				4D911CD218F08ADE007BE775 /* CoreGraphics.framework in Frameworks */,
+				4D7CA50018F0CBC100D9EFD4 /* libidn.a in Frameworks */,
 				4D911CD418F08ADE007BE775 /* UIKit.framework in Frameworks */,
 				4D911CD018F08ADE007BE775 /* Foundation.framework in Frameworks */,
 				DE3613BFCCC4458B870F7E2F /* libPods.a in Frameworks */,
@@ -253,6 +277,8 @@
 		4D7CA4CB18F0CB2600D9EFD4 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				4D7CA4E918F0CBC100D9EFD4 /* KissXML */,
+				4D7CA4F618F0CBC100D9EFD4 /* libidn */,
 				4D7CA4E518F0CB6400D9EFD4 /* CocoaAsyncSocket */,
 				4D7CA4CC18F0CB2600D9EFD4 /* CocoaLumberjack */,
 			);
@@ -298,6 +324,50 @@
 			path = CocoaAsyncSocket;
 			sourceTree = "<group>";
 		};
+		4D7CA4E918F0CBC100D9EFD4 /* KissXML */ = {
+			isa = PBXGroup;
+			children = (
+				4D7CA4EA18F0CBC100D9EFD4 /* Categories */,
+				4D7CA4ED18F0CBC100D9EFD4 /* DDXML.h */,
+				4D7CA4EE18F0CBC100D9EFD4 /* DDXMLDocument.h */,
+				4D7CA4EF18F0CBC100D9EFD4 /* DDXMLDocument.m */,
+				4D7CA4F018F0CBC100D9EFD4 /* DDXMLElement.h */,
+				4D7CA4F118F0CBC100D9EFD4 /* DDXMLElement.m */,
+				4D7CA4F218F0CBC100D9EFD4 /* DDXMLNode.h */,
+				4D7CA4F318F0CBC100D9EFD4 /* DDXMLNode.m */,
+				4D7CA4F418F0CBC100D9EFD4 /* Private */,
+			);
+			path = KissXML;
+			sourceTree = "<group>";
+		};
+		4D7CA4EA18F0CBC100D9EFD4 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				4D7CA4EB18F0CBC100D9EFD4 /* NSString+DDXML.h */,
+				4D7CA4EC18F0CBC100D9EFD4 /* NSString+DDXML.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		4D7CA4F418F0CBC100D9EFD4 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				4D7CA4F518F0CBC100D9EFD4 /* DDXMLPrivate.h */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		4D7CA4F618F0CBC100D9EFD4 /* libidn */ = {
+			isa = PBXGroup;
+			children = (
+				4D7CA4F718F0CBC100D9EFD4 /* build-libidn.sh */,
+				4D7CA4F818F0CBC100D9EFD4 /* idn-int.h */,
+				4D7CA4F918F0CBC100D9EFD4 /* libidn.a */,
+				4D7CA4FA18F0CBC100D9EFD4 /* stringprep.h */,
+			);
+			path = libidn;
+			sourceTree = "<group>";
+		};
 		4D911CC318F08ADE007BE775 = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +394,7 @@
 		4D911CCE18F08ADE007BE775 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D7CA50118F0CC7E00D9EFD4 /* libxml2.dylib */,
 				4D911CCF18F08ADE007BE775 /* Foundation.framework */,
 				4D911CD118F08ADE007BE775 /* CoreGraphics.framework */,
 				4D911CD318F08ADE007BE775 /* UIKit.framework */,
@@ -461,6 +532,7 @@
 				4D911CEB18F08ADE007BE775 /* Images.xcassets in Resources */,
 				4D7CA4E418F0CB2600D9EFD4 /* README.txt in Resources */,
 				4D911CDA18F08ADE007BE775 /* InfoPlist.strings in Resources */,
+				4D7CA4FF18F0CBC100D9EFD4 /* build-libidn.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +587,7 @@
 				4D5C6ED018F0A71A00C8B392 /* DNLoginNavigationController.m in Sources */,
 				4D911CE018F08ADE007BE775 /* DNAppDelegate.m in Sources */,
 				3FBA666218F0C2EB008B5640 /* DNChatViewController.m in Sources */,
+				4D7CA4FB18F0CBC100D9EFD4 /* NSString+DDXML.m in Sources */,
 				4D7CA4C718F0B7A500D9EFD4 /* DNUser.m in Sources */,
 				4D7CA4DE18F0CB2600D9EFD4 /* DDASLLogger.m in Sources */,
 				4D7CA4E318F0CB2600D9EFD4 /* DispatchQueueLogFormatter.m in Sources */,
@@ -529,8 +602,10 @@
 				4D7CA4E818F0CB6400D9EFD4 /* GCDAsyncSocket.m in Sources */,
 				4D7CA4BA18F0AE2600D9EFD4 /* DNFriendsNavigationController.m in Sources */,
 				4D5C6ECA18F0A22C00C8B392 /* DNViewController.m in Sources */,
+				4D7CA4FC18F0CBC100D9EFD4 /* DDXMLDocument.m in Sources */,
 				3F6E770B18F0A75600D798BC /* DNHomeNavigationController.m in Sources */,
 				3FBA665F18F0C2D9008B5640 /* DNVoiceViewController.m in Sources */,
+				4D7CA4FE18F0CBC100D9EFD4 /* DDXMLNode.m in Sources */,
 				4D7CA4E018F0CB2600D9EFD4 /* DDLog.m in Sources */,
 				4D5C6ED318F0A76000C8B392 /* DNComposeNavigationController.m in Sources */,
 				3FBA666518F0C2F8008B5640 /* DNFBChatViewController.m in Sources */,
@@ -538,6 +613,7 @@
 				4D7CA4C018F0B5B400D9EFD4 /* DNSettingsViewController.m in Sources */,
 				4D7CA4CA18F0BAA600D9EFD4 /* DNLoginViewController.m in Sources */,
 				4D7CA4E218F0CB2600D9EFD4 /* ContextFilterLogFormatter.m in Sources */,
+				4D7CA4FD18F0CBC100D9EFD4 /* DDXMLElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -663,7 +739,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ding/Ding-Prefix.pch";
 				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers\"",
+					"\"${PODS_ROOT}/Headers/FontAwesomeKit\"",
+					"\"${PODS_ROOT}/Headers/MMDrawerController\"",
+					"${SDKROOT}/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = "Ding/Ding-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/mark/Dropbox/projects/ding/Libraries/libidn,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -679,7 +765,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ding/Ding-Prefix.pch";
 				GCC_VERSION = "";
+				HEADER_SEARCH_PATHS = (
+					"\"${PODS_ROOT}/Headers\"",
+					"\"${PODS_ROOT}/Headers/FontAwesomeKit\"",
+					"\"${PODS_ROOT}/Headers/MMDrawerController\"",
+					"${SDKROOT}/usr/include/libxml2",
+				);
 				INFOPLIST_FILE = "Ding/Ding-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/mark/Dropbox/projects/ding/Libraries/libidn,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
