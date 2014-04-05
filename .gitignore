@@ -1,4 +1,5 @@
 .DS_Store
 Pods/
 Ding.xcodeproj/xcuserdata/*
+Ding.xcworkspace/xcuserdata/*
 Ding.xcodeproj/project.xcworkspace/xcuserdata/*
