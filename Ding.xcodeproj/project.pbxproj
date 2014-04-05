@@ -23,6 +23,14 @@
 		4D7CA4C318F0B63800D9EFD4 /* DNFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4C218F0B63800D9EFD4 /* DNFriendsViewController.m */; };
 		4D7CA4C718F0B7A500D9EFD4 /* DNUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4C618F0B7A500D9EFD4 /* DNUser.m */; };
 		4D7CA4CA18F0BAA600D9EFD4 /* DNLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4C918F0BAA600D9EFD4 /* DNLoginViewController.m */; };
+		4D7CA4DD18F0CB2600D9EFD4 /* DDAbstractDatabaseLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4CE18F0CB2600D9EFD4 /* DDAbstractDatabaseLogger.m */; };
+		4D7CA4DE18F0CB2600D9EFD4 /* DDASLLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4D018F0CB2600D9EFD4 /* DDASLLogger.m */; };
+		4D7CA4DF18F0CB2600D9EFD4 /* DDFileLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4D218F0CB2600D9EFD4 /* DDFileLogger.m */; };
+		4D7CA4E018F0CB2600D9EFD4 /* DDLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4D418F0CB2600D9EFD4 /* DDLog.m */; };
+		4D7CA4E118F0CB2600D9EFD4 /* DDTTYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4D618F0CB2600D9EFD4 /* DDTTYLogger.m */; };
+		4D7CA4E218F0CB2600D9EFD4 /* ContextFilterLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4D918F0CB2600D9EFD4 /* ContextFilterLogFormatter.m */; };
+		4D7CA4E318F0CB2600D9EFD4 /* DispatchQueueLogFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA4DB18F0CB2600D9EFD4 /* DispatchQueueLogFormatter.m */; };
+		4D7CA4E418F0CB2600D9EFD4 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4D7CA4DC18F0CB2600D9EFD4 /* README.txt */; };
 		4D911CD018F08ADE007BE775 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CCF18F08ADE007BE775 /* Foundation.framework */; };
 		4D911CD218F08ADE007BE775 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CD118F08ADE007BE775 /* CoreGraphics.framework */; };
 		4D911CD418F08ADE007BE775 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CD318F08ADE007BE775 /* UIKit.framework */; };
@@ -82,6 +90,21 @@
 		4D7CA4C618F0B7A500D9EFD4 /* DNUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNUser.m; path = Models/DNUser.m; sourceTree = "<group>"; };
 		4D7CA4C818F0BAA600D9EFD4 /* DNLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNLoginViewController.h; path = Login/DNLoginViewController.h; sourceTree = "<group>"; };
 		4D7CA4C918F0BAA600D9EFD4 /* DNLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNLoginViewController.m; path = Login/DNLoginViewController.m; sourceTree = "<group>"; };
+		4D7CA4CD18F0CB2600D9EFD4 /* DDAbstractDatabaseLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDAbstractDatabaseLogger.h; sourceTree = "<group>"; };
+		4D7CA4CE18F0CB2600D9EFD4 /* DDAbstractDatabaseLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDAbstractDatabaseLogger.m; sourceTree = "<group>"; };
+		4D7CA4CF18F0CB2600D9EFD4 /* DDASLLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDASLLogger.h; sourceTree = "<group>"; };
+		4D7CA4D018F0CB2600D9EFD4 /* DDASLLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDASLLogger.m; sourceTree = "<group>"; };
+		4D7CA4D118F0CB2600D9EFD4 /* DDFileLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDFileLogger.h; sourceTree = "<group>"; };
+		4D7CA4D218F0CB2600D9EFD4 /* DDFileLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDFileLogger.m; sourceTree = "<group>"; };
+		4D7CA4D318F0CB2600D9EFD4 /* DDLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDLog.h; sourceTree = "<group>"; };
+		4D7CA4D418F0CB2600D9EFD4 /* DDLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDLog.m; sourceTree = "<group>"; };
+		4D7CA4D518F0CB2600D9EFD4 /* DDTTYLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDTTYLogger.h; sourceTree = "<group>"; };
+		4D7CA4D618F0CB2600D9EFD4 /* DDTTYLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDTTYLogger.m; sourceTree = "<group>"; };
+		4D7CA4D818F0CB2600D9EFD4 /* ContextFilterLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextFilterLogFormatter.h; sourceTree = "<group>"; };
+		4D7CA4D918F0CB2600D9EFD4 /* ContextFilterLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextFilterLogFormatter.m; sourceTree = "<group>"; };
+		4D7CA4DA18F0CB2600D9EFD4 /* DispatchQueueLogFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DispatchQueueLogFormatter.h; sourceTree = "<group>"; };
+		4D7CA4DB18F0CB2600D9EFD4 /* DispatchQueueLogFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DispatchQueueLogFormatter.m; sourceTree = "<group>"; };
+		4D7CA4DC18F0CB2600D9EFD4 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		4D911CCC18F08ADE007BE775 /* Ding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D911CCF18F08ADE007BE775 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4D911CD118F08ADE007BE775 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -224,11 +247,50 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		4D7CA4CB18F0CB2600D9EFD4 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				4D7CA4CC18F0CB2600D9EFD4 /* CocoaLumberjack */,
+			);
+			path = Libraries;
+			sourceTree = SOURCE_ROOT;
+		};
+		4D7CA4CC18F0CB2600D9EFD4 /* CocoaLumberjack */ = {
+			isa = PBXGroup;
+			children = (
+				4D7CA4CD18F0CB2600D9EFD4 /* DDAbstractDatabaseLogger.h */,
+				4D7CA4CE18F0CB2600D9EFD4 /* DDAbstractDatabaseLogger.m */,
+				4D7CA4CF18F0CB2600D9EFD4 /* DDASLLogger.h */,
+				4D7CA4D018F0CB2600D9EFD4 /* DDASLLogger.m */,
+				4D7CA4D118F0CB2600D9EFD4 /* DDFileLogger.h */,
+				4D7CA4D218F0CB2600D9EFD4 /* DDFileLogger.m */,
+				4D7CA4D318F0CB2600D9EFD4 /* DDLog.h */,
+				4D7CA4D418F0CB2600D9EFD4 /* DDLog.m */,
+				4D7CA4D518F0CB2600D9EFD4 /* DDTTYLogger.h */,
+				4D7CA4D618F0CB2600D9EFD4 /* DDTTYLogger.m */,
+				4D7CA4D718F0CB2600D9EFD4 /* Extensions */,
+			);
+			path = CocoaLumberjack;
+			sourceTree = "<group>";
+		};
+		4D7CA4D718F0CB2600D9EFD4 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4D7CA4D818F0CB2600D9EFD4 /* ContextFilterLogFormatter.h */,
+				4D7CA4D918F0CB2600D9EFD4 /* ContextFilterLogFormatter.m */,
+				4D7CA4DA18F0CB2600D9EFD4 /* DispatchQueueLogFormatter.h */,
+				4D7CA4DB18F0CB2600D9EFD4 /* DispatchQueueLogFormatter.m */,
+				4D7CA4DC18F0CB2600D9EFD4 /* README.txt */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		4D911CC318F08ADE007BE775 = {
 			isa = PBXGroup;
 			children = (
 				4D911CD518F08ADE007BE775 /* Ding */,
 				4D911CF718F08ADE007BE775 /* DingTests */,
+				4D7CA4CB18F0CB2600D9EFD4 /* Libraries */,
 				4D911CCE18F08ADE007BE775 /* Frameworks */,
 				4D911CCD18F08ADE007BE775 /* Products */,
 				7721FE381EB14A81A947318C /* Pods.xcconfig */,
@@ -384,6 +446,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D911CEB18F08ADE007BE775 /* Images.xcassets in Resources */,
+				4D7CA4E418F0CB2600D9EFD4 /* README.txt in Resources */,
 				4D911CDA18F08ADE007BE775 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,20 +503,27 @@
 				4D911CE018F08ADE007BE775 /* DNAppDelegate.m in Sources */,
 				3FBA666218F0C2EB008B5640 /* DNChatViewController.m in Sources */,
 				4D7CA4C718F0B7A500D9EFD4 /* DNUser.m in Sources */,
+				4D7CA4DE18F0CB2600D9EFD4 /* DDASLLogger.m in Sources */,
+				4D7CA4E318F0CB2600D9EFD4 /* DispatchQueueLogFormatter.m in Sources */,
 				4D7CA4B718F0AE0000D9EFD4 /* DNSettingsNavigationController.m in Sources */,
 				4D7CA4BD18F0AF6E00D9EFD4 /* DNHomeViewController.m in Sources */,
 				4D5C6ECD18F0A23A00C8B392 /* DNTableViewController.m in Sources */,
+				4D7CA4E118F0CB2600D9EFD4 /* DDTTYLogger.m in Sources */,
 				4D7CA4C318F0B63800D9EFD4 /* DNFriendsViewController.m in Sources */,
+				4D7CA4DD18F0CB2600D9EFD4 /* DDAbstractDatabaseLogger.m in Sources */,
+				4D7CA4DF18F0CB2600D9EFD4 /* DDFileLogger.m in Sources */,
 				4D5C6EC718F0A21B00C8B392 /* DNNavigationController.m in Sources */,
 				4D7CA4BA18F0AE2600D9EFD4 /* DNFriendsNavigationController.m in Sources */,
 				4D5C6ECA18F0A22C00C8B392 /* DNViewController.m in Sources */,
 				3F6E770B18F0A75600D798BC /* DNHomeNavigationController.m in Sources */,
 				3FBA665F18F0C2D9008B5640 /* DNVoiceViewController.m in Sources */,
+				4D7CA4E018F0CB2600D9EFD4 /* DDLog.m in Sources */,
 				4D5C6ED318F0A76000C8B392 /* DNComposeNavigationController.m in Sources */,
 				3FBA666518F0C2F8008B5640 /* DNFBChatViewController.m in Sources */,
 				4D911CDC18F08ADE007BE775 /* main.m in Sources */,
 				4D7CA4C018F0B5B400D9EFD4 /* DNSettingsViewController.m in Sources */,
 				4D7CA4CA18F0BAA600D9EFD4 /* DNLoginViewController.m in Sources */,
+				4D7CA4E218F0CB2600D9EFD4 /* ContextFilterLogFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
