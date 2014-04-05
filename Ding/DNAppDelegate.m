@@ -7,9 +7,12 @@
 //
 
 #import "DNAppDelegate.h"
+
 #import "DNSettingsNavigationController.h"
 #import "DNFriendsNavigationController.h"
 #import "DNHomeNavigationController.h"
+
+#import "DNHomeViewController.h"
 
 #import "MMDrawerController.h"
 
@@ -25,11 +28,20 @@
         splitViewController.delegate = (id)navigationController.topViewController;
         self.window.rootViewController = splitViewController;
     } else {
+        DNHomeViewController *homeViewController = [[DNHomeViewController alloc] init];
+        
         DNSettingsNavigationController *settingsNavigationController = [[DNSettingsNavigationController alloc] init];
-        DNHomeNavigationController *homeNavigationController = [[DNHomeNavigationController alloc] init];
+        DNHomeNavigationController *homeNavigationController = [[DNHomeNavigationController alloc] initWithRootViewController:homeViewController];
         DNFriendsNavigationController *friendsNavigationController = [[DNFriendsNavigationController alloc] init];
         
         MMDrawerController * drawerController = [[MMDrawerController alloc] initWithCenterViewController:homeNavigationController leftDrawerViewController:settingsNavigationController rightDrawerViewController:friendsNavigationController];
+        
+        [drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModePanningCenterView];
+        [drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModePanningCenterView];
+        
+        [homeViewController setDrawerController:drawerController];
+        
+        [self.window setRootViewController:drawerController];
     }
 
     

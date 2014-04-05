@@ -8,6 +8,13 @@
 
 #import "DNViewController.h"
 
-@interface DNHomeViewController : DNViewController
+#import "MMDrawerController.h"
+#import "MMDrawerBarButtonItem.h"
+
+@interface DNHomeViewController : DNViewController {
+    MMDrawerController *drawerController;
+}
+
+@property (nonatomic, retain) MMDrawerController *drawerController;
 
 @end
