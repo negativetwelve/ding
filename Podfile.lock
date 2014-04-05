@@ -14,11 +14,25 @@ PODS:
     - FontAwesomeKit/Core
   - FontAwesomeKit/Zocial (2.1.5):
     - FontAwesomeKit/Core
+  - MMDrawerController (0.5.3):
+    - MMDrawerController/Core
+    - MMDrawerController/MMDrawerBarButtonItem
+    - MMDrawerController/MMDrawerVisualStates
+    - MMDrawerController/Subclass
+  - MMDrawerController/Core (0.5.3)
+  - MMDrawerController/MMDrawerBarButtonItem (0.5.3):
+    - MMDrawerController/Core
+  - MMDrawerController/MMDrawerVisualStates (0.5.3):
+    - MMDrawerController/Core
+  - MMDrawerController/Subclass (0.5.3):
+    - MMDrawerController/Core
 
 DEPENDENCIES:
   - FontAwesomeKit
+  - MMDrawerController (~> 0.5.3)
 
 SPEC CHECKSUMS:
   FontAwesomeKit: 7d935e100337d503bdaefde2ea16be740b81ed13
+  MMDrawerController: 4445e1927e8947b7e2382136c9b7109840efbfb9
 
 COCOAPODS: 0.31.1
