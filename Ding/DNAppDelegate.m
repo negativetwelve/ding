@@ -19,15 +19,18 @@
 @implementation DNAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    NSLog(@"starting app");
     
     [self setWindow:[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]];
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        NSLog(@"Device is iPad");
         UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
         UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
         splitViewController.delegate = (id)navigationController.topViewController;
         self.window.rootViewController = splitViewController;
     } else {
+        NSLog(@"Device is iPhone");
         DNHomeViewController *homeViewController = [[DNHomeViewController alloc] init];
         
         DNSettingsNavigationController *settingsNavigationController = [[DNSettingsNavigationController alloc] init];
@@ -44,7 +47,7 @@
         [self.window setRootViewController:drawerController];
     }
 
-    
+    [self.window makeKeyAndVisible];
     return YES;
 }
 							
