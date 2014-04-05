@@ -8,11 +8,12 @@
 
 #import "DNAppDelegate.h"
 
-#import "DNSettingsNavigationController.h"
-#import "DNFriendsNavigationController.h"
 #import "DNHomeNavigationController.h"
-
 #import "DNHomeViewController.h"
+#import "DNSettingsNavigationController.h"
+#import "DNSettingsViewController.h"
+#import "DNFriendsNavigationController.h"
+#import "DNFriendsViewController.h"
 
 #import "MMDrawerController.h"
 
@@ -32,10 +33,12 @@
     } else {
         NSLog(@"Device is iPhone");
         DNHomeViewController *homeViewController = [[DNHomeViewController alloc] init];
+        DNSettingsViewController *settingsViewController = [[DNSettingsViewController alloc] init];
+        DNFriendsViewController *friendsViewController = [[DNFriendsViewController alloc] init];
         
-        DNSettingsNavigationController *settingsNavigationController = [[DNSettingsNavigationController alloc] init];
+        DNSettingsNavigationController *settingsNavigationController = [[DNSettingsNavigationController alloc] initWithRootViewController:settingsViewController];
         DNHomeNavigationController *homeNavigationController = [[DNHomeNavigationController alloc] initWithRootViewController:homeViewController];
-        DNFriendsNavigationController *friendsNavigationController = [[DNFriendsNavigationController alloc] init];
+        DNFriendsNavigationController *friendsNavigationController = [[DNFriendsNavigationController alloc] initWithRootViewController:friendsViewController];
         
         MMDrawerController * drawerController = [[MMDrawerController alloc] initWithCenterViewController:homeNavigationController leftDrawerViewController:settingsNavigationController rightDrawerViewController:friendsNavigationController];
         
