@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import "XMPPMessageArchivingCoreDataStorage.h"
+
 @class DNMessage;
 @interface DNMessageViewController : UIViewController <NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, UIActionSheetDelegate> {
     
@@ -25,6 +27,8 @@
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
+@property (nonatomic, retain) XMPPMessageArchiving_Contact_CoreDataObject *conversation;
+
 - (void)enableSendButton;
 - (void)disableSendButton;
 - (void)resetSendButton;
@@ -36,7 +40,7 @@
 
 - (void)sendMessage;
 - (void)clearChatInput;
-- (NSUInteger)addMessage:(DNMessage *)message;
+- (NSUInteger)addMessage:(XMPPMessageArchiving_Message_CoreDataObject *)message;
 - (NSUInteger)removeMessageAtIndex:(NSUInteger)index;
 - (void)clearAll;
 
