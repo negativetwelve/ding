@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreData/CoreData.h>
 
 @class DNHomeNavigationController;
-@interface DNChatViewController : UIViewController {
+@interface DNChatViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
     DNHomeNavigationController *homeNavigationController;
 
 }
 
 @property (nonatomic, retain) DNHomeNavigationController *homeNavigationController;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @end

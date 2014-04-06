@@ -87,6 +87,8 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
         [settingsViewController setAppDelegate:self];
         
         [self.window setRootViewController:drawerController];
+        
+
     }
     
     [self.window makeKeyAndVisible];
