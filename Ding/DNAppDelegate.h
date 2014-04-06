@@ -13,6 +13,9 @@
 
 #import "DNUser.h"
 
+extern NSString *const kXMPPmyGoogleJID;
+extern NSString *const kXMPPmyGooglePassword;
+
 @interface DNAppDelegate : UIResponder <UIApplicationDelegate, XMPPRosterDelegate> {
 	XMPPStream *xmppStream;
 	XMPPReconnect *xmppReconnect;
