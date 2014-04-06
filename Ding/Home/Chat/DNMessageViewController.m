@@ -77,12 +77,16 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     [super viewDidUnload];
 }
 
+- (DNAppDelegate *)appDelegate {
+    return (DNAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"DNMessageViewController viewDidLoad");
     self.navigationController.navigationBar.translucent = NO;
     
-    self.title = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleDisplayName"];
+    self.title = self.conversation.bareJidStr;
     
     // Listen for keyboard.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:)
@@ -370,14 +374,29 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     }
     
     // Create new message and save to Core Data.
-    DNMessage *newMessage = (DNMessage *)[NSEntityDescription
-                                      insertNewObjectForEntityForName:@"DNMessage"
-                                      inManagedObjectContext:managedObjectContext];
-    newMessage.text = rightTrimmedMessage;
-    NSDate *now = [[NSDate alloc] init]; newMessage.sentDate = now;
+    XMPPMessageArchivingCoreDataStorage *storage = [XMPPMessageArchivingCoreDataStorage sharedInstance];
+    NSManagedObjectContext *moc = [storage mainThreadManagedObjectContext];
+
+    XMPPMessageArchiving_Message_CoreDataObject *newMessage = (XMPPMessageArchiving_Message_CoreDataObject *)[NSEntityDescription
+                                      insertNewObjectForEntityForName:@"XMPPMessageArchiving_Message_CoreDataObject"
+                                      inManagedObjectContext:moc];
+    
+    newMessage.body = rightTrimmedMessage;
+    NSDate *now = [[NSDate alloc] init]; newMessage.timestamp = now;
+    
+    
+    // Message to send
+    NSXMLElement *body = [NSXMLElement elementWithName:@"body"];
+    [body setStringValue:rightTrimmedMessage];
+    
+    NSXMLElement *message = [NSXMLElement elementWithName:@"message"];
+    [message addAttributeWithName:@"type" stringValue:@"chat"];
+    [message addAttributeWithName:@"to" stringValue:[self.conversation.bareJid full]];
+    [message addChild:body];
+    [[self.appDelegate xmppStream] sendElement:message];
     
     NSError *error;
-    if (![managedObjectContext save:&error]) {
+    if (![moc save:&error]) {
         // TODO: Handle the error appropriately.
         NSLog(@"sendMessage error %@, %@", error, [error userInfo]);
     }
@@ -405,8 +424,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     }
 }
 
-- (NSUInteger)addMessage:(XMPPMessageArchiving_Message_CoreDataObject *)message
-{
+- (NSUInteger)addMessage:(XMPPMessageArchiving_Message_CoreDataObject *)message {
     // Show sentDates at most every 15 minutes.
     NSDate *currentSentDate = message.timestamp;
     NSUInteger numberOfObjectsAdded = 1;
@@ -416,11 +434,11 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     
     if([cellMap count])
     {
-        BOOL prevIsMessage = [[cellMap objectAtIndex:prevIndex] isKindOfClass:[DNMessage class]];
+        BOOL prevIsMessage = [[cellMap objectAtIndex:prevIndex] isKindOfClass:[XMPPMessageArchiving_Message_CoreDataObject class]];
         if(prevIsMessage)
         {
-            DNMessage * temp = [cellMap objectAtIndex:prevIndex];
-            NSDate * previousSentDate = temp.sentDate;
+            XMPPMessageArchiving_Message_CoreDataObject *temp = [cellMap objectAtIndex:prevIndex];
+            NSDate * previousSentDate = temp.timestamp;
             // if there has been more than a 15 min gap between this and the previous message!
             if([currentSentDate timeIntervalSinceDate:previousSentDate] > SECONDS_BETWEEN_MESSAGES)
             {
@@ -482,7 +500,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
 		case ClearConversationButtonIndex: {
             NSError *error;
             fetchedResultsController.delegate = nil;               // turn off delegate callbacks
-            for (DNMessage *message in [fetchedResultsController fetchedObjects]) {
+            for (XMPPMessageArchiving_Message_CoreDataObject *message in [fetchedResultsController fetchedObjects]) {
                 [managedObjectContext deleteObject:message];
             }
             if (![managedObjectContext save:&error]) {
@@ -648,7 +666,7 @@ static NSString *kMessageCell = @"MessageCell";
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return [[cellMap objectAtIndex:[indexPath row]] isKindOfClass:[DNMessage class]];
+    return [[cellMap objectAtIndex:[indexPath row]] isKindOfClass:[XMPPMessageArchiving_Message_CoreDataObject class]];
     //    return [[tableView cellForRowAtIndexPath:indexPath] reuseIdentifier] == kMessageCell;
 }
 
@@ -665,7 +683,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         //        NSLog(@"Delete %@", object);
         
         // Remove message from managed object context by index path.
-        [managedObjectContext deleteObject:(DNMessage *)object];
+        [managedObjectContext deleteObject:(XMPPMessageArchiving_Message_CoreDataObject *)object];
         NSError *error;
         if (![managedObjectContext save:&error]) {
             // TODO: Handle the error appropriately.
