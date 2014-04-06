@@ -26,6 +26,7 @@
 #import "XMPPvCardAvatarModule.h"
 #import "XMPPvCardCoreDataStorage.h"
 
+
 NSString *const kXMPPmyGoogleJID = @"kXMPPmyGoogleJID";
 NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 
@@ -146,6 +147,29 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
 
 - (void)dealloc {
 	[self teardownStream];
+}
+
+- (void)setupGoogleVoice: (NSString *)username and:(NSString *)passwordEntry {
+    NSLog(@"setup google voice");
+    GVoice *voice = [[GVoice alloc] initWithUser: username password: passwordEntry source: @"com.markmiyashita.ding"
+								  accountType: GOOGLE];
+    
+    // This causes some logging to happen.
+    voice.logToConsole = YES;
+    
+    BOOL res = [voice login];
+    
+    if (!res) {
+        NSLog(@"not logged into voice");
+    }
+    
+    // Send an SMS. Replace TEXT_PHONE_NUMBER with a proper 10-digit phone number
+    // capable of receiving SMS messages
+    res = [voice sendSmsText: @"Testing 1, 2, 3" toNumber: @"9164204682"];
+    
+    if (!res) {
+        NSLog(@"did not send message");
+    }
 }
 
 - (void)setupFBStream {
@@ -378,6 +402,8 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
 		return NO;
 	}
     NSLog(@"success logging in with google");
+    [self setupGoogleVoice:myGoogleJID and:password];
+
 	return YES;
 }
 

@@ -11,6 +11,7 @@
 
 #import "XMPPFramework.h"
 #import "FBConnect.h"
+#import "GVoice.h"
 
 #import "DNUser.h"
 
