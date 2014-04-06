@@ -88,6 +88,7 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
         
         [homeViewController setDrawerController:drawerController];
         [homeViewController setHomeNavigationController:homeNavigation];
+        [settingsViewController setAppDelegate:self];
         
         [self.window setRootViewController:drawerController];
     }
@@ -249,6 +250,7 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 }
 
 - (void)teardownStream {
+    NSLog(@"teardown called");
 	[xmppStream removeDelegate:self];
 	[xmppRoster removeDelegate:self];
 	
@@ -298,11 +300,13 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 
 - (BOOL)connect {
 	if (![xmppStream isDisconnected]) {
+        NSLog(@"stream is not disconnected");
 		return YES;
 	}
     
 	NSString *myGoogleJID = [[NSUserDefaults standardUserDefaults] stringForKey:kXMPPmyGoogleJID];
 	NSString *myGooglePassword = [[NSUserDefaults standardUserDefaults] stringForKey:kXMPPmyGooglePassword];
+    NSLog(@"my google id: %@", myGoogleJID);
     
 	//
 	// If you don't want to use the Settings view to set the JID,
@@ -330,7 +334,7 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 		NSLog(@"Error connecting: %@", error);
 		return NO;
 	}
-    
+    NSLog(@"no error logging in with google");
 	return YES;
 }
 
