@@ -1931,7 +1931,7 @@
 				INFOPLIST_FILE = "Ding/Ding-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/mark/Dropbox/projects/ding/Libraries/libidn,
+					"${PROJECT_DIR}/Libraries/libidn",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1957,7 +1957,7 @@
 				INFOPLIST_FILE = "Ding/Ding-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/mark/Dropbox/projects/ding/Libraries/libidn,
+					"${PROJECT_DIR}/Libraries/libidn",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

@@ -30,14 +30,14 @@
     [self setupLeftMenuButton];
     [self setupRightMenuButton];
     //Create a Segmented Control tab
-    //UISegmentedControl *clientControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"gChat", @"Voice", @"fb", nil]];
+    UISegmentedControl *clientControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"gChat", @"Voice", @"fb", nil]];
     
-    UISegmentedControl *clientControl = [[UISegmentedControl alloc] initWithItems:[self segmentViewControllers]];
+    //UISegmentedControl *clientControl = [[UISegmentedControl alloc] initWithItems:[self segmentViewControllers]];
     
     [self.homeNavigationController setClientControl:clientControl];
     
     //set the default selected client
-    [clientControl setSelectedSegmentIndex:0];
+    //[clientControl setSelectedSegmentIndex:0];
     
     //set target for clientControl
     [clientControl addTarget:self action:@selector(diffClientClicked:) forControlEvents:UIControlEventValueChanged];
@@ -59,17 +59,17 @@
     DNChatViewController *chat = [[DNChatViewController init] alloc];
     DNVoiceViewController *voice = [[DNVoiceViewController init] alloc];
     DNFBChatViewController *fbchat = [[DNFBChatViewController init] alloc];
-    NSArray * viewControllers = [NSArray arrayWithObjects:chat, voice, fbchat, nil];
+    NSArray *viewControllers = [NSArray arrayWithObjects:chat, voice, fbchat, nil];
     
     return viewControllers;
 }
 
 -(void)diffClientClicked:(id)sender {
-    NSUInteger index = self.homeNavigationController.clientControl.selectedSegmentIndex;
+    /*NSUInteger index = self.homeNavigationController.clientControl.selectedSegmentIndex;
     UIViewController *nextViewController = [self.homeNavigationController.viewControllers objectAtIndex:index];
     
     NSArray *nextViewControllers = [NSArray arrayWithObject:nextViewController];
-    [self.homeNavigationController setViewControllers:nextViewControllers animated:NO];
+    [self.homeNavigationController setViewControllers:nextViewControllers animated:NO];*/
     
 }
 
