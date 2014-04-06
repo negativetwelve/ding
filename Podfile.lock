@@ -1,4 +1,5 @@
 PODS:
+  - Facebook-iOS-SDK (3.2.1)
   - FontAwesomeKit (2.1.5):
     - FontAwesomeKit/Core
     - FontAwesomeKit/FontAwesome
@@ -28,10 +29,12 @@ PODS:
     - MMDrawerController/Core
 
 DEPENDENCIES:
+  - Facebook-iOS-SDK (= 3.2.1)
   - FontAwesomeKit
   - MMDrawerController (~> 0.5.3)
 
 SPEC CHECKSUMS:
+  Facebook-iOS-SDK: 514dc0d7d43358999267c88c088e4b5b339b7da1
   FontAwesomeKit: 7d935e100337d503bdaefde2ea16be740b81ed13
   MMDrawerController: 4445e1927e8947b7e2382136c9b7109840efbfb9
 
