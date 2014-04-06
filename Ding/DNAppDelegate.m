@@ -9,7 +9,6 @@
 #import "DNAppDelegate.h"
 
 #import "DNHomeNavigationController.h"
-#import "DNHomeViewController.h"
 #import "DNSettingsNavigationController.h"
 #import "DNSettingsViewController.h"
 #import "DNFriendsNavigationController.h"
@@ -71,12 +70,11 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
         self.window.rootViewController = splitViewController;
     } else {
         NSLog(@"Device is iPhone");
-        DNHomeViewController *homeViewController = [[DNHomeViewController alloc] init];
         DNSettingsViewController *settingsViewController = [[DNSettingsViewController alloc] init];
         DNFriendsViewController *friendsViewController = [[DNFriendsViewController alloc] init];
         
         DNSettingsNavigationController *settingsNavigationController = [[DNSettingsNavigationController alloc] initWithRootViewController:settingsViewController];
-        DNHomeNavigationController *homeNavigation = [[DNHomeNavigationController alloc] initWithRootViewController:homeViewController];
+        DNHomeNavigationController *homeNavigation = [[DNHomeNavigationController alloc] init];
         DNFriendsNavigationController *friendsNavigationController = [[DNFriendsNavigationController alloc] initWithRootViewController:friendsViewController];
         
         [self setHomeNavigationController:homeNavigation];
@@ -85,14 +83,9 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
         
         [drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModePanningCenterView];
         [drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModePanningCenterView];
-        
-        [homeViewController setDrawerController:drawerController];
-        [homeViewController setHomeNavigationController:homeNavigation];
 
         [settingsViewController setAppDelegate:self];
         
-        [homeViewController setClientControl];
-
         [self.window setRootViewController:drawerController];
     }
     
