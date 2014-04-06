@@ -48,10 +48,10 @@
 	// Do any additional setup after loading the view.
     //Should set edit and compose buttons
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    UIBarButtonItem *composeButton = [[UIBarButtonItem alloc]
+    /*UIBarButtonItem *composeButton = [[UIBarButtonItem alloc]
                                       initWithBarButtonSystemItem:UIBarButtonSystemItemCompose
                                       target:self action:@selector(pushComposeViewController)];
-    self.navigationItem.rightBarButtonItem = composeButton;
+    self.navigationItem.rightBarButtonItem = composeButton;*/
     [self fetchResults];
 }
 
@@ -63,6 +63,7 @@
     XMPPMessageArchiving_Contact_CoreDataObject *conversation = [fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = conversation.bareJidStr;
     cell.detailTextLabel.text = conversation.mostRecentMessageBody;
+    NSLog(@"OHHEY:%@", conversation.mostRecentMessageBody);
     
 }
 
@@ -87,7 +88,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                        reuseIdentifier:CellIdentifier];
     }
     
