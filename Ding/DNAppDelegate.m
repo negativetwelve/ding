@@ -311,6 +311,14 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
 	[xmppStream setHostName:@"talk.google.com"];
 	[xmppStream setHostPort:5222];
     
+    // Message storing
+    xmppMessageArchivingStorage = [XMPPMessageArchivingCoreDataStorage sharedInstance];
+    xmppMessageArchivingModule = [[XMPPMessageArchiving alloc] initWithMessageArchivingStorage:xmppMessageArchivingStorage];
+    
+    [xmppMessageArchivingModule setClientSideMessageArchivingOnly:YES];
+    [xmppMessageArchivingModule activate:xmppStream];
+    [xmppMessageArchivingModule  addDelegate:self delegateQueue:dispatch_get_main_queue()];
+    
 	// You may need to alter these settings depending on the server you're connecting to
 	allowSelfSignedCertificates = NO;
 	allowSSLHostNameMismatch = NO;
@@ -482,6 +490,7 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
 }
 
 - (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message {
+    NSLog(@"received message");
 	// A simple example of inbound message handling.
     
 	if ([message isChatMessageWithBody]) {
@@ -514,6 +523,10 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
 }
 
 - (void)xmppStream:(XMPPStream *)sender didReceiveError:(id)error {
+}
+
+- (void)xmppStream:(XMPPStream *)sender didSendMessage:(XMPPMessage *)message {
+    NSLog(@"sent message");
 }
 
 - (void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error {

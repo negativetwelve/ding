@@ -10,6 +10,8 @@
 #import <CoreData/CoreData.h>
 
 #import "XMPPFramework.h"
+#import "XMPPMessageArchiving.h"
+#import "XMPPMessageArchivingCoreDataStorage.h"
 #import "FBConnect.h"
 #import "GVoice.h"
 
@@ -28,6 +30,9 @@ extern NSString *const kXMPPmyGooglePassword;
 	XMPPvCardAvatarModule *xmppvCardAvatarModule;
 	XMPPCapabilities *xmppCapabilities;
 	XMPPCapabilitiesCoreDataStorage *xmppCapabilitiesStorage;
+    
+    XMPPMessageArchiving *xmppMessageArchivingModule;
+    XMPPMessageArchivingCoreDataStorage *xmppMessageArchivingStorage;
 	
 	NSString *password;
 	

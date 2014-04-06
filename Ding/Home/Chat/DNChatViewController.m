@@ -60,8 +60,9 @@
     //    Conversation *conversation = [fetchedResultsController objectAtIndexPath:indexPath];
     //    cell.textLabel.text = conversation.title;
     //    cell.detailTextLabel.text = conversation.lastMessage.text;
-    cell.textLabel.text = @"Melissa Huang";
-    cell.detailTextLabel.text = @"hi mark <3";
+    XMPPMessageArchiving_Contact_CoreDataObject *conversation = [fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text = conversation.bareJidStr;
+    cell.detailTextLabel.text = conversation.mostRecentMessageBody;
 }
 
 - (void)viewDidUnload {
@@ -110,49 +111,31 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 - (void)fetchResults {
-    if (fetchedResultsController) return;
+    if (fetchedResultsController) {
+        return;
+    }
     
-    // Create and configure a fetch request.
+    XMPPMessageArchivingCoreDataStorage *storage = [XMPPMessageArchivingCoreDataStorage sharedInstance];
+    NSManagedObjectContext *moc = [storage mainThreadManagedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"XMPPMessageArchiving_Contact_CoreDataObject"
+                                                         inManagedObjectContext:moc];
     
-    id delegate = [[UIApplication sharedApplication] delegate];
-    NSLog(@"hey%@%@", managedObjectContext, delegate);
-
-    managedObjectContext = [delegate managedObjectContext_roster];
+    NSSortDescriptor *sd1 = [[NSSortDescriptor alloc] initWithKey:@"bareJidStr" ascending:YES];
     
-    NSLog(@"hi%@,%@", managedObjectContext, delegate);
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:sd1, nil];
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"DNChat"
-                                              inManagedObjectContext:managedObjectContext];
-    
-    NSLog(@"bye%@,entity%@", managedObjectContext, entity);
-
     [fetchRequest setEntity:entity];
-    [fetchRequest setFetchBatchSize:20];
-    
-    
-    //    // TODO: Sort by sentDate of last message. Add lastMessage as transient attribute.
-    //    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lastMessage.sentDate"
-    //                                                                   ascending:NO];
-    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lastMessage.sentDate"
-                                                                   ascending:NO];
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
     [fetchRequest setSortDescriptors:sortDescriptors];
-
-    // Create and initialize the fetchedResultsController.
-    fetchedResultsController = [[NSFetchedResultsController alloc]
-                                initWithFetchRequest:fetchRequest
-                                managedObjectContext:managedObjectContext
-                                sectionNameKeyPath:nil /* one section */ cacheName:@"DNChat"];
-    NSLog(@"past fetchrequest");
-
-    fetchedResultsController.delegate = self;
+    
+    fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:moc sectionNameKeyPath:nil cacheName:@"MessagesContactListCache"];
     
     NSError *error;
-    /*if (![fetchedResultsController performFetch:&error]) {
-        // TODO: Handle the error appropriately.
-        NSLog(@"fetchMessages error %@, %@", error, [error userInfo]);
-    }*/
+    BOOL rval = [fetchedResultsController performFetch:&error];
+    
+    if (!rval) {
+        NSLog(@"error: %@", error);
+    }
 }
 
 @end
