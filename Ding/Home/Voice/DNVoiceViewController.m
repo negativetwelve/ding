@@ -41,11 +41,19 @@
     [self.navigationController pushViewController:chatViewController animated:YES];
 }
 
+- (void) pushEditViewController {
+    return;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     //Should set edit and compose buttons
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *editButton = [[UIBarButtonItem alloc]
+                                      initWithBarButtonSystemItem:UIBarButtonSystemItemEdit
+                                      target:self action:@selector(pushEditViewController)];
+
+    self.navigationItem.leftBarButtonItem = editButton;
     UIBarButtonItem *composeButton = [[UIBarButtonItem alloc]
      initWithBarButtonSystemItem:UIBarButtonSystemItemCompose
      target:self action:@selector(pushComposeViewController)];
@@ -100,11 +108,12 @@
 }
 
 - (void)fetchResults {
+    return;
     if (fetchedResultsController) {
         return;
     }
     
-    XMPPMessageArchivingCoreDataStorage *storage = [XMPPMessageArchivingCoreDataStorage sharedInstance];
+    XMPPMessageArchivingCoreDataStorage *storage = [[XMPPMessageArchivingCoreDataStorage alloc] initWithDatabaseFilename:nil storeOptions:nil];
     NSManagedObjectContext *moc = [storage mainThreadManagedObjectContext];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"XMPPMessageArchiving_Contact_CoreDataObject"
                                               inManagedObjectContext:moc];
