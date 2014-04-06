@@ -357,22 +357,16 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 }
 
 - (void)xmppStream:(XMPPStream *)sender willSecureWithSettings:(NSMutableDictionary *)settings {
-	
-	if (allowSelfSignedCertificates)
-	{
+	if (allowSelfSignedCertificates) {
 		[settings setObject:[NSNumber numberWithBool:YES] forKey:(NSString *)kCFStreamSSLAllowsAnyRoot];
 	}
 	
-	if (allowSSLHostNameMismatch)
-	{
+	if (allowSSLHostNameMismatch) {
 		[settings setObject:[NSNull null] forKey:(NSString *)kCFStreamSSLPeerName];
-	}
-	else
-	{
+	} else {
 		NSString *expectedCertName = [xmppStream.myJID domain];
         
-		if (expectedCertName)
-		{
+		if (expectedCertName) {
 			[settings setObject:expectedCertName forKey:(NSString *)kCFStreamSSLPeerName];
 		}
 	}
@@ -383,13 +377,11 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 
 - (void)xmppStreamDidConnect:(XMPPStream *)sender {
     NSLog(@"stream connected");
-	
 	isXmppConnected = YES;
 	
 	NSError *error = nil;
 	
-	if (![[self xmppStream] authenticateWithPassword:password error:&error])
-	{
+	if (![[self xmppStream] authenticateWithPassword:password error:&error]) {
 		NSLog(@"Error authenticating: %@", error);
 	}
 }
@@ -408,8 +400,7 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 - (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message {
 	// A simple example of inbound message handling.
     
-	if ([message isChatMessageWithBody])
-	{
+	if ([message isChatMessageWithBody]) {
 		XMPPUserCoreDataStorageObject *user = [xmppRosterStorage userForJID:[message from]
 		                                                         xmppStream:xmppStream
 		                                               managedObjectContext:[self managedObjectContext_roster]];
@@ -417,17 +408,14 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 		NSString *body = [[message elementForName:@"body"] stringValue];
 		NSString *displayName = [user displayName];
         
-		if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
-		{
+		if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
 			UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:displayName
                                                                 message:body
                                                                delegate:nil
                                                       cancelButtonTitle:@"Ok"
                                                       otherButtonTitles:nil];
 			[alertView show];
-		}
-		else
-		{
+		} else {
 			// We are not active, so use a local notification instead
 			UILocalNotification *localNotification = [[UILocalNotification alloc] init];
 			localNotification.alertAction = @"Ok";
@@ -445,8 +433,7 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 }
 
 - (void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error {
-	if (!isXmppConnected)
-	{
+	if (!isXmppConnected) {
 		NSLog(@"Unable to connect to server. Check xmppStream.hostName");
 	}
 }
