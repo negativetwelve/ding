@@ -9,8 +9,8 @@
 #import "DNAppDelegate.h"
 
 #import "DNHomeNavigationController.h"
-#import "DNSettingsNavigationController.h"
-#import "DNSettingsViewController.h"
+#import "DNFacebookFriendsNavigationController.h"
+#import "DNFacebookFriendsViewController.h"
 #import "DNFriendsNavigationController.h"
 #import "DNFriendsViewController.h"
 #import "DNLoginNavigationController.h"
@@ -70,21 +70,21 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
         self.window.rootViewController = splitViewController;
     } else {
         NSLog(@"Device is iPhone");
-        DNSettingsViewController *settingsViewController = [[DNSettingsViewController alloc] init];
+        DNFacebookFriendsViewController *facebookFriendsViewController = [[DNFacebookFriendsViewController alloc] init];
         DNFriendsViewController *friendsViewController = [[DNFriendsViewController alloc] init];
         
-        DNSettingsNavigationController *settingsNavigationController = [[DNSettingsNavigationController alloc] initWithRootViewController:settingsViewController];
+        DNFacebookFriendsNavigationController *facebookFriendsNavigationController = [[DNFacebookFriendsNavigationController alloc] initWithRootViewController:facebookFriendsViewController];
         DNHomeNavigationController *homeNavigation = [[DNHomeNavigationController alloc] init];
         DNFriendsNavigationController *friendsNavigationController = [[DNFriendsNavigationController alloc] initWithRootViewController:friendsViewController];
         
         [self setHomeNavigationController:homeNavigation];
         
-        MMDrawerController * drawerController = [[MMDrawerController alloc] initWithCenterViewController:self.homeNavigationController leftDrawerViewController:settingsNavigationController rightDrawerViewController:friendsNavigationController];
+        MMDrawerController * drawerController = [[MMDrawerController alloc] initWithCenterViewController:self.homeNavigationController leftDrawerViewController:friendsNavigationController rightDrawerViewController:facebookFriendsNavigationController];
         
         [drawerController setOpenDrawerGestureModeMask:MMOpenDrawerGestureModePanningCenterView];
         [drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModePanningCenterView];
 
-        [settingsViewController setAppDelegate:self];
+        [friendsViewController setAppDelegate:self];
         
         [self.window setRootViewController:drawerController];
         

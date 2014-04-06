@@ -1,5 +1,5 @@
 //
-//  DNFriendsViewController.h
+//  DNFacebookFriendsViewController.h
 //  Ding
 //
 //  Created by Mark Miyashita on 4/5/14.
@@ -9,14 +9,10 @@
 #import "DNViewController.h"
 #import "DNTableViewController.h"
 
-#import "DNAppDelegate.h"
-
 #import <CoreData/CoreData.h>
 
-@interface DNFriendsViewController : DNTableViewController <NSFetchedResultsControllerDelegate> {
+@interface DNFacebookFriendsViewController : DNTableViewController <NSFetchedResultsControllerDelegate> {
 	NSFetchedResultsController *fetchedResultsController;
 }
-
-@property (nonatomic, retain) DNAppDelegate *appDelegate;
 
 @end

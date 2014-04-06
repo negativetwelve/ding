@@ -24,7 +24,7 @@
     return self;
 }
 
--(void)setupLeftMenuButton {
+- (void)setupLeftMenuButton {
     UIBarButtonItem *signOutButton = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(signOutButtonPressed:)];
     [self.navigationItem setLeftBarButtonItem:signOutButton animated:YES];
 }
