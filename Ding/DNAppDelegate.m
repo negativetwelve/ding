@@ -87,7 +87,7 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
         [drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModePanningCenterView];
         
         [homeViewController setDrawerController:drawerController];
-        [homeViewController setHomeNavigationController:homeNavigationController];
+        [homeViewController setHomeNavigationController:homeNavigation];
         
         [self.window setRootViewController:drawerController];
     }
@@ -97,18 +97,18 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 }
 
 - (void)checkUser {
-    if (!self.user) {
-        NSLog(@"User not logged in");
-        
-        if ([self.window.rootViewController.presentedViewController isMemberOfClass:NSClassFromString(@"DNLoginNavigationController")]) {
-            NSLog(@"In Login nav controller");
-            DNLoginNavigationController *loginNavigationController = (DNLoginNavigationController *)self.window.rootViewController.presentedViewController;
-            
-        } else {
+    NSLog(@"Check user");
+    if (![self connect]) {
+        NSLog(@"Google account not signed in");
+		dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.0 * NSEC_PER_SEC);
+		dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+			
             DNLoginViewController *loginViewController = [[DNLoginViewController alloc] init];
             DNLoginNavigationController *loginNavigationController = [[DNLoginNavigationController alloc] initWithRootViewController:loginViewController];
-            [self.window.rootViewController presentViewController:loginNavigationController animated:YES completion:nil];
-        }
+			[self.window.rootViewController presentViewController:loginNavigationController animated:YES completion:NULL];
+		});
+	} else {
+        NSLog(@"Connected to Google");
     }
 }
 
