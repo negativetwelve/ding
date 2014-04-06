@@ -10,6 +10,7 @@
 #import "DNChatViewController.h"
 #import "DNVoiceViewController.h"
 #import "DNFBChatViewController.h"
+#import "DNAppDelegate.h"
 
 @interface DNHomeNavigationController : UINavigationController {
     DNChatViewController *chatViewController;
@@ -21,5 +22,9 @@
 @property (nonatomic, retain) DNChatViewController *chatViewController;
 @property (nonatomic, retain) DNFBChatViewController *fBChatViewController;
 @property (nonatomic, retain) DNVoiceViewController *voiceViewController;
+
+@property (nonatomic, retain) DNAppDelegate *appDelegate;
+
+- (id)initWithAppDelegate:(DNAppDelegate *)appDelegate;
 
 @end

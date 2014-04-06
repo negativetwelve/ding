@@ -46,6 +46,7 @@
 - (void)clearAll;
 
 - (void)fetchResults;
+- (void)loadMessages;
 
 
 @end
