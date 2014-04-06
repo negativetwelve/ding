@@ -139,7 +139,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     [chatBar addSubview:chatInput];
     
     //Create recipient field
-    recipient = [[UITextField alloc] initWithFrame:CGRectMake(10, 20, 300, 40)];
+    recipient = [[UITextField alloc] initWithFrame:CGRectMake(10, 5, 300, 40)];
     recipient.borderStyle = UITextBorderStyleRoundedRect;
     recipient.font = [UIFont systemFontOfSize:15];
     recipient.placeholder = @"recipient";
