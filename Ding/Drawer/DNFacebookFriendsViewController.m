@@ -67,8 +67,10 @@
 	} else {
 		titleLabel.text = @"No JID";
 	}
-	
+    titleLabel.text = @"Facebook Friends";
+
 	[titleLabel sizeToFit];
+    
     
 	self.navigationItem.titleView = titleLabel;
 }
@@ -95,7 +97,7 @@
 		                                          inManagedObjectContext:moc];
 		
 		NSSortDescriptor *sd1 = [[NSSortDescriptor alloc] initWithKey:@"sectionNum" ascending:YES];
-		NSSortDescriptor *sd2 = [[NSSortDescriptor alloc] initWithKey:@"displayName" ascending:YES];
+		NSSortDescriptor *sd2 = [[NSSortDescriptor alloc] initWithKey:@"jidStr" ascending:YES];
 		
 		NSArray *sortDescriptors = [NSArray arrayWithObjects:sd1, sd2, nil];
 		
