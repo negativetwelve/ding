@@ -19,6 +19,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         [self setTitle:@"Settings"];
+        [self.view setBackgroundColor:[UIColor whiteColor]];
     }
     return self;
 }
