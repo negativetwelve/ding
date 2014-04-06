@@ -44,10 +44,11 @@
     
     UITextField *passwordTextField = [[UITextField alloc] initWithFrame:CGRectMake(20, 180, 280, 31)];
     [passwordTextField setPlaceholder:@"Password"];
-    [passwordTextField setReturnKeyType:UIReturnKeyNext];
+    [passwordTextField setReturnKeyType:UIReturnKeyDone];
     [passwordTextField setTag:2];
     [passwordTextField setDelegate:self];
     [passwordTextField setSecureTextEntry:YES];
+    [passwordTextField addTarget:self action:@selector(submitAction:) forControlEvents:UIControlEventEditingDidEndOnExit];
     [self.view addSubview:passwordTextField];
     
     UIButton *submitButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];

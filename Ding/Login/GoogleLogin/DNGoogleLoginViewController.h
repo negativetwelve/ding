@@ -8,6 +8,6 @@
 
 #import "DNViewController.h"
 
-@interface DNGoogleLoginViewController : DNViewController
+@interface DNGoogleLoginViewController : DNViewController <UITextFieldDelegate>
 
 @end
