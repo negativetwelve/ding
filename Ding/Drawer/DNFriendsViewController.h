@@ -8,6 +8,8 @@
 
 #import "DNViewController.h"
 #import "DNTableViewController.h"
+#import "DNMessageViewController.h"
+#import "DNHomeNavigationController.h"
 
 #import "DNAppDelegate.h"
 
@@ -18,5 +20,6 @@
 }
 
 @property (nonatomic, retain) DNAppDelegate *appDelegate;
+@property (nonatomic, retain) DNHomeNavigationController *homeNavigationController;
 
 @end

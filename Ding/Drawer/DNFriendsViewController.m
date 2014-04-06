@@ -205,4 +205,11 @@
 	return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    XMPPUserCoreDataStorageObject *user = [fetchedResultsController objectAtIndexPath:indexPath];
+    DNMessageViewController *messageViewController = [[DNMessageViewController alloc] init];
+    messageViewController.user = user;
+    [self.homeNavigationController pushViewController:messageViewController animated:YES];
+}
+
 @end

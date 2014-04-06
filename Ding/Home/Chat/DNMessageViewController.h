@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import "DNChatViewController.h"
 #import "XMPPMessageArchivingCoreDataStorage.h"
+#import "XMPPUserCoreDataStorageObject.h"
 
 @class DNMessage;
 @interface DNMessageViewController : UIViewController <NSFetchedResultsControllerDelegate, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate, UIActionSheetDelegate> {
@@ -29,6 +30,7 @@
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 @property (nonatomic, retain) XMPPMessageArchiving_Contact_CoreDataObject *conversation;
+@property (nonatomic, retain) XMPPUserCoreDataStorageObject *user;
 
 - (void)enableSendButton;
 - (void)disableSendButton;
