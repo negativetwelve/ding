@@ -156,11 +156,11 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     //    sendButton.backgroundColor = [UIColor clearColor];
     //    sendButton.layer.cornerRadius = 13;
     //    sendButton.clipsToBounds = YES;
-    [self resetSendButton]; // disable initially
+    //[self resetSendButton]; // disable initially
     [chatBar addSubview:sendButton];
     
     [self.view addSubview:chatBar];
-    [self.view sendSubviewToBack:chatBar];
+    //[self.view sendSubviewToBack:chatBar];
     
     //    // Test with lots of messages.
     //    NSDate *before = [NSDate date];
@@ -364,14 +364,15 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     //    // TODO: Show progress indicator like iPhone Message app does. (Icebox)
     //    [activityIndicator startAnimating];
     
-    NSString *rightTrimmedMessage =
+    //NO TRIMMED MESSSAGES
+    /*NSString *rightTrimmedMessage =
     [chatInput.text stringByTrimmingTrailingWhitespaceAndNewlineCharacters];
     
     // Don't send blank messages.
     if (rightTrimmedMessage.length == 0) {
         [self clearChatInput];
         return;
-    }
+    }*/
     
     // Create new message and save to Core Data.
     XMPPMessageArchivingCoreDataStorage *storage = [XMPPMessageArchivingCoreDataStorage sharedInstance];
@@ -381,13 +382,13 @@ static CGFloat const kChatBarHeight4    = 94.0f;
                                       insertNewObjectForEntityForName:@"XMPPMessageArchiving_Message_CoreDataObject"
                                       inManagedObjectContext:moc];
     
-    newMessage.body = rightTrimmedMessage;
+    newMessage.body = chatInput.text;
     NSDate *now = [[NSDate alloc] init]; newMessage.timestamp = now;
     
     
     // Message to send
     NSXMLElement *body = [NSXMLElement elementWithName:@"body"];
-    [body setStringValue:rightTrimmedMessage];
+    [body setStringValue:chatInput.text];
     
     NSXMLElement *message = [NSXMLElement elementWithName:@"message"];
     [message addAttributeWithName:@"type" stringValue:@"chat"];
