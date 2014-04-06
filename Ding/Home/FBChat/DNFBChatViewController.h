@@ -15,5 +15,7 @@
 }
 
 @property (nonatomic, retain) DNHomeNavigationController *homeNavigationController;
+@property (nonatomic, retain) NSMutableArray *names;
+@property (nonatomic, retain) NSMutableArray *msgs;
 
 @end

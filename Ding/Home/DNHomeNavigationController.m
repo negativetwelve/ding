@@ -54,7 +54,7 @@
     
     NSLog(@"set client control");
     //Create a Segmented Control tab
-    UISegmentedControl *clientControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Chat", @"Voice", nil]];
+    UISegmentedControl *clientControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"Chat", @"Voice", @"FB", nil]];
     [clientControl setSelectedSegmentIndex:0];
     //set target for clientControl
     [clientControl addTarget:self action:@selector(diffClientClicked:) forControlEvents:UIControlEventValueChanged];
