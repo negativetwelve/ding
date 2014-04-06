@@ -155,6 +155,7 @@
 		4D7CA69E18F0CE5500D9EFD4 /* XMPPMessage+XEP_0333.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA64318F0CE5500D9EFD4 /* XMPPMessage+XEP_0333.m */; };
 		4D7CA69F18F0CE5500D9EFD4 /* NSXMLElement+XEP_0335.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA64618F0CE5500D9EFD4 /* NSXMLElement+XEP_0335.m */; };
 		4D7CA6A418F0CFB600D9EFD4 /* DNGoogleLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA6A318F0CFB600D9EFD4 /* DNGoogleLoginViewController.m */; };
+		4D7CA6A618F0DDE600D9EFD4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7CA6A518F0DDE600D9EFD4 /* CoreData.framework */; };
 		4D911CD018F08ADE007BE775 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CCF18F08ADE007BE775 /* Foundation.framework */; };
 		4D911CD218F08ADE007BE775 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CD118F08ADE007BE775 /* CoreGraphics.framework */; };
 		4D911CD418F08ADE007BE775 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CD318F08ADE007BE775 /* UIKit.framework */; };
@@ -485,6 +486,7 @@
 		4D7CA6A018F0CE7500D9EFD4 /* XMPPFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPFramework.h; sourceTree = "<group>"; };
 		4D7CA6A218F0CFB600D9EFD4 /* DNGoogleLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNGoogleLoginViewController.h; path = Login/GoogleLogin/DNGoogleLoginViewController.h; sourceTree = "<group>"; };
 		4D7CA6A318F0CFB600D9EFD4 /* DNGoogleLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNGoogleLoginViewController.m; path = Login/GoogleLogin/DNGoogleLoginViewController.m; sourceTree = "<group>"; };
+		4D7CA6A518F0DDE600D9EFD4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4D911CCC18F08ADE007BE775 /* Ding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D911CCF18F08ADE007BE775 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4D911CD118F08ADE007BE775 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -509,6 +511,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D7CA6A618F0DDE600D9EFD4 /* CoreData.framework in Frameworks */,
 				4D7CA56018F0CD0100D9EFD4 /* libresolv.dylib in Frameworks */,
 				4D7CA50218F0CC7E00D9EFD4 /* libxml2.dylib in Frameworks */,
 				4D911CD218F08ADE007BE775 /* CoreGraphics.framework in Frameworks */,
@@ -1461,6 +1464,7 @@
 		4D911CCE18F08ADE007BE775 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4D7CA6A518F0DDE600D9EFD4 /* CoreData.framework */,
 				4D7CA55F18F0CD0100D9EFD4 /* libresolv.dylib */,
 				4D7CA50118F0CC7E00D9EFD4 /* libxml2.dylib */,
 				4D911CCF18F08ADE007BE775 /* Foundation.framework */,

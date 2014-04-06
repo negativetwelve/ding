@@ -8,6 +8,15 @@
 
 #import "DNViewController.h"
 
-@interface DNGoogleLoginViewController : DNViewController <UITextFieldDelegate>
+#import "DNAppDelegate.h"
+
+@interface DNGoogleLoginViewController : DNViewController <UITextFieldDelegate> {
+    UITextField *emailTextField;
+    UITextField *passwordTextField;
+}
+
+@property (nonatomic, strong) UITextField *emailTextField;
+@property (nonatomic, strong) UITextField *passwordTextField;
+
 
 @end
