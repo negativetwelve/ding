@@ -28,6 +28,8 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.title = @"Facebook Friends";
+
 }
 
 - (void)didReceiveMemoryWarning

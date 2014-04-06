@@ -8,7 +8,6 @@
 
 #import "DNChatViewController.h"
 #import "DNHomeNavigationController.h"
-#import "DNChatViewController.h"
 #import "DNMessageViewController.h"
 #import "DNChat.h"
 #import "DNAppDelegate.h"

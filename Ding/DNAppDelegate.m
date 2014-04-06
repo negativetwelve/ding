@@ -69,6 +69,8 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
 @synthesize homeNavigationController;
 @synthesize loginButton;
 
+@synthesize voice;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"starting app");
     
@@ -153,7 +155,7 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
 
 - (void)setupGoogleVoice: (NSString *)username and:(NSString *)passwordEntry {
     NSLog(@"setup google voice");
-    GVoice *voice = [[GVoice alloc] initWithUser: username password: passwordEntry source: @"com.markmiyashita.ding"
+    voice = [[GVoice alloc] initWithUser: username password: passwordEntry source: @"com.markmiyashita.ding"
 								  accountType: GOOGLE];
     
     // This causes some logging to happen.
@@ -167,11 +169,16 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
     
     // Send an SMS. Replace TEXT_PHONE_NUMBER with a proper 10-digit phone number
     // capable of receiving SMS messages
-    // res = [voice sendSmsText: @"Testing 1, 2, 3" toNumber: @"9164204682"];
+    //res = [voice sendSmsText: @"Testing 1, 2, 3" toNumber: @"9164204682"];
     
     if (!res) {
         NSLog(@"did not send message");
     }
+}
+
+- (void)sendVoiceMessage:(NSString *)msg forrecipient:(NSString *)recipient {
+    NSLog(@"inAD msg: %@, rec: %@", msg, recipient);
+    [voice sendSmsText: msg toNumber: recipient];
 }
 
 - (void)setupFBStream {
@@ -461,7 +468,7 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
 	}
     
     // Facebook
-    /*
+    
     if (![fbxmppStream isSecure]) {
         NSError *error = nil;
         BOOL result = [fbxmppStream secureConnection:&error];
@@ -477,7 +484,7 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
             NSLog(@"Error in xmpp auth: %@", error);
         }
     }
-     */
+     
 }
 
 - (void)xmppStreamDidAuthenticate:(XMPPStream *)sender {

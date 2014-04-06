@@ -61,6 +61,7 @@ extern NSString *const kXMPPmyGooglePassword;
 	
 	BOOL fbisXmppConnected;
     Facebook *facebook;
+
 }
 
 @property (nonatomic, strong, readonly) XMPPStream *xmppStream;
@@ -86,6 +87,7 @@ extern NSString *const kXMPPmyGooglePassword;
 @property (nonatomic, strong, readonly) XMPPvCardAvatarModule *fbxmppvCardAvatarModule;
 @property (nonatomic, strong, readonly) XMPPCapabilities *fbxmppCapabilities;
 @property (nonatomic, strong, readonly) XMPPCapabilitiesCoreDataStorage *fbxmppCapabilitiesStorage;
+@property (nonatomic, strong) GVoice *voice;
 
 - (NSManagedObjectContext *)managedObjectContext_roster;
 - (NSManagedObjectContext *)managedObjectContext_capabilities;
@@ -94,5 +96,6 @@ extern NSString *const kXMPPmyGooglePassword;
 
 - (BOOL)connect;
 - (void)disconnect;
+- (void)sendVoiceMessage:(NSString *)msg forrecipient:(NSString *)recipient;
 
 @end
