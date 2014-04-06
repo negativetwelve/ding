@@ -130,6 +130,7 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 }
 
 - (void)setupStream {
+    NSLog(@"set up stream called");
 	NSAssert(xmppStream == nil, @"Method setupStream invoked multiple times");
 	
 	// Setup xmpp stream
@@ -275,6 +276,7 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 
 
 - (void)goOnline {
+    NSLog(@"go online called");
 	XMPPPresence *presence = [XMPPPresence presence]; // type="available" is implicit
     
     NSString *domain = [xmppStream.myJID domain];
@@ -290,6 +292,7 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 }
 
 - (void)goOffline {
+    NSLog(@"go offline called");
 	XMPPPresence *presence = [XMPPPresence presenceWithType:@"unavailable"];
 	[[self xmppStream] sendElement:presence];
 }
