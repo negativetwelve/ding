@@ -129,6 +129,8 @@
 		3FBA665A18F0C24B008B5640 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				3FBA666018F0C2EB008B5640 /* DNChatViewController.h */,
+				3FBA666118F0C2EB008B5640 /* DNChatViewController.m */,
 			);
 			name = Chat;
 			sourceTree = "<group>";
@@ -136,6 +138,8 @@
 		3FBA665B18F0C253008B5640 /* Voice */ = {
 			isa = PBXGroup;
 			children = (
+				3FBA665D18F0C2D9008B5640 /* DNVoiceViewController.h */,
+				3FBA665E18F0C2D9008B5640 /* DNVoiceViewController.m */,
 			);
 			name = Voice;
 			sourceTree = "<group>";
@@ -143,10 +147,6 @@
 		3FBA665C18F0C276008B5640 /* FBChat */ = {
 			isa = PBXGroup;
 			children = (
-				3FBA665D18F0C2D9008B5640 /* DNVoiceViewController.h */,
-				3FBA665E18F0C2D9008B5640 /* DNVoiceViewController.m */,
-				3FBA666018F0C2EB008B5640 /* DNChatViewController.h */,
-				3FBA666118F0C2EB008B5640 /* DNChatViewController.m */,
 				3FBA666318F0C2F8008B5640 /* DNFBChatViewController.h */,
 				3FBA666418F0C2F8008B5640 /* DNFBChatViewController.m */,
 			);

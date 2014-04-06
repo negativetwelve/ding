@@ -13,6 +13,7 @@
 @end
 
 @implementation DNHomeNavigationController
+@synthesize clientControl = _clientControl;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

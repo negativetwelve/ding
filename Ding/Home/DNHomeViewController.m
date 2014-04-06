@@ -14,6 +14,7 @@
 
 @implementation DNHomeViewController
 @synthesize drawerController = _drawerController;
+@synthesize homeNavigationController = _homeNavigationController;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -31,6 +32,17 @@
     //Create a Segmented Control tab
     UISegmentedControl *clientControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"gChat", @"Voice", @"fb", nil]];
     
+    [self.homeNavigationController setClientControl:clientControl];
+    
+    //set the default selected client
+    [clientControl setSelectedSegmentIndex:0];
+    
+    //set target for clientControl
+    [clientControl addTarget:self action:@selector(diffClientClicked:) forControlEvents:UIControlEventValueChanged];
+    
+    //fire an action when selection changes
+    [clientControl sendActionsForControlEvents:UIControlEventValueChanged];
+    
     //Array of NavBar buttons
     NSMutableArray *titleButtonArray = [[NSMutableArray alloc] init];
      UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
@@ -39,12 +51,22 @@
      [titleButtonArray addObject:flexibleSpace];
      
      self.navigationItem.leftBarButtonItems = titleButtonArray;
+}
+
+-(void)diffClientClicked:(id)sender {
+    NSUInteger index = self.homeNavigationController.clientControl.selectedSegmentIndex;
+    UIViewController *nextViewController = [self.homeNavigationController.viewControllers objectAtIndex:index];
     
+    NSArray *nextViewControllers = [NSArray arrayWithObject:nextViewController];
+    [self.homeNavigationController setViewControllers:nextViewControllers animated:NO];
     
 }
 
+-(void)changeClient:(id)sender {
+    
+}
 -(void)setupLeftMenuButton {
-    MMDrawerBarButtonItem *leftDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(leftDrawerButtonPress:)];
+    //MMDrawerBarButtonItem *leftDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(leftDrawerButtonPress:)];
     //[self.navigationItem setLeftBarButtonItem:leftDrawerButton animated:YES];
 }
 
