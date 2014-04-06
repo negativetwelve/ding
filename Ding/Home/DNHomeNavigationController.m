@@ -38,7 +38,10 @@
     DNChatViewController *chatView = [[DNChatViewController alloc] init];
     DNFBChatViewController *fBChatView = [[DNFBChatViewController alloc] init];
         
-    
+    voiceView.homeNavigationController = self;
+    chatView.homeNavigationController = self;
+    fBChatView.homeNavigationController = self;
+                                          
     [self setChatViewController:chatView];
     [self setFBChatViewController:fBChatView];
     [self setVoiceViewController:voiceView];

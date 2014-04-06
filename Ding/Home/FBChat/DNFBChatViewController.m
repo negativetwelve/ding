@@ -25,12 +25,18 @@
     }
     return self;
 }
+- (void)viewWillAppear:(BOOL)animated {
+    [self.homeNavigationController.clientControl setSelectedSegmentIndex:2];
+
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor yellowColor];
+    self.navigationItem.leftBarButtonItems = nil;
+
     //Create a Segmented Control tab
     UISegmentedControl *clientControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"gChat", @"Voice", @"fb", nil]];
     
@@ -60,6 +66,7 @@
     NSLog(@"diff client clicked");
     UIViewController *nextViewController;
     NSUInteger index = self.homeNavigationController.clientControl.selectedSegmentIndex;
+    NSLog(@"index:%d", index);
     if (index == 0) {
         nextViewController = self.homeNavigationController.chatViewController;
     } else if (index == 1) {

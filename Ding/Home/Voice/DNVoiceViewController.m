@@ -24,13 +24,19 @@
     }
     return self;
 }
+- (void)viewWillAppear:(BOOL)animated {
+    [self.homeNavigationController.clientControl setSelectedSegmentIndex:1];
+    NSLog(@"hi mark voice");
+
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor orangeColor];
-    
+    self.navigationItem.leftBarButtonItems = nil;
+
     //Create a Segmented Control tab
     UISegmentedControl *clientControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"gChat", @"Voice", @"fb", nil]];
     
