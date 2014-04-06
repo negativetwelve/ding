@@ -88,6 +88,8 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
         
         [homeViewController setDrawerController:drawerController];
         [homeViewController setHomeNavigationController:homeNavigation];
+
+        [settingsViewController setAppDelegate:self];
         
         [homeViewController setClientControl];
 
@@ -99,18 +101,18 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 }
 
 - (void)checkUser {
-    if (!self.user) {
-        NSLog(@"User not logged in");
-        
-        if ([self.window.rootViewController.presentedViewController isMemberOfClass:NSClassFromString(@"DNLoginNavigationController")]) {
-            NSLog(@"In Login nav controller");
-            DNLoginNavigationController *loginNavigationController = (DNLoginNavigationController *)self.window.rootViewController.presentedViewController;
-            
-        } else {
+    NSLog(@"Check user");
+    if (![self connect]) {
+        NSLog(@"Google account not signed in");
+		dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, 0.0 * NSEC_PER_SEC);
+		dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+			
             DNLoginViewController *loginViewController = [[DNLoginViewController alloc] init];
             DNLoginNavigationController *loginNavigationController = [[DNLoginNavigationController alloc] initWithRootViewController:loginViewController];
-            [self.window.rootViewController presentViewController:loginNavigationController animated:YES completion:nil];
-        }
+			[self.window.rootViewController presentViewController:loginNavigationController animated:YES completion:NULL];
+		});
+	} else {
+        NSLog(@"Connected to Google");
     }
 }
 
@@ -131,6 +133,7 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 }
 
 - (void)setupStream {
+    NSLog(@"set up stream called");
 	NSAssert(xmppStream == nil, @"Method setupStream invoked multiple times");
 	
 	// Setup xmpp stream
@@ -243,7 +246,6 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 	
 	[xmppStream setHostName:@"talk.google.com"];
 	[xmppStream setHostPort:5222];
-	
     
 	// You may need to alter these settings depending on the server you're connecting to
 	allowSelfSignedCertificates = NO;
@@ -251,6 +253,7 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 }
 
 - (void)teardownStream {
+    NSLog(@"teardown called");
 	[xmppStream removeDelegate:self];
 	[xmppRoster removeDelegate:self];
 	
@@ -275,6 +278,7 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 
 
 - (void)goOnline {
+    NSLog(@"go online called");
 	XMPPPresence *presence = [XMPPPresence presence]; // type="available" is implicit
     
     NSString *domain = [xmppStream.myJID domain];
@@ -290,6 +294,7 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 }
 
 - (void)goOffline {
+    NSLog(@"go offline called");
 	XMPPPresence *presence = [XMPPPresence presenceWithType:@"unavailable"];
 	[[self xmppStream] sendElement:presence];
 }
@@ -300,11 +305,13 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 
 - (BOOL)connect {
 	if (![xmppStream isDisconnected]) {
+        NSLog(@"stream is not disconnected");
 		return YES;
 	}
     
 	NSString *myGoogleJID = [[NSUserDefaults standardUserDefaults] stringForKey:kXMPPmyGoogleJID];
 	NSString *myGooglePassword = [[NSUserDefaults standardUserDefaults] stringForKey:kXMPPmyGooglePassword];
+    NSLog(@"my google id: %@", myGoogleJID);
     
 	//
 	// If you don't want to use the Settings view to set the JID,
@@ -332,7 +339,7 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 		NSLog(@"Error connecting: %@", error);
 		return NO;
 	}
-    
+    NSLog(@"success logging in with google");
 	return YES;
 }
 
@@ -341,6 +348,144 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 	[xmppStream disconnect];
 }
 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark XMPPStream Delegate
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)xmppStream:(XMPPStream *)sender socketDidConnect:(GCDAsyncSocket *)socket {
+}
+
+- (void)xmppStream:(XMPPStream *)sender willSecureWithSettings:(NSMutableDictionary *)settings {
+	
+	if (allowSelfSignedCertificates)
+	{
+		[settings setObject:[NSNumber numberWithBool:YES] forKey:(NSString *)kCFStreamSSLAllowsAnyRoot];
+	}
+	
+	if (allowSSLHostNameMismatch)
+	{
+		[settings setObject:[NSNull null] forKey:(NSString *)kCFStreamSSLPeerName];
+	}
+	else
+	{
+		NSString *expectedCertName = [xmppStream.myJID domain];
+        
+		if (expectedCertName)
+		{
+			[settings setObject:expectedCertName forKey:(NSString *)kCFStreamSSLPeerName];
+		}
+	}
+}
+
+- (void)xmppStreamDidSecure:(XMPPStream *)sender {
+}
+
+- (void)xmppStreamDidConnect:(XMPPStream *)sender {
+    NSLog(@"stream connected");
+	
+	isXmppConnected = YES;
+	
+	NSError *error = nil;
+	
+	if (![[self xmppStream] authenticateWithPassword:password error:&error])
+	{
+		NSLog(@"Error authenticating: %@", error);
+	}
+}
+
+- (void)xmppStreamDidAuthenticate:(XMPPStream *)sender {
+	[self goOnline];
+}
+
+- (void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(NSXMLElement *)error {
+}
+
+- (BOOL)xmppStream:(XMPPStream *)sender didReceiveIQ:(XMPPIQ *)iq {
+	return NO;
+}
+
+- (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message {
+	// A simple example of inbound message handling.
+    
+	if ([message isChatMessageWithBody])
+	{
+		XMPPUserCoreDataStorageObject *user = [xmppRosterStorage userForJID:[message from]
+		                                                         xmppStream:xmppStream
+		                                               managedObjectContext:[self managedObjectContext_roster]];
+		
+		NSString *body = [[message elementForName:@"body"] stringValue];
+		NSString *displayName = [user displayName];
+        
+		if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+		{
+			UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:displayName
+                                                                message:body
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Ok"
+                                                      otherButtonTitles:nil];
+			[alertView show];
+		}
+		else
+		{
+			// We are not active, so use a local notification instead
+			UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+			localNotification.alertAction = @"Ok";
+			localNotification.alertBody = [NSString stringWithFormat:@"From: %@\n\n%@",displayName,body];
+            
+			[[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+		}
+	}
+}
+
+- (void)xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence {
+}
+
+- (void)xmppStream:(XMPPStream *)sender didReceiveError:(id)error {
+}
+
+- (void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error {
+	if (!isXmppConnected)
+	{
+		NSLog(@"Unable to connect to server. Check xmppStream.hostName");
+	}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark XMPPRosterDelegate
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)xmppRoster:(XMPPRoster *)sender didReceiveBuddyRequest:(XMPPPresence *)presence {
+	XMPPUserCoreDataStorageObject *user = [xmppRosterStorage userForJID:[presence from]
+	                                                         xmppStream:xmppStream
+	                                               managedObjectContext:[self managedObjectContext_roster]];
+	
+	NSString *displayName = [user displayName];
+	NSString *jidStrBare = [presence fromStr];
+	NSString *body = nil;
+	
+	if (![displayName isEqualToString:jidStrBare]) {
+		body = [NSString stringWithFormat:@"Buddy request from %@ <%@>", displayName, jidStrBare];
+	} else {
+		body = [NSString stringWithFormat:@"Buddy request from %@", displayName];
+	}
+	
+	
+	if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
+		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:displayName
+		                                                    message:body
+		                                                   delegate:nil
+		                                          cancelButtonTitle:@"Not implemented"
+		                                          otherButtonTitles:nil];
+		[alertView show];
+	} else {
+		// We are not active, so use a local notification instead
+		UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+		localNotification.alertAction = @"Not implemented";
+		localNotification.alertBody = body;
+		
+		[[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+	}
+}
 							
 - (void)applicationWillResignActive:(UIApplication *)application {
   // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

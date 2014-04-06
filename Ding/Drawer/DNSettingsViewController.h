@@ -7,7 +7,10 @@
 //
 
 #import "DNViewController.h"
+#import "DNAppDelegate.h"
 
 @interface DNSettingsViewController : DNViewController
+
+@property (nonatomic, retain) DNAppDelegate *appDelegate;
 
 @end
