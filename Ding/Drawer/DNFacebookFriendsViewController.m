@@ -1,34 +1,37 @@
 //
-//  DNFriendsViewController.m
+//  DNFacebookFriendsViewController.m
 //  Ding
 //
 //  Created by Mark Miyashita on 4/5/14.
 //  Copyright (c) 2014 Mark Miyashita. All rights reserved.
 //
 
-#import "DNFriendsViewController.h"
+#import "DNFacebookFriendsViewController.h"
 #import "DNAppDelegate.h"
 
-@interface DNFriendsViewController ()
+@interface DNFacebookFriendsViewController ()
 
 @end
 
-@implementation DNFriendsViewController
+@implementation DNFacebookFriendsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        [self setTitle:@"Google Chat"];
+        [self setTitle:@"Facebook Friends"];
     }
     return self;
 }
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
+- (void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
@@ -69,8 +72,8 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-//	[[self appDelegate] disconnect];
-//	[[[self appDelegate] xmppvCardTempModule] removeDelegate:self];
+    //	[[self appDelegate] disconnect];
+    //	[[[self appDelegate] xmppvCardTempModule] removeDelegate:self];
 	
 	[super viewWillDisappear:animated];
 }
