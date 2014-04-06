@@ -1,12 +1,12 @@
 //
-//  DNMessageViewController.m
+//  DNVoiceMessageViewController.m
 //  Ding
 //
-//  Created by Melissa on 4/5/14.
+//  Created by Melissa on 4/6/14.
 //  Copyright (c) 2014 Mark Miyashita. All rights reserved.
 //
 
-#import "DNMessageViewController.h"
+#import "DNVoiceMessageViewController.h"
 #import "DNMessage.h"
 #import "NSString+Additions.h"
 
@@ -44,7 +44,7 @@ static CGFloat const kContentHeightMax  = 84.0f;  // 80.0f, 76.0f
 static CGFloat const kChatBarHeight1    = 40.0f;
 static CGFloat const kChatBarHeight4    = 94.0f;
 
-@implementation DNMessageViewController
+@implementation DNVoiceMessageViewController
 
 @synthesize chatContent;
 
@@ -57,17 +57,20 @@ static CGFloat const kChatBarHeight4    = 94.0f;
 
 @synthesize fetchedResultsController;
 @synthesize managedObjectContext;
+@synthesize recipient;
 
 - (void)viewDidUnload {
     //self.navigationItem.title = cell.textLabel.text
-
+    
     self.chatContent = nil;
     
     self.chatBar = nil;
     self.chatInput = nil;
     self.sendButton = nil;
+    self.recipient = nil;
     
     self.cellMap = nil;
+    self.recipient = nil;
     
     self.fetchedResultsController = nil;
     
@@ -87,9 +90,6 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     self.navigationController.navigationBar.translucent = NO;
     
     self.title = self.conversation.bareJidStr;
-    if (!self.title) {
-        self.title = self.user.jidStr;
-    }
     
     // Listen for keyboard.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:)
@@ -138,6 +138,19 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     previousContentHeight = chatInput.contentSize.height;
     [chatBar addSubview:chatInput];
     
+    //Create recipient field
+    recipient = [[UITextField alloc] initWithFrame:CGRectMake(10, 20, 300, 40)];
+    recipient.borderStyle = UITextBorderStyleRoundedRect;
+    recipient.font = [UIFont systemFontOfSize:15];
+    recipient.placeholder = @"recipient";
+    recipient.autocorrectionType = UITextAutocorrectionTypeNo;
+    recipient.keyboardType = UIKeyboardTypeDefault;
+    recipient.returnKeyType = UIReturnKeyDone;
+    recipient.clearButtonMode = UITextFieldViewModeWhileEditing;
+    recipient.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    recipient.delegate = self;
+    [self.view addSubview:recipient];
+    
     // Create sendButton.
     sendButton = [UIButton buttonWithType:UIButtonTypeCustom];
     sendButton.clearsContextBeforeDrawing = NO;
@@ -152,7 +165,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     [sendButton setTitle:@"Send" forState:UIControlStateNormal];
     UIColor *shadowColor = [[UIColor alloc] initWithRed:0.325f green:0.463f blue:0.675f alpha:1.0f];
     [sendButton setTitleShadowColor:shadowColor forState:UIControlStateNormal];
- 
+    
     [sendButton addTarget:self action:@selector(sendMessage)
          forControlEvents:UIControlEventTouchUpInside];
     //    // The following three lines aren't necessary now that we'are using background image.
@@ -183,14 +196,6 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     //    }
     //    NSLog(@"Saving messages to disc takes %f seconds", [before timeIntervalSinceNow]);
     
-    [self loadMessages];
-    // TODO: Implement check-box edit mode like iPhone Messages does. (Icebox)
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
-    [self scrollToBottomAnimated:NO];
-}
-
-- (void)loadMessages {
     [self fetchResults];
     
     // Construct cellMap from fetchedObjects.
@@ -202,13 +207,16 @@ static CGFloat const kChatBarHeight4    = 94.0f;
             [self addMessage:message];
         }
     }
-    [chatContent reloadData];
+    
+    // TODO: Implement check-box edit mode like iPhone Messages does. (Icebox)
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated]; // below: work around for [chatContent flashScrollIndicators]
     NSLog(@"DNMessageViewController viewWillAppear");
     [chatContent performSelector:@selector(flashScrollIndicators) withObject:nil afterDelay:0.0];
+    [self scrollToBottomAnimated:NO];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -245,7 +253,6 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     //          textView.contentInset.bottom, textView.contentInset.left);
     //    NSLog(@"contentSize.height: %f", contentHeight);
     
-    
     if ([textView hasText]) {
         rightTrimmedText = [textView.text
                             stringByTrimmingTrailingWhitespaceAndNewlineCharacters];
@@ -259,12 +266,12 @@ static CGFloat const kChatBarHeight4    = 94.0f;
             if (contentHeight <= kContentHeightMax) { // limit chatInputHeight <= 4 lines
                 NSLog(@"Shrinking");
                 /*CGFloat chatBarHeight = contentHeight + 18.0f;
-                SET_CHAT_BAR_HEIGHT(chatBarHeight);
-                if (previousContentHeight > kContentHeightMax) {
-                    textView.scrollEnabled = NO;
-                }
-                textView.contentOffset = CGPointMake(0.0f, 6.0f); // fix quirk
-                [self scrollToBottomAnimated:YES];*/
+                 SET_CHAT_BAR_HEIGHT(chatBarHeight);
+                 if (previousContentHeight > kContentHeightMax) {
+                 textView.scrollEnabled = NO;
+                 }
+                 textView.contentOffset = CGPointMake(0.0f, 6.0f); // fix quirk
+                 [self scrollToBottomAnimated:YES];*/
             } else if (previousContentHeight <= kContentHeightMax) { // grow
                 textView.scrollEnabled = YES;
                 textView.contentOffset = CGPointMake(0.0f, contentHeight-68.0f); // shift to bottom
@@ -286,10 +293,10 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     
     // Enable sendButton if chatInput has non-blank text, disable otherwise.
     /*if (rightTrimmedText.length > 0) {
-        [self enableSendButton];
-    } else {
-        [self disableSendButton];
-    }*/
+     [self enableSendButton];
+     } else {
+     [self disableSendButton];
+     }*/
     
     previousContentHeight = contentHeight;
 }
@@ -366,7 +373,6 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     NSInteger bottomRow = [cellMap count] - 1;
     if (bottomRow >= 0) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:bottomRow inSection:0];
-        NSLog(@"bottom row: %d, index path: %d", bottomRow, [chatContent numberOfRowsInSection:0]);
         [chatContent scrollToRowAtIndexPath:indexPath
                            atScrollPosition:UITableViewScrollPositionBottom animated:animated];
     }
@@ -388,48 +394,42 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     // Create new message and save to Core Data.
     XMPPMessageArchivingCoreDataStorage *storage = [XMPPMessageArchivingCoreDataStorage sharedInstance];
     NSManagedObjectContext *moc = [storage mainThreadManagedObjectContext];
-
+    
     XMPPMessageArchiving_Message_CoreDataObject *newMessage = (XMPPMessageArchiving_Message_CoreDataObject *)[NSEntityDescription
-                                      insertNewObjectForEntityForName:@"XMPPMessageArchiving_Message_CoreDataObject"
-                                      inManagedObjectContext:moc];
+                                                                                                              insertNewObjectForEntityForName:@"XMPPMessageArchiving_Message_CoreDataObject"
+                                                                                                              inManagedObjectContext:moc];
     
     newMessage.body = chatInput.text;
     NSDate *now = [[NSDate alloc] init]; newMessage.timestamp = now;
     newMessage.isOutgoing = YES;
     
     // Message to send
-    NSString *jid = [self.conversation.bareJid full];
-    if (!jid) {
-        jid = [self.user.jid full];
-    }
     NSXMLElement *body = [NSXMLElement elementWithName:@"body"];
     [body setStringValue:chatInput.text];
     
     NSXMLElement *message = [NSXMLElement elementWithName:@"message"];
     [message addAttributeWithName:@"type" stringValue:@"chat"];
-    [message addAttributeWithName:@"to" stringValue:jid];
+    [message addAttributeWithName:@"to" stringValue:[self.conversation.bareJid full]];
     [message addChild:body];
-    [[self.appDelegate xmppStream] sendElement:message];
-    
+    //[[self.appDelegate xmppStream] sendElement:message];
+    //res = [voice sendSmsText: chatInput.text toNumber: recipient.text];
+    NSLog(@"msg: %@, rec: %@", chatInput.text, recipient.text);
+    [self.appDelegate sendVoiceMessage:chatInput.text forrecipient:recipient.text];
+
     NSError *error;
-    if (![moc save:&error]) {
+    /*if (![moc save:&error]) {
         // TODO: Handle the error appropriately.
         NSLog(@"sendMessage error %@, %@", error, [error userInfo]);
-    }
-    NSLog(@"number of chats: %d", [cellMap count]);
-    [self addMessage:newMessage];
-    [chatContent reloadData];
-    NSLog(@"number of chats: %d", [cellMap count]);
-
+    }*/
+    
     [self clearChatInput];
     
     [self scrollToBottomAnimated:YES]; // must come after RESET_CHAT_BAR_HEIGHT above
-    
     // Play sound or buzz, depending on user settings.
     /*NSString *sendPath = [[NSBundle mainBundle] pathForResource:@"basicsound" ofType:@"wav"];
-    CFURLRef baseURL = (CFURLRef)[NSURL fileURLWithPath:sendPath];
-    AudioServicesCreateSystemSoundID(baseURL, &receiveMessageSound);
-    AudioServicesPlaySystemSound(receiveMessageSound);*/
+     CFURLRef baseURL = (CFURLRef)[NSURL fileURLWithPath:sendPath];
+     AudioServicesCreateSystemSoundID(baseURL, &receiveMessageSound);
+     AudioServicesPlaySystemSound(receiveMessageSound);*/
     //    AudioServicesPlayAlertSound(receiveMessageSound); // use for receiveMessage (sound & vibrate)
     //    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate); // explicit vibrate
 }
@@ -452,9 +452,11 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     
     // Show sentDates at most every 15 minutes.
     
-    if([cellMap count]) {
+    if([cellMap count])
+    {
         BOOL prevIsMessage = [[cellMap objectAtIndex:prevIndex] isKindOfClass:[XMPPMessageArchiving_Message_CoreDataObject class]];
-        if(prevIsMessage) {
+        if(prevIsMessage)
+        {
             XMPPMessageArchiving_Message_CoreDataObject *temp = [cellMap objectAtIndex:prevIndex];
             NSDate * previousSentDate = temp.timestamp;
             // if there has been more than a 15 min gap between this and the previous message!
@@ -464,7 +466,9 @@ static CGFloat const kChatBarHeight4    = 94.0f;
                 numberOfObjectsAdded = 2;
             }
         }
-    } else {
+    }
+    else
+    {
         // there are NO messages, definitely add a timestamp!
         [cellMap addObject:currentSentDate];
         numberOfObjectsAdded = 2;
@@ -473,6 +477,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     [cellMap addObject:message];
     
     return numberOfObjectsAdded;
+    
 }
 
 // Returns number of objects removed from cellMap (1 or 2).
@@ -538,6 +543,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    //    NSLog(@"number of rows: %d", [cellMap count]);
     return [cellMap count];
 }
 
@@ -548,7 +554,8 @@ static CGFloat const kChatBarHeight4    = 94.0f;
 static NSString *kMessageCell = @"MessageCell";
 
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView
+         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UILabel *msgSentDate;
     UIImageView *msgBackground;
     UILabel *msgText;
@@ -564,7 +571,7 @@ static NSString *kMessageCell = @"MessageCell";
         cell = [tableView dequeueReusableCellWithIdentifier:kSentDateCellId];
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                           reuseIdentifier:kSentDateCellId];
+                                          reuseIdentifier:kSentDateCellId];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
             // Create message sentDate lable
@@ -607,7 +614,7 @@ static NSString *kMessageCell = @"MessageCell";
     cell = [tableView dequeueReusableCellWithIdentifier:kMessageCell];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                       reuseIdentifier:kMessageCell];
+                                      reuseIdentifier:kMessageCell];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.backgroundColor = CHAT_BACKGROUND_COLOR;
         
@@ -634,8 +641,8 @@ static NSString *kMessageCell = @"MessageCell";
     
     // Configure the cell to show the message in a bubble. Layout message cell & its subviews.
     CGSize size = [[(XMPPMessageArchiving_Message_CoreDataObject *)object body] sizeWithFont:[UIFont systemFontOfSize:kMessageFontSize]
-                                       constrainedToSize:CGSizeMake(kMessageTextWidth, CGFLOAT_MAX)
-                                           lineBreakMode:UILineBreakModeWordWrap];
+                                                                           constrainedToSize:CGSizeMake(kMessageTextWidth, CGFLOAT_MAX)
+                                                                               lineBreakMode:UILineBreakModeWordWrap];
     UIImage *bubbleImage;
     XMPPMessageArchiving_Message_CoreDataObject *message = (XMPPMessageArchiving_Message_CoreDataObject *)object;
     if (message.isOutgoing) { // right bubble
@@ -667,14 +674,14 @@ static NSString *kMessageCell = @"MessageCell";
     // Let's instead do this (asynchronously) from loadView and iterate over all messages
     
     /*
-    if (![(XMPPMessageArchiving_Message_CoreDataObject *)object read]) { // not read, so save as read
-        [(XMPPMessageArchiving_Message_CoreDataObject *)object setRead:[NSNumber numberWithBool:YES]];
-        NSError *error;
-        if (![managedObjectContext save:&error]) {
-            // TODO: Handle the error appropriately.
-            NSLog(@"Save message as read error %@, %@", error, [error userInfo]);
-        }
-    }
+     if (![(XMPPMessageArchiving_Message_CoreDataObject *)object read]) { // not read, so save as read
+     [(XMPPMessageArchiving_Message_CoreDataObject *)object setRead:[NSNumber numberWithBool:YES]];
+     NSError *error;
+     if (![managedObjectContext save:&error]) {
+     // TODO: Handle the error appropriately.
+     NSLog(@"Save message as read error %@, %@", error, [error userInfo]);
+     }
+     }
      */
     
     return cell;
@@ -703,7 +710,6 @@ static NSString *kMessageCell = @"MessageCell";
             // TODO: Handle the error appropriately.
             NSLog(@"Delete message error %@, %@", error, [error userInfo]);
         }
-        [tableView reloadData];
     }
 }
 
@@ -719,8 +725,8 @@ static NSString *kMessageCell = @"MessageCell";
     
     // Set MessageCell height.
     CGSize size = [[(XMPPMessageArchiving_Message_CoreDataObject *)object body] sizeWithFont:[UIFont systemFontOfSize:kMessageFontSize]
-                                       constrainedToSize:CGSizeMake(kMessageTextWidth, CGFLOAT_MAX)
-                                           lineBreakMode:UILineBreakModeWordWrap];
+                                                                           constrainedToSize:CGSizeMake(kMessageTextWidth, CGFLOAT_MAX)
+                                                                               lineBreakMode:UILineBreakModeWordWrap];
     return size.height + 17.0f;
 }
 
@@ -734,6 +740,8 @@ static NSString *kMessageCell = @"MessageCell";
 }
 
 - (void)fetchResults {
+    if (fetchedResultsController) return;
+    
     NSLog(@"fetch results (messages)");
     
     XMPPMessageArchivingCoreDataStorage *storage = [XMPPMessageArchivingCoreDataStorage sharedInstance];
@@ -757,7 +765,6 @@ static NSString *kMessageCell = @"MessageCell";
     if (!rval) {
         NSLog(@"error: %@", error);
     }
-    [chatContent reloadData];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
@@ -765,7 +772,6 @@ static NSString *kMessageCell = @"MessageCell";
       newIndexPath:(NSIndexPath *)newIndexPath {
     
     NSArray *indexPaths;
-    NSLog(@"changed object");
     
     switch(type) {
         case NSFetchedResultsChangeInsert: {

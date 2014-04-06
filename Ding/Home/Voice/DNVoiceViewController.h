@@ -7,12 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MessageUI.h>
+#import <CoreData/CoreData.h>
+
 @class DNHomeNavigationController;
 
-@interface DNVoiceViewController : UIViewController {
+@interface DNVoiceViewController : UITableViewController <NSFetchedResultsControllerDelegate> {
     DNHomeNavigationController * homeNavigationController;
 }
 
 @property (nonatomic, retain) DNHomeNavigationController *homeNavigationController;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 @end
