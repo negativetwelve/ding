@@ -188,6 +188,12 @@
 		4D911CF418F08ADE007BE775 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CD318F08ADE007BE775 /* UIKit.framework */; };
 		4D911CFC18F08ADE007BE775 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4D911CFA18F08ADE007BE775 /* InfoPlist.strings */; };
 		4D911CFE18F08ADE007BE775 /* DingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D911CFD18F08ADE007BE775 /* DingTests.m */; };
+		4D96DB2A18F1A6F900034E40 /* ChatBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D96DB2418F1A6F900034E40 /* ChatBar.png */; };
+		4D96DB2B18F1A6F900034E40 /* ChatBubbleGray.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D96DB2518F1A6F900034E40 /* ChatBubbleGray.png */; };
+		4D96DB2C18F1A6F900034E40 /* ChatBubbleGray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D96DB2618F1A6F900034E40 /* ChatBubbleGray@2x.png */; };
+		4D96DB2D18F1A6F900034E40 /* ChatBubbleGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D96DB2718F1A6F900034E40 /* ChatBubbleGreen.png */; };
+		4D96DB2E18F1A6F900034E40 /* ChatBubbleGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D96DB2818F1A6F900034E40 /* ChatBubbleGreen@2x.png */; };
+		4D96DB2F18F1A6F900034E40 /* SendButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D96DB2918F1A6F900034E40 /* SendButton.png */; };
 		DE3613BFCCC4458B870F7E2F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA3209F8B0D4B028BC98960 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -565,6 +571,12 @@
 		4D911CF918F08ADE007BE775 /* DingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DingTests-Info.plist"; sourceTree = "<group>"; };
 		4D911CFB18F08ADE007BE775 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4D911CFD18F08ADE007BE775 /* DingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DingTests.m; sourceTree = "<group>"; };
+		4D96DB2418F1A6F900034E40 /* ChatBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChatBar.png; sourceTree = "<group>"; };
+		4D96DB2518F1A6F900034E40 /* ChatBubbleGray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChatBubbleGray.png; sourceTree = "<group>"; };
+		4D96DB2618F1A6F900034E40 /* ChatBubbleGray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChatBubbleGray@2x.png"; sourceTree = "<group>"; };
+		4D96DB2718F1A6F900034E40 /* ChatBubbleGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChatBubbleGreen.png; sourceTree = "<group>"; };
+		4D96DB2818F1A6F900034E40 /* ChatBubbleGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChatBubbleGreen@2x.png"; sourceTree = "<group>"; };
+		4D96DB2918F1A6F900034E40 /* SendButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SendButton.png; sourceTree = "<group>"; };
 		7721FE381EB14A81A947318C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1608,6 +1620,7 @@
 		4D911CD618F08ADE007BE775 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4D96DB2318F1A6F900034E40 /* Assets */,
 				4D911CD718F08ADE007BE775 /* Ding-Info.plist */,
 				4D911CD818F08ADE007BE775 /* InfoPlist.strings */,
 				4D911CDB18F08ADE007BE775 /* main.m */,
@@ -1632,6 +1645,19 @@
 				4D911CFA18F08ADE007BE775 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4D96DB2318F1A6F900034E40 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				4D96DB2418F1A6F900034E40 /* ChatBar.png */,
+				4D96DB2518F1A6F900034E40 /* ChatBubbleGray.png */,
+				4D96DB2618F1A6F900034E40 /* ChatBubbleGray@2x.png */,
+				4D96DB2718F1A6F900034E40 /* ChatBubbleGreen.png */,
+				4D96DB2818F1A6F900034E40 /* ChatBubbleGreen@2x.png */,
+				4D96DB2918F1A6F900034E40 /* SendButton.png */,
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1714,9 +1740,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D96DB2B18F1A6F900034E40 /* ChatBubbleGray.png in Resources */,
 				4D911CEB18F08ADE007BE775 /* Images.xcassets in Resources */,
 				4D7CA4E418F0CB2600D9EFD4 /* README.txt in Resources */,
+				4D96DB2F18F1A6F900034E40 /* SendButton.png in Resources */,
+				4D96DB2D18F1A6F900034E40 /* ChatBubbleGreen.png in Resources */,
+				4D96DB2C18F1A6F900034E40 /* ChatBubbleGray@2x.png in Resources */,
 				4D911CDA18F08ADE007BE775 /* InfoPlist.strings in Resources */,
+				4D96DB2A18F1A6F900034E40 /* ChatBar.png in Resources */,
+				4D96DB2E18F1A6F900034E40 /* ChatBubbleGreen@2x.png in Resources */,
 				4D7CA4FF18F0CBC100D9EFD4 /* build-libidn.sh in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

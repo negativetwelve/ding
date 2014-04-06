@@ -554,7 +554,7 @@ static NSString *kMessageCell = @"MessageCell";
             // Create message sentDate lable
             msgSentDate = [[UILabel alloc] initWithFrame:
                            CGRectMake(-2.0f, 0.0f,
-                                      tableView.frame.size.width, kSentDateFontSize+5.0f)];
+                                      tableView.frame.size.width, kSentDateFontSize+8.0f)];
             msgSentDate.autoresizingMask = UIViewAutoresizingFlexibleWidth;
             msgSentDate.clearsContextBeforeDrawing = NO;
             msgSentDate.tag = SENT_DATE_TAG;
@@ -593,6 +593,7 @@ static NSString *kMessageCell = @"MessageCell";
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
                                        reuseIdentifier:kMessageCell];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        cell.backgroundColor = CHAT_BACKGROUND_COLOR;
         
         // Create message background image view
         msgBackground = [[UIImageView alloc] init];
