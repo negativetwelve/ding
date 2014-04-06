@@ -87,6 +87,9 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     self.navigationController.navigationBar.translucent = NO;
     
     self.title = self.conversation.bareJidStr;
+    if (!self.title) {
+        self.title = self.user.jidStr;
+    }
     
     // Listen for keyboard.
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:)
@@ -394,12 +397,16 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     newMessage.isOutgoing = YES;
     
     // Message to send
+    NSString *jid = [self.conversation.bareJid full];
+    if (!jid) {
+        jid = [self.user.jid full];
+    }
     NSXMLElement *body = [NSXMLElement elementWithName:@"body"];
     [body setStringValue:chatInput.text];
     
     NSXMLElement *message = [NSXMLElement elementWithName:@"message"];
     [message addAttributeWithName:@"type" stringValue:@"chat"];
-    [message addAttributeWithName:@"to" stringValue:[self.conversation.bareJid full]];
+    [message addAttributeWithName:@"to" stringValue:jid];
     [message addChild:body];
     [[self.appDelegate xmppStream] sendElement:message];
     

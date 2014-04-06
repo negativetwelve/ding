@@ -86,8 +86,7 @@
     return [[fetchedResultsController fetchedObjects] count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -97,7 +96,6 @@
     }
     
     [self configureCell:cell atIndexPath:indexPath];
-    
     return cell;
 }
 

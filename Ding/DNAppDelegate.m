@@ -101,6 +101,7 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
         [drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModePanningCenterView];
 
         [friendsViewController setAppDelegate:self];
+        [friendsViewController setHomeNavigationController:homeNavigation];
         
         [self.window setRootViewController:drawerController];
         
@@ -513,8 +514,7 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
                                                       otherButtonTitles:nil];
             NSLog(@"chat view: %@", self.chatViewController);
             [self.chatViewController fetchResults];
-            
-            //[alertView show];
+            [alertView show];
 		} else {
 			// We are not active, so use a local notification instead
             NSLog(@"inactive app, received message");
