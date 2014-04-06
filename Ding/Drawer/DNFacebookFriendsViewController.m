@@ -61,7 +61,7 @@
 	titleLabel.textAlignment = NSTextAlignmentCenter;
     
 	if ([[self appDelegate] connect]) {
-		titleLabel.text = [[[[self appDelegate] xmppStream] myJID] bare];
+		titleLabel.text = [[[[self appDelegate] fbxmppStream] myJID] bare];
 	} else {
 		titleLabel.text = @"No JID";
 	}

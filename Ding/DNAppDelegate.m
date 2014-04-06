@@ -29,6 +29,11 @@
 NSString *const kXMPPmyGoogleJID = @"kXMPPmyGoogleJID";
 NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 
+NSString *const kXMPPmyFBJID = @"kXMPPmyFBJID";
+NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
+
+#define FACEBOOK_APP_ID @"124242144347927"
+
 @interface DNAppDelegate()
 
 - (void)setupStream;
@@ -50,6 +55,15 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 @synthesize xmppCapabilities;
 @synthesize xmppCapabilitiesStorage;
 
+@synthesize fbxmppStream;
+@synthesize fbxmppReconnect;
+@synthesize fbxmppRoster;
+@synthesize fbxmppRosterStorage;
+@synthesize fbxmppvCardTempModule;
+@synthesize fbxmppvCardAvatarModule;
+@synthesize fbxmppCapabilities;
+@synthesize fbxmppCapabilitiesStorage;
+
 @synthesize window;
 @synthesize homeNavigationController;
 @synthesize loginButton;
@@ -61,6 +75,7 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
     
     // Setup the XMPP stream
 	[self setupStream];
+    [self setupFBStream];
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         NSLog(@"Device is iPad");
@@ -123,6 +138,21 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 
 - (void)dealloc {
 	[self teardownStream];
+}
+
+- (void)setupFBStream {
+    // it is also possible to use init, but then we need to also set xmppStream.appId and xmppStream.hostName
+	fbxmppStream = [[XMPPStream alloc] initWithFacebookAppId:FACEBOOK_APP_ID];
+	
+	[fbxmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
+	
+	facebook = [[Facebook alloc] initWithAppId:FACEBOOK_APP_ID andDelegate:self];
+	
+    //self.viewController.statusLabel.text = @"Starting Facebook Authentication";
+    
+	// Note: Be sure to invoke this AFTER the [self.window makeKeyAndVisible] method call above,
+	//       or nothing will happen.
+    [facebook authorize:[NSArray arrayWithObject:@"xmpp_login"]];
 }
 
 - (void)setupStream {
@@ -377,6 +407,23 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 	if (![[self xmppStream] authenticateWithPassword:password error:&error]) {
 		NSLog(@"Error authenticating: %@", error);
 	}
+    
+    // Facebook
+    if (![fbxmppStream isSecure]) {
+        NSError *error = nil;
+        BOOL result = [fbxmppStream secureConnection:&error];
+        
+        if (result == NO) {
+            NSLog(@"Error in xmpp STARTTLS: %@", error);
+        }
+    } else {
+        NSError *error = nil;
+        BOOL result = [fbxmppStream authenticateWithFacebookAccessToken:facebook.accessToken error:&error];
+        
+        if (result == NO) {
+            NSLog(@"Error in xmpp auth: %@", error);
+        }
+    }
 }
 
 - (void)xmppStreamDidAuthenticate:(XMPPStream *)sender {
@@ -466,7 +513,48 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 		[[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
 	}
 }
-							
+
+////////////////////////////////////////////////////
+// FACEBOOK
+////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark Facebook Delegate
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [facebook handleOpenURL:url];
+}
+
+- (void)fbDidLogin {
+	NSLog(@"Facebook login successful!");
+	
+	NSLog(@"facebook.accessToken: %@", facebook.accessToken);
+	NSLog(@"facebook.expirationDate: %@", facebook.expirationDate);
+	
+    self.viewController.statusLabel.text = @"XMPP connecting...";
+    
+	NSError *error = nil;
+	if (![xmppStream connectWithTimeout:5 error:&error]) {
+		NSLog(@"Error in xmpp connection: %@", error);
+        self.viewController.statusLabel.text = @"XMPP connect failed";
+	}
+}
+
+- (void)fbDidNotLogin:(BOOL)cancelled {
+    self.viewController.statusLabel.text = @"Facebook login failed";
+}
+
+- (void)fbDidLogout {
+}
+
+- (void)fbDidExtendToken:(NSString *)accessToken expiresAt:(NSDate *)expiresAt {
+}
+
+- (void)fbSessionInvalidated {
+}
+
+
+// Built in.
 - (void)applicationWillResignActive:(UIApplication *)application {
   // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
   // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

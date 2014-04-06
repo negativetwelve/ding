@@ -37,6 +37,22 @@ extern NSString *const kXMPPmyGooglePassword;
 	UIWindow *window;
 	UINavigationController *homeNavigationController;
     UIBarButtonItem *loginButton;
+    
+    ///////////////////
+    XMPPStream *fbxmppStream;
+	XMPPReconnect *fbxmppReconnect;
+    XMPPRoster *fbxmppRoster;
+	XMPPRosterCoreDataStorage *fbxmppRosterStorage;
+    XMPPvCardCoreDataStorage *fbxmppvCardStorage;
+	XMPPvCardTempModule *fbxmppvCardTempModule;
+	XMPPvCardAvatarModule *fbxmppvCardAvatarModule;
+	XMPPCapabilities *fbxmppCapabilities;
+	XMPPCapabilitiesCoreDataStorage *fbxmppCapabilitiesStorage;
+    
+    BOOL fballowSelfSignedCertificates;
+	BOOL fballowSSLHostNameMismatch;
+	
+	BOOL fbisXmppConnected;
 }
 
 @property (nonatomic, strong, readonly) XMPPStream *xmppStream;
@@ -53,6 +69,15 @@ extern NSString *const kXMPPmyGooglePassword;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *loginButton;
 
 @property (strong, nonatomic) DNUser *user;
+
+@property (nonatomic, strong, readonly) XMPPStream *fbxmppStream;
+@property (nonatomic, strong, readonly) XMPPReconnect *fbxmppReconnect;
+@property (nonatomic, strong, readonly) XMPPRoster *fbxmppRoster;
+@property (nonatomic, strong, readonly) XMPPRosterCoreDataStorage *fbxmppRosterStorage;
+@property (nonatomic, strong, readonly) XMPPvCardTempModule *fbxmppvCardTempModule;
+@property (nonatomic, strong, readonly) XMPPvCardAvatarModule *fbxmppvCardAvatarModule;
+@property (nonatomic, strong, readonly) XMPPCapabilities *fbxmppCapabilities;
+@property (nonatomic, strong, readonly) XMPPCapabilitiesCoreDataStorage *fbxmppCapabilitiesStorage;
 
 - (NSManagedObjectContext *)managedObjectContext_roster;
 - (NSManagedObjectContext *)managedObjectContext_capabilities;
