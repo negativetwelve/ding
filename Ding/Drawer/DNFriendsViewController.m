@@ -7,13 +7,13 @@
 //
 
 #import "DNFriendsViewController.h"
-#import "DNAppDelegate.h"
 
 @interface DNFriendsViewController ()
 
 @end
 
 @implementation DNFriendsViewController
+@synthesize appDelegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -31,6 +31,18 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)setupLeftMenuButton {
+    UIBarButtonItem *signOutButton = [[UIBarButtonItem alloc] initWithTitle:@"Sign Out" style:UIBarButtonItemStylePlain target:self action:@selector(signOutButtonPressed:)];
+    [self.navigationItem setLeftBarButtonItem:signOutButton animated:YES];
+}
+
+- (void)signOutButtonPressed: (id)selector {
+    NSLog(@"Sign Out called");
+    [self.appDelegate disconnect];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kXMPPmyGoogleJID];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kXMPPmyGooglePassword];
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

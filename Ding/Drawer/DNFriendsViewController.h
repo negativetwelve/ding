@@ -9,10 +9,14 @@
 #import "DNViewController.h"
 #import "DNTableViewController.h"
 
+#import "DNAppDelegate.h"
+
 #import <CoreData/CoreData.h>
 
 @interface DNFriendsViewController : DNTableViewController <NSFetchedResultsControllerDelegate> {
 	NSFetchedResultsController *fetchedResultsController;
 }
+
+@property (nonatomic, retain) DNAppDelegate *appDelegate;
 
 @end

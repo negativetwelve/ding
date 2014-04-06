@@ -156,6 +156,7 @@
 		4D7CA6A418F0CFB600D9EFD4 /* DNGoogleLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA6A318F0CFB600D9EFD4 /* DNGoogleLoginViewController.m */; };
 		4D7CA6A618F0DDE600D9EFD4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7CA6A518F0DDE600D9EFD4 /* CoreData.framework */; };
 		4D7CA6A918F11FFA00D9EFD4 /* DNFacebookFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA6A818F11FFA00D9EFD4 /* DNFacebookFriendsViewController.m */; };
+		4D7CACD718F1245200D9EFD4 /* DNFacebookFriendsNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CACD618F1245200D9EFD4 /* DNFacebookFriendsNavigationController.m */; };
 		4D911CD018F08ADE007BE775 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CCF18F08ADE007BE775 /* Foundation.framework */; };
 		4D911CD218F08ADE007BE775 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CD118F08ADE007BE775 /* CoreGraphics.framework */; };
 		4D911CD418F08ADE007BE775 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CD318F08ADE007BE775 /* UIKit.framework */; };
@@ -487,6 +488,8 @@
 		4D7CA6A518F0DDE600D9EFD4 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		4D7CA6A718F11FFA00D9EFD4 /* DNFacebookFriendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNFacebookFriendsViewController.h; path = Drawer/DNFacebookFriendsViewController.h; sourceTree = "<group>"; };
 		4D7CA6A818F11FFA00D9EFD4 /* DNFacebookFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNFacebookFriendsViewController.m; path = Drawer/DNFacebookFriendsViewController.m; sourceTree = "<group>"; };
+		4D7CACD518F1245200D9EFD4 /* DNFacebookFriendsNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNFacebookFriendsNavigationController.h; path = Drawer/DNFacebookFriendsNavigationController.h; sourceTree = "<group>"; };
+		4D7CACD618F1245200D9EFD4 /* DNFacebookFriendsNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNFacebookFriendsNavigationController.m; path = Drawer/DNFacebookFriendsNavigationController.m; sourceTree = "<group>"; };
 		4D911CCC18F08ADE007BE775 /* Ding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D911CCF18F08ADE007BE775 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4D911CD118F08ADE007BE775 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -619,6 +622,8 @@
 				4D7CA4B918F0AE2600D9EFD4 /* DNFriendsNavigationController.m */,
 				4D7CA4C118F0B63800D9EFD4 /* DNFriendsViewController.h */,
 				4D7CA4C218F0B63800D9EFD4 /* DNFriendsViewController.m */,
+				4D7CACD518F1245200D9EFD4 /* DNFacebookFriendsNavigationController.h */,
+				4D7CACD618F1245200D9EFD4 /* DNFacebookFriendsNavigationController.m */,
 				4D7CA6A718F11FFA00D9EFD4 /* DNFacebookFriendsViewController.h */,
 				4D7CA6A818F11FFA00D9EFD4 /* DNFacebookFriendsViewController.m */,
 			);
@@ -1584,6 +1589,7 @@
 			knownRegions = (
 				en,
 				Base,
+				he,
 			);
 			mainGroup = 4D911CC318F08ADE007BE775;
 			productRefGroup = 4D911CCD18F08ADE007BE775 /* Products */;
@@ -1699,6 +1705,7 @@
 				4D7CA54D18F0CCE700D9EFD4 /* XMPPXOAuth2Google.m in Sources */,
 				4D7CA4E318F0CB2600D9EFD4 /* DispatchQueueLogFormatter.m in Sources */,
 				4D7CA69318F0CE5500D9EFD4 /* XMPPBlocking.m in Sources */,
+				4D7CACD718F1245200D9EFD4 /* DNFacebookFriendsNavigationController.m in Sources */,
 				4D7CA69B18F0CE5500D9EFD4 /* XMPPMessage+XEP_0224.m in Sources */,
 				4D7CA65D18F0CE5500D9EFD4 /* XMPPRoomCoreDataStorage.m in Sources */,
 				4D7CA67118F0CE5500D9EFD4 /* XMPPvCardTempAdrTypes.m in Sources */,
@@ -1936,6 +1943,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"${PROJECT_DIR}/Libraries/libidn",
+					"/Users/mark/Dropbox/projects/ding/Libraries/facebook-ios-sdk/vendor/OCMock/Examples/iOS5Example/usr/lib",
+					"/Users/mark/Dropbox/projects/ding/Libraries/facebook-ios-sdk/vendor/OCMock/Examples/iPhoneExample/Libraries",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1962,6 +1971,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"${PROJECT_DIR}/Libraries/libidn",
+					"/Users/mark/Dropbox/projects/ding/Libraries/facebook-ios-sdk/vendor/OCMock/Examples/iOS5Example/usr/lib",
+					"/Users/mark/Dropbox/projects/ding/Libraries/facebook-ios-sdk/vendor/OCMock/Examples/iPhoneExample/Libraries",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

@@ -17,6 +17,8 @@
 	<string>Ding.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>0E612C3D-D895-49E7-971E-3A19842CF011</key>
+		<string>../Libraries/facebook-ios-sdk</string>
 		<key>1C08E075-65A1-4C49-AF64-4B45DE62154F</key>
 		<string>..</string>
 	</dict>
@@ -35,6 +37,14 @@
 			<string>1C08E075-65A1-4C49-AF64-4B45DE62154F</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ding</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>0E612C3D-D895-49E7-971E-3A19842CF011</string>
+			<key>IDESourceControlWCCName</key>
+			<string>facebook-ios-sdk</string>
 		</dict>
 	</array>
 </dict>
