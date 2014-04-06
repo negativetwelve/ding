@@ -59,6 +59,8 @@
 
 - (void)googleLoginButtonPressed: (id)selector {
     NSLog(@"google login button pressed");
+    DNGoogleLoginViewController *googleLoginViewController = [[DNGoogleLoginViewController alloc] init];
+    [self.navigationController pushViewController:googleLoginViewController animated:YES];
 }
 
 - (void)facebookLoginButtonPressed: (id)selector {

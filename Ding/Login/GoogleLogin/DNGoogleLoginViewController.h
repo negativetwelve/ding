@@ -1,5 +1,5 @@
 //
-//  DNLoginViewController.h
+//  DNGoogleLoginViewController.h
 //  Ding
 //
 //  Created by Mark Miyashita on 4/5/14.
@@ -7,8 +7,7 @@
 //
 
 #import "DNViewController.h"
-#import "DNGoogleLoginViewController.h"
 
-@interface DNLoginViewController : DNViewController
+@interface DNGoogleLoginViewController : DNViewController
 
 @end
