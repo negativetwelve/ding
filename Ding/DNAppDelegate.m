@@ -103,6 +103,8 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
         [friendsViewController setAppDelegate:self];
         
         [self.window setRootViewController:drawerController];
+        
+
     }
     
     [self.window makeKeyAndVisible];
