@@ -670,13 +670,10 @@ static NSString *kMessageCell = @"MessageCell";
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return [[cellMap objectAtIndex:[indexPath row]] isKindOfClass:[XMPPMessageArchiving_Message_CoreDataObject class]];
-    //    return [[tableView cellForRowAtIndexPath:indexPath] reuseIdentifier] == kMessageCell;
 }
 
 // Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView
-commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
-forRowAtIndexPath:(NSIndexPath *)indexPath {
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSObject *object = [cellMap objectAtIndex:[indexPath row]];
         if ([object isKindOfClass:[NSDate class]]) {
@@ -686,9 +683,11 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         //        NSLog(@"Delete %@", object);
         
         // Remove message from managed object context by index path.
-        [managedObjectContext deleteObject:(XMPPMessageArchiving_Message_CoreDataObject *)object];
+        XMPPMessageArchivingCoreDataStorage *storage = [XMPPMessageArchivingCoreDataStorage sharedInstance];
+        NSManagedObjectContext *moc = [storage mainThreadManagedObjectContext];
+        [moc deleteObject:(XMPPMessageArchiving_Message_CoreDataObject *)object];
         NSError *error;
-        if (![managedObjectContext save:&error]) {
+        if (![moc save:&error]) {
             // TODO: Handle the error appropriately.
             NSLog(@"Delete message error %@, %@", error, [error userInfo]);
         }
