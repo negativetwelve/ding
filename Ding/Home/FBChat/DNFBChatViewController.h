@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @class DNHomeNavigationController;
-@interface DNFBChatViewController : UIViewController {
+@interface DNFBChatViewController : UITableViewController {
     DNHomeNavigationController * homeNavigationController;
    
 }

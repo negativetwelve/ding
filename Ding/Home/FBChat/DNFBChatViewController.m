@@ -21,7 +21,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        self.view.backgroundColor = [UIColor yellowColor];
+        self.view.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }
@@ -33,6 +33,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    UITableViewCell *wonj = [[UITableViewCell alloc] init];
+    wonj.text = @"Wonjun Jeong";
+    
 }
 
 - (void)didReceiveMemoryWarning {
