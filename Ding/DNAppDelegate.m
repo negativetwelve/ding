@@ -90,7 +90,7 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
         DNFriendsViewController *friendsViewController = [[DNFriendsViewController alloc] init];
         
         DNFacebookFriendsNavigationController *facebookFriendsNavigationController = [[DNFacebookFriendsNavigationController alloc] initWithRootViewController:facebookFriendsViewController];
-        DNHomeNavigationController *homeNavigation = [[DNHomeNavigationController alloc] init];
+        DNHomeNavigationController *homeNavigation = [[DNHomeNavigationController alloc] initWithAppDelegate:self];
         DNFriendsNavigationController *friendsNavigationController = [[DNFriendsNavigationController alloc] initWithRootViewController:friendsViewController];
         
         [self setHomeNavigationController:homeNavigation];
@@ -502,16 +502,22 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
 		
 		NSString *body = [[message elementForName:@"body"] stringValue];
 		NSString *displayName = [user displayName];
+        NSString *userJid = [message from];
         
 		if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
+            NSLog(@"active application, received message");
 			UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:displayName
                                                                 message:body
                                                                delegate:nil
                                                       cancelButtonTitle:@"Ok"
                                                       otherButtonTitles:nil];
-			[alertView show];
+            NSLog(@"chat view: %@", self.chatViewController);
+            [self.chatViewController fetchResults];
+            
+            //[alertView show];
 		} else {
 			// We are not active, so use a local notification instead
+            NSLog(@"inactive app, received message");
 			UILocalNotification *localNotification = [[UILocalNotification alloc] init];
 			localNotification.alertAction = @"Ok";
 			localNotification.alertBody = [NSString stringWithFormat:@"From: %@\n\n%@",displayName,body];

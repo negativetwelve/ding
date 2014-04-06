@@ -27,6 +27,14 @@
     return self;
 }
 
+- (id)initWithAppDelegate:(DNAppDelegate *)appDelegate {
+    self = [super init];
+    if (self) {
+        self.appDelegate = appDelegate;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -41,6 +49,8 @@
     [self setChatViewController:chatView];
     [self setFBChatViewController:fBChatView];
     [self setVoiceViewController:voiceView];
+    
+    [self.appDelegate setChatViewController:chatView];
     
     NSLog(@"set client control");
     //Create a Segmented Control tab

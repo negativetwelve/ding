@@ -18,4 +18,7 @@
 @property (nonatomic, retain) DNHomeNavigationController *homeNavigationController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+
+- (void)fetchResults;
+
 @end

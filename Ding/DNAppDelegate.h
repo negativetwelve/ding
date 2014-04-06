@@ -17,6 +17,8 @@
 
 #import "DNUser.h"
 
+#import "DNChatViewController.h"
+
 extern NSString *const kXMPPmyGoogleJID;
 extern NSString *const kXMPPmyGooglePassword;
 
@@ -77,6 +79,7 @@ extern NSString *const kXMPPmyGooglePassword;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *loginButton;
 
 @property (strong, nonatomic) DNUser *user;
+@property (strong, nonatomic) DNChatViewController *chatViewController;
 
 @property (nonatomic, strong, readonly) XMPPStream *fbxmppStream;
 @property (nonatomic, strong, readonly) XMPPReconnect *fbxmppReconnect;

@@ -35,6 +35,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     NSLog(@"hi mark chat");
     [self.homeNavigationController.clientControl setSelectedSegmentIndex:0];
+    [self.tableView reloadData];
 }
 
 - (void) pushComposeViewController {
@@ -60,7 +61,10 @@
     //    Conversation *conversation = [fetchedResultsController objectAtIndexPath:indexPath];
     //    cell.textLabel.text = conversation.title;
     //    cell.detailTextLabel.text = conversation.lastMessage.text;
+    DNMessageViewController *messageViewController = [[DNMessageViewController alloc] init];
     XMPPMessageArchiving_Contact_CoreDataObject *conversation = [fetchedResultsController objectAtIndexPath:indexPath];
+    messageViewController.conversation = conversation;
+    [messageViewController loadMessages];
     cell.textLabel.text = conversation.bareJidStr;
     cell.detailTextLabel.text = conversation.mostRecentMessageBody;
     NSLog(@"OHHEY:%@", conversation.mostRecentMessageBody);
@@ -113,10 +117,6 @@
 }
 
 - (void)fetchResults {
-    if (fetchedResultsController) {
-        return;
-    }
-    
     XMPPMessageArchivingCoreDataStorage *storage = [XMPPMessageArchivingCoreDataStorage sharedInstance];
     NSManagedObjectContext *moc = [storage mainThreadManagedObjectContext];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"XMPPMessageArchiving_Contact_CoreDataObject"
@@ -138,6 +138,7 @@
     if (!rval) {
         NSLog(@"error: %@", error);
     }
+    [self.tableView reloadData];
 }
 
 @end

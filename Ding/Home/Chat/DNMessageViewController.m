@@ -180,6 +180,14 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     //    }
     //    NSLog(@"Saving messages to disc takes %f seconds", [before timeIntervalSinceNow]);
     
+    [self loadMessages];
+    // TODO: Implement check-box edit mode like iPhone Messages does. (Icebox)
+    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    [self scrollToBottomAnimated:NO];
+}
+
+- (void)loadMessages {
     [self fetchResults];
     
     // Construct cellMap from fetchedObjects.
@@ -191,16 +199,13 @@ static CGFloat const kChatBarHeight4    = 94.0f;
             [self addMessage:message];
         }
     }
-    
-    // TODO: Implement check-box edit mode like iPhone Messages does. (Icebox)
-    self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    [chatContent reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated]; // below: work around for [chatContent flashScrollIndicators]
     NSLog(@"DNMessageViewController viewWillAppear");
     [chatContent performSelector:@selector(flashScrollIndicators) withObject:nil afterDelay:0.0];
-    [self scrollToBottomAnimated:NO];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -357,6 +362,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     NSInteger bottomRow = [cellMap count] - 1;
     if (bottomRow >= 0) {
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:bottomRow inSection:0];
+        NSLog(@"bottom row: %d, index path: %d", bottomRow, [chatContent numberOfRowsInSection:0]);
         [chatContent scrollToRowAtIndexPath:indexPath
                            atScrollPosition:UITableViewScrollPositionBottom animated:animated];
     }
@@ -743,6 +749,7 @@ static NSString *kMessageCell = @"MessageCell";
     if (!rval) {
         NSLog(@"error: %@", error);
     }
+    [chatContent reloadData];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject
