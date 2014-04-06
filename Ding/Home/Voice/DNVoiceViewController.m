@@ -35,7 +35,7 @@
     UISegmentedControl *clientControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"gChat", @"Voice", @"fb", nil]];
     
     [self.homeNavigationController setClientControl:clientControl];
-    [self.homeNavigationController.clientControl setSelectedSegmentIndex:0];
+    [self.homeNavigationController.clientControl setSelectedSegmentIndex:1];
     
     NSLog(@"%@", self.homeNavigationController);
     //set target for clientControl
@@ -55,6 +55,26 @@
     [titleButtonArray addObject:flexibleSpace];
     
     self.navigationItem.leftBarButtonItems = titleButtonArray;
+}
+-(void)diffClientClicked:(id)sender {
+    NSLog(@"diff client clicked");
+    UIViewController *nextViewController;
+    NSUInteger index = self.homeNavigationController.clientControl.selectedSegmentIndex;
+    if (index == 0) {
+        nextViewController = self.homeNavigationController.chatViewController;
+    } else if (index == 1) {
+        nextViewController = self.homeNavigationController.voiceViewController;
+    } else if (index == 2) {
+        nextViewController = self.homeNavigationController.fBChatViewController;
+    } else {
+        NSLog(@"No Segment Cell above 2 Exists");
+    }
+    NSLog(@"%@", nextViewController);
+    NSArray *nextViewControllers = [NSArray arrayWithObject:nextViewController];
+    [self.homeNavigationController setViewControllers:nextViewControllers animated:NO];
+    NSLog(@"changed client");
+    
+    
 }
 
 - (void)didReceiveMemoryWarning

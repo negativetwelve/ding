@@ -34,7 +34,6 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    NSLog(@"view controllers started");
     DNVoiceViewController *voiceView = [[DNVoiceViewController alloc] init];
     DNChatViewController *chatView = [[DNChatViewController alloc] init];
     DNFBChatViewController *fBChatView = [[DNFBChatViewController alloc] init];
@@ -43,7 +42,6 @@
     [self setChatViewController:chatView];
     [self setFBChatViewController:fBChatView];
     [self setVoiceViewController:voiceView];
-    NSLog(@"view controllers finished");
 
 
 }
