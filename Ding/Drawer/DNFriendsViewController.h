@@ -7,7 +7,12 @@
 //
 
 #import "DNViewController.h"
+#import "DNTableViewController.h"
 
-@interface DNFriendsViewController : DNViewController
+#import <CoreData/CoreData.h>
+
+@interface DNFriendsViewController : DNTableViewController <NSFetchedResultsControllerDelegate> {
+	NSFetchedResultsController *fetchedResultsController;
+}
 
 @end
