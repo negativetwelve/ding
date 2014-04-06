@@ -8,9 +8,6 @@
 
 #import "DNViewController.h"
 #import "DNHomeNavigationController.h"
-#import "DNFBChatViewController.h"
-#import "DNChatViewController.h"
-#import "DNVoiceViewController.h"
 
 #import "MMDrawerController.h"
 #import "MMDrawerBarButtonItem.h"
@@ -19,6 +16,7 @@
     MMDrawerController *drawerController;
     DNHomeNavigationController *homeNavigationController;
 }
+- (void) setClientControl;
 
 @property (nonatomic, retain) MMDrawerController *drawerController;
 @property (nonatomic, retain) DNHomeNavigationController *homeNavigationController;

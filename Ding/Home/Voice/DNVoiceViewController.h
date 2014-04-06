@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class DNHomeNavigationController;
 
-@interface DNVoiceViewController : UIViewController
+@interface DNVoiceViewController : UIViewController {
+    DNHomeNavigationController * homeNavigationController;
+}
+
+@property (nonatomic, retain) DNHomeNavigationController *homeNavigationController;
 
 @end

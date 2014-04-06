@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DNFBChatViewController : UIViewController
+@class DNHomeNavigationController;
+@interface DNFBChatViewController : UIViewController {
+    DNHomeNavigationController * homeNavigationController;
+   
+}
+
+@property (nonatomic, retain) DNHomeNavigationController *homeNavigationController;
 
 @end

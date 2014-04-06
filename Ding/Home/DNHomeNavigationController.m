@@ -14,11 +14,17 @@
 
 @implementation DNHomeNavigationController
 @synthesize clientControl = _clientControl;
+@synthesize chatViewController = _chatViewController;
+@synthesize fBChatViewController = _fBChatViewController;
+@synthesize voiceViewController = _voiceViewController;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+
+        
         
     }
     return self;
@@ -28,9 +34,17 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    NSLog(@"view controllers started");
+    DNVoiceViewController *voiceView = [[DNVoiceViewController alloc] init];
+    DNChatViewController *chatView = [[DNChatViewController alloc] init];
+    DNFBChatViewController *fBChatView = [[DNFBChatViewController alloc] init];
+        
     
-    
-    
+    [self setChatViewController:chatView];
+    [self setFBChatViewController:fBChatView];
+    [self setVoiceViewController:voiceView];
+    NSLog(@"view controllers finished");
+
 
 }
 

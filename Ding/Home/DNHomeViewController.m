@@ -29,53 +29,61 @@
     [super viewDidLoad];
     [self setupLeftMenuButton];
     [self setupRightMenuButton];
+    
+}
+
+-(void)setClientControl {
+    //set the default selected client
+    NSLog(@"set client control");
     //Create a Segmented Control tab
     UISegmentedControl *clientControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"gChat", @"Voice", @"fb", nil]];
     
-    //UISegmentedControl *clientControl = [[UISegmentedControl alloc] initWithItems:[self segmentViewControllers]];
-    
     [self.homeNavigationController setClientControl:clientControl];
-    
-    //set the default selected client
-    //[clientControl setSelectedSegmentIndex:0];
-    
+    [self.homeNavigationController.clientControl setSelectedSegmentIndex:0];
+
+    NSLog(@"%@", self.homeNavigationController);
     //set target for clientControl
-    [clientControl addTarget:self action:@selector(diffClientClicked:) forControlEvents:UIControlEventValueChanged];
+    [self.homeNavigationController.clientControl addTarget:self action:@selector(diffClientClicked:) forControlEvents:UIControlEventValueChanged];
+    
     
     //fire an action when selection changes
-    [clientControl sendActionsForControlEvents:UIControlEventValueChanged];
+    [self.homeNavigationController.clientControl sendActionsForControlEvents:UIControlEventValueChanged];
+    
+    
     
     //Array of NavBar buttons
     NSMutableArray *titleButtonArray = [[NSMutableArray alloc] init];
-     UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
-     [titleButtonArray addObject:flexibleSpace];
-     [titleButtonArray addObject:[[UIBarButtonItem alloc] initWithCustomView:clientControl]];
-     [titleButtonArray addObject:flexibleSpace];
-     
+    UIBarButtonItem *flexibleSpace = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    [titleButtonArray addObject:flexibleSpace];
+    [titleButtonArray addObject:[[UIBarButtonItem alloc] initWithCustomView:clientControl]];
+    [titleButtonArray addObject:flexibleSpace];
+    
     self.navigationItem.leftBarButtonItems = titleButtonArray;
+    
 }
 
-- (NSArray *)segmentViewControllers {
-    DNChatViewController *chat = [[DNChatViewController init] alloc];
-    DNVoiceViewController *voice = [[DNVoiceViewController init] alloc];
-    DNFBChatViewController *fbchat = [[DNFBChatViewController init] alloc];
-    NSArray *viewControllers = [NSArray arrayWithObjects:chat, voice, fbchat, nil];
-    
-    return viewControllers;
-}
 
 -(void)diffClientClicked:(id)sender {
-    /*NSUInteger index = self.homeNavigationController.clientControl.selectedSegmentIndex;
-    UIViewController *nextViewController = [self.homeNavigationController.viewControllers objectAtIndex:index];
-    
+    NSLog(@"diff client clicked");
+    UIViewController *nextViewController;
+    NSUInteger index = self.homeNavigationController.clientControl.selectedSegmentIndex;
+    if (index == 0) {
+        nextViewController = self.homeNavigationController.chatViewController;
+    } else if (index == 1) {
+        nextViewController = self.homeNavigationController.voiceViewController;
+    } else if (index == 2) {
+        nextViewController = self.homeNavigationController.fBChatViewController;
+    } else {
+        NSLog(@"No Segment Cell above 2 Exists");
+    }
+    NSLog(@"%@", nextViewController);
     NSArray *nextViewControllers = [NSArray arrayWithObject:nextViewController];
-    [self.homeNavigationController setViewControllers:nextViewControllers animated:NO];*/
+    [self.homeNavigationController setViewControllers:nextViewControllers animated:NO];
+    NSLog(@"changed client");
+
 
 }
 
--(void)changeClient:(id)sender {
-    
-}
 -(void)setupLeftMenuButton {
     //MMDrawerBarButtonItem *leftDrawerButton = [[MMDrawerBarButtonItem alloc] initWithTarget:self action:@selector(leftDrawerButtonPress:)];
     //[self.navigationItem setLeftBarButtonItem:leftDrawerButton animated:YES];
