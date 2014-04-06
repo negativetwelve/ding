@@ -10,13 +10,14 @@
 #import <CoreData/CoreData.h>
 
 #import "XMPPFramework.h"
+#import "FBConnect.h"
 
 #import "DNUser.h"
 
 extern NSString *const kXMPPmyGoogleJID;
 extern NSString *const kXMPPmyGooglePassword;
 
-@interface DNAppDelegate : UIResponder <UIApplicationDelegate, XMPPRosterDelegate> {
+@interface DNAppDelegate : UIResponder <UIApplicationDelegate, XMPPRosterDelegate, FBSessionDelegate> {
 	XMPPStream *xmppStream;
 	XMPPReconnect *xmppReconnect;
     XMPPRoster *xmppRoster;
@@ -53,6 +54,7 @@ extern NSString *const kXMPPmyGooglePassword;
 	BOOL fballowSSLHostNameMismatch;
 	
 	BOOL fbisXmppConnected;
+    Facebook *facebook;
 }
 
 @property (nonatomic, strong, readonly) XMPPStream *xmppStream;
@@ -81,6 +83,8 @@ extern NSString *const kXMPPmyGooglePassword;
 
 - (NSManagedObjectContext *)managedObjectContext_roster;
 - (NSManagedObjectContext *)managedObjectContext_capabilities;
+
+- (NSManagedObjectContext *)managedObjectContext_rosterFacebook;
 
 - (BOOL)connect;
 - (void)disconnect;

@@ -86,6 +86,8 @@
 	if (fetchedResultsController == nil) {
         NSLog(@"fetched results is nil");
 		NSManagedObjectContext *moc = [[self appDelegate] managedObjectContext_roster];
+        
+        NSLog(@"MOC: %@", moc);
 		
 		NSEntityDescription *entity = [NSEntityDescription entityForName:@"XMPPUserCoreDataStorageObject"
 		                                          inManagedObjectContext:moc];

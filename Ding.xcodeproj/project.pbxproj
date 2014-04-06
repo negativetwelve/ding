@@ -157,6 +157,21 @@
 		4D7CA6A618F0DDE600D9EFD4 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D7CA6A518F0DDE600D9EFD4 /* CoreData.framework */; };
 		4D7CA6A918F11FFA00D9EFD4 /* DNFacebookFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CA6A818F11FFA00D9EFD4 /* DNFacebookFriendsViewController.m */; };
 		4D7CACD718F1245200D9EFD4 /* DNFacebookFriendsNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CACD618F1245200D9EFD4 /* DNFacebookFriendsNavigationController.m */; };
+		4D7CB12118F1481A00D9EFD4 /* GVoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CB10318F1481A00D9EFD4 /* GVoice.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4D7CB12218F1481A00D9EFD4 /* GVoiceAllSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CB10518F1481A00D9EFD4 /* GVoiceAllSettings.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4D7CB12318F1481A00D9EFD4 /* GVoiceGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CB10718F1481A00D9EFD4 /* GVoiceGroup.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4D7CB12418F1481A00D9EFD4 /* GVoiceSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CB10918F1481A00D9EFD4 /* GVoiceSettings.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4D7CB12518F1481A00D9EFD4 /* NSObject+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CB10C18F1481A00D9EFD4 /* NSObject+JSON.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4D7CB12618F1481A00D9EFD4 /* NSString-GVoice.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CB10E18F1481A00D9EFD4 /* NSString-GVoice.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4D7CB12718F1481A00D9EFD4 /* ParsingUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CB11018F1481A00D9EFD4 /* ParsingUtils.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4D7CB12818F1481A00D9EFD4 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CB11218F1481A00D9EFD4 /* SBJsonParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4D7CB12918F1481A00D9EFD4 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CB11418F1481A00D9EFD4 /* SBJsonStreamParser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4D7CB12A18F1481A00D9EFD4 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CB11618F1481A00D9EFD4 /* SBJsonStreamParserAdapter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4D7CB12B18F1481A00D9EFD4 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CB11818F1481A00D9EFD4 /* SBJsonStreamParserState.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4D7CB12C18F1481A00D9EFD4 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CB11A18F1481A00D9EFD4 /* SBJsonStreamWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4D7CB12D18F1481A00D9EFD4 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CB11C18F1481A00D9EFD4 /* SBJsonStreamWriterState.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4D7CB12E18F1481A00D9EFD4 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CB11E18F1481A00D9EFD4 /* SBJsonTokeniser.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4D7CB12F18F1481A00D9EFD4 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D7CB12018F1481A00D9EFD4 /* SBJsonWriter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4D911CD018F08ADE007BE775 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CCF18F08ADE007BE775 /* Foundation.framework */; };
 		4D911CD218F08ADE007BE775 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CD118F08ADE007BE775 /* CoreGraphics.framework */; };
 		4D911CD418F08ADE007BE775 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D911CD318F08ADE007BE775 /* UIKit.framework */; };
@@ -490,6 +505,38 @@
 		4D7CA6A818F11FFA00D9EFD4 /* DNFacebookFriendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNFacebookFriendsViewController.m; path = Drawer/DNFacebookFriendsViewController.m; sourceTree = "<group>"; };
 		4D7CACD518F1245200D9EFD4 /* DNFacebookFriendsNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNFacebookFriendsNavigationController.h; path = Drawer/DNFacebookFriendsNavigationController.h; sourceTree = "<group>"; };
 		4D7CACD618F1245200D9EFD4 /* DNFacebookFriendsNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNFacebookFriendsNavigationController.m; path = Drawer/DNFacebookFriendsNavigationController.m; sourceTree = "<group>"; };
+		4D7CB10118F1481A00D9EFD4 /* GVoice-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GVoice-Prefix.pch"; sourceTree = "<group>"; };
+		4D7CB10218F1481A00D9EFD4 /* GVoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVoice.h; sourceTree = "<group>"; };
+		4D7CB10318F1481A00D9EFD4 /* GVoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVoice.m; sourceTree = "<group>"; };
+		4D7CB10418F1481A00D9EFD4 /* GVoiceAllSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVoiceAllSettings.h; sourceTree = "<group>"; };
+		4D7CB10518F1481A00D9EFD4 /* GVoiceAllSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVoiceAllSettings.m; sourceTree = "<group>"; };
+		4D7CB10618F1481A00D9EFD4 /* GVoiceGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVoiceGroup.h; sourceTree = "<group>"; };
+		4D7CB10718F1481A00D9EFD4 /* GVoiceGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVoiceGroup.m; sourceTree = "<group>"; };
+		4D7CB10818F1481A00D9EFD4 /* GVoiceSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GVoiceSettings.h; sourceTree = "<group>"; };
+		4D7CB10918F1481A00D9EFD4 /* GVoiceSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GVoiceSettings.m; sourceTree = "<group>"; };
+		4D7CB10A18F1481A00D9EFD4 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		4D7CB10B18F1481A00D9EFD4 /* NSObject+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+JSON.h"; sourceTree = "<group>"; };
+		4D7CB10C18F1481A00D9EFD4 /* NSObject+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+JSON.m"; sourceTree = "<group>"; };
+		4D7CB10D18F1481A00D9EFD4 /* NSString-GVoice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString-GVoice.h"; sourceTree = "<group>"; };
+		4D7CB10E18F1481A00D9EFD4 /* NSString-GVoice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString-GVoice.m"; sourceTree = "<group>"; };
+		4D7CB10F18F1481A00D9EFD4 /* ParsingUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParsingUtils.h; sourceTree = "<group>"; };
+		4D7CB11018F1481A00D9EFD4 /* ParsingUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParsingUtils.m; sourceTree = "<group>"; };
+		4D7CB11118F1481A00D9EFD4 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		4D7CB11218F1481A00D9EFD4 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		4D7CB11318F1481A00D9EFD4 /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
+		4D7CB11418F1481A00D9EFD4 /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
+		4D7CB11518F1481A00D9EFD4 /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		4D7CB11618F1481A00D9EFD4 /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
+		4D7CB11718F1481A00D9EFD4 /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
+		4D7CB11818F1481A00D9EFD4 /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
+		4D7CB11918F1481A00D9EFD4 /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		4D7CB11A18F1481A00D9EFD4 /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		4D7CB11B18F1481A00D9EFD4 /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		4D7CB11C18F1481A00D9EFD4 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
+		4D7CB11D18F1481A00D9EFD4 /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonTokeniser.h; sourceTree = "<group>"; };
+		4D7CB11E18F1481A00D9EFD4 /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonTokeniser.m; sourceTree = "<group>"; };
+		4D7CB11F18F1481A00D9EFD4 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		4D7CB12018F1481A00D9EFD4 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		4D911CCC18F08ADE007BE775 /* Ding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D911CCF18F08ADE007BE775 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4D911CD118F08ADE007BE775 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -642,6 +689,7 @@
 		4D7CA4CB18F0CB2600D9EFD4 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				4D7CB10018F1481A00D9EFD4 /* GV */,
 				4D7CA50318F0CCE700D9EFD4 /* XMPPFramework */,
 				4D7CA4E918F0CBC100D9EFD4 /* KissXML */,
 				4D7CA4F618F0CBC100D9EFD4 /* libidn */,
@@ -1443,6 +1491,45 @@
 			name = GoogleLogin;
 			sourceTree = "<group>";
 		};
+		4D7CB10018F1481A00D9EFD4 /* GV */ = {
+			isa = PBXGroup;
+			children = (
+				4D7CB10118F1481A00D9EFD4 /* GVoice-Prefix.pch */,
+				4D7CB10218F1481A00D9EFD4 /* GVoice.h */,
+				4D7CB10318F1481A00D9EFD4 /* GVoice.m */,
+				4D7CB10418F1481A00D9EFD4 /* GVoiceAllSettings.h */,
+				4D7CB10518F1481A00D9EFD4 /* GVoiceAllSettings.m */,
+				4D7CB10618F1481A00D9EFD4 /* GVoiceGroup.h */,
+				4D7CB10718F1481A00D9EFD4 /* GVoiceGroup.m */,
+				4D7CB10818F1481A00D9EFD4 /* GVoiceSettings.h */,
+				4D7CB10918F1481A00D9EFD4 /* GVoiceSettings.m */,
+				4D7CB10A18F1481A00D9EFD4 /* JSON.h */,
+				4D7CB10B18F1481A00D9EFD4 /* NSObject+JSON.h */,
+				4D7CB10C18F1481A00D9EFD4 /* NSObject+JSON.m */,
+				4D7CB10D18F1481A00D9EFD4 /* NSString-GVoice.h */,
+				4D7CB10E18F1481A00D9EFD4 /* NSString-GVoice.m */,
+				4D7CB10F18F1481A00D9EFD4 /* ParsingUtils.h */,
+				4D7CB11018F1481A00D9EFD4 /* ParsingUtils.m */,
+				4D7CB11118F1481A00D9EFD4 /* SBJsonParser.h */,
+				4D7CB11218F1481A00D9EFD4 /* SBJsonParser.m */,
+				4D7CB11318F1481A00D9EFD4 /* SBJsonStreamParser.h */,
+				4D7CB11418F1481A00D9EFD4 /* SBJsonStreamParser.m */,
+				4D7CB11518F1481A00D9EFD4 /* SBJsonStreamParserAdapter.h */,
+				4D7CB11618F1481A00D9EFD4 /* SBJsonStreamParserAdapter.m */,
+				4D7CB11718F1481A00D9EFD4 /* SBJsonStreamParserState.h */,
+				4D7CB11818F1481A00D9EFD4 /* SBJsonStreamParserState.m */,
+				4D7CB11918F1481A00D9EFD4 /* SBJsonStreamWriter.h */,
+				4D7CB11A18F1481A00D9EFD4 /* SBJsonStreamWriter.m */,
+				4D7CB11B18F1481A00D9EFD4 /* SBJsonStreamWriterState.h */,
+				4D7CB11C18F1481A00D9EFD4 /* SBJsonStreamWriterState.m */,
+				4D7CB11D18F1481A00D9EFD4 /* SBJsonTokeniser.h */,
+				4D7CB11E18F1481A00D9EFD4 /* SBJsonTokeniser.m */,
+				4D7CB11F18F1481A00D9EFD4 /* SBJsonWriter.h */,
+				4D7CB12018F1481A00D9EFD4 /* SBJsonWriter.m */,
+			);
+			path = GV;
+			sourceTree = "<group>";
+		};
 		4D911CC318F08ADE007BE775 = {
 			isa = PBXGroup;
 			children = (
@@ -1683,6 +1770,7 @@
 				4D7CA54A18F0CCE700D9EFD4 /* XMPPPlainAuthentication.m in Sources */,
 				4D7CA4FB18F0CBC100D9EFD4 /* NSString+DDXML.m in Sources */,
 				4D7CA4C718F0B7A500D9EFD4 /* DNUser.m in Sources */,
+				4D7CB12C18F1481A00D9EFD4 /* SBJsonStreamWriter.m in Sources */,
 				4D7CA67C18F0CE5500D9EFD4 /* XMPPIQ+XEP_0066.m in Sources */,
 				4D7CA65C18F0CE5500D9EFD4 /* XMPPRoom.xcdatamodeld in Sources */,
 				4D7CA68018F0CE5500D9EFD4 /* XMPPMessage+XEP_0085.m in Sources */,
@@ -1697,6 +1785,7 @@
 				4D7CA68618F0CE5500D9EFD4 /* XMPPCapsCoreDataStorageObject.m in Sources */,
 				4D7CA55918F0CCE700D9EFD4 /* DDList.m in Sources */,
 				4D7CA4DE18F0CB2600D9EFD4 /* DDASLLogger.m in Sources */,
+				4D7CB12A18F1481A00D9EFD4 /* SBJsonStreamParserAdapter.m in Sources */,
 				4D7CA55B18F0CCE700D9EFD4 /* RFImageToDataTransformer.m in Sources */,
 				4D7CA67418F0CE5500D9EFD4 /* XMPPvCardTempLabel.m in Sources */,
 				4D7CA68D18F0CE5500D9EFD4 /* XMPPMessageArchiving.m in Sources */,
@@ -1720,14 +1809,18 @@
 				4D7CA68918F0CE5500D9EFD4 /* XMPPMessageArchiving.xcdatamodeld in Sources */,
 				4D7CA66518F0CE5500D9EFD4 /* XMPPRoomMessageMemoryStorageObject.m in Sources */,
 				4D7CA66D18F0CE5500D9EFD4 /* XMPPvCardCoreDataStorageObject.m in Sources */,
+				4D7CB12D18F1481A00D9EFD4 /* SBJsonStreamWriterState.m in Sources */,
 				4D7CA55818F0CCE700D9EFD4 /* XMPPStream.m in Sources */,
 				4D7CA55318F0CCE700D9EFD4 /* XMPPJID.m in Sources */,
 				4D7CA55C18F0CCE700D9EFD4 /* XMPPIDTracker.m in Sources */,
 				4D7CA65418F0CE5500D9EFD4 /* XMPPRoster.m in Sources */,
 				4D7CA65518F0CE5500D9EFD4 /* XMPPSystemInputActivityMonitor.m in Sources */,
+				4D7CB12B18F1481A00D9EFD4 /* SBJsonStreamParserState.m in Sources */,
 				4D7CA69718F0CE5500D9EFD4 /* XMPPTime.m in Sources */,
 				4D7CA54E18F0CCE700D9EFD4 /* NSData+XMPP.m in Sources */,
 				4D7CA69118F0CE5500D9EFD4 /* XMPPMessage+XEP_0184.m in Sources */,
+				4D7CB12F18F1481A00D9EFD4 /* SBJsonWriter.m in Sources */,
+				4D7CB12518F1481A00D9EFD4 /* NSObject+JSON.m in Sources */,
 				4D5C6ECD18F0A23A00C8B392 /* DNTableViewController.m in Sources */,
 				4D7CA64918F0CE5500D9EFD4 /* XMPPGoogleSharedStatus.m in Sources */,
 				4D7CA55D18F0CCE700D9EFD4 /* XMPPSRVResolver.m in Sources */,
@@ -1743,12 +1836,15 @@
 				4D7CA65218F0CE5500D9EFD4 /* XMPPRosterMemoryStorage.m in Sources */,
 				4D7CA55118F0CCE700D9EFD4 /* XMPPElement.m in Sources */,
 				4D7CA69E18F0CE5500D9EFD4 /* XMPPMessage+XEP_0333.m in Sources */,
+				4D7CB12218F1481A00D9EFD4 /* GVoiceAllSettings.m in Sources */,
+				4D7CB12318F1481A00D9EFD4 /* GVoiceGroup.m in Sources */,
 				4D7CA69F18F0CE5500D9EFD4 /* NSXMLElement+XEP_0335.m in Sources */,
 				4D7CA4DD18F0CB2600D9EFD4 /* DDAbstractDatabaseLogger.m in Sources */,
 				4D7CA54F18F0CCE700D9EFD4 /* NSNumber+XMPP.m in Sources */,
 				4D7CA67018F0CE5500D9EFD4 /* XMPPvCardTempAdr.m in Sources */,
 				4D7CA4DF18F0CB2600D9EFD4 /* DDFileLogger.m in Sources */,
 				4D7CA55018F0CCE700D9EFD4 /* NSXMLElement+XMPP.m in Sources */,
+				4D7CB12418F1481A00D9EFD4 /* GVoiceSettings.m in Sources */,
 				4D5C6EC718F0A21B00C8B392 /* DNNavigationController.m in Sources */,
 				4D7CA65818F0CE5500D9EFD4 /* XMPPJabberRPCModule.m in Sources */,
 				4D7CA4E818F0CB6400D9EFD4 /* GCDAsyncSocket.m in Sources */,
@@ -1757,6 +1853,7 @@
 				4D5C6ECA18F0A22C00C8B392 /* DNViewController.m in Sources */,
 				4D7CA4FC18F0CBC100D9EFD4 /* DDXMLDocument.m in Sources */,
 				4D7CA64818F0CE5500D9EFD4 /* XMPPCoreDataStorage.m in Sources */,
+				4D7CB12718F1481A00D9EFD4 /* ParsingUtils.m in Sources */,
 				3F6E770B18F0A75600D798BC /* DNHomeNavigationController.m in Sources */,
 				4D7CA67618F0CE5500D9EFD4 /* XMPPvCardTempTel.m in Sources */,
 				4D7CA55218F0CCE700D9EFD4 /* XMPPIQ.m in Sources */,
@@ -1764,6 +1861,7 @@
 				4D7CA67918F0CE5500D9EFD4 /* XMPPIQ+XEP_0060.m in Sources */,
 				3FBA665F18F0C2D9008B5640 /* DNVoiceViewController.m in Sources */,
 				4D7CA55718F0CCE700D9EFD4 /* XMPPPresence.m in Sources */,
+				4D7CB12E18F1481A00D9EFD4 /* SBJsonTokeniser.m in Sources */,
 				4D7CA4FE18F0CBC100D9EFD4 /* DDXMLNode.m in Sources */,
 				4D7CA66B18F0CE5500D9EFD4 /* XMPPvCardAvatarCoreDataStorageObject.m in Sources */,
 				4D7CA69418F0CE5500D9EFD4 /* XMPPAutoPing.m in Sources */,
@@ -1784,6 +1882,7 @@
 				4D7CA67B18F0CE5500D9EFD4 /* TURNSocket.m in Sources */,
 				4D7CA6A418F0CFB600D9EFD4 /* DNGoogleLoginViewController.m in Sources */,
 				4D7CA66718F0CE5500D9EFD4 /* XMPPMessage+XEP0045.m in Sources */,
+				4D7CB12618F1481A00D9EFD4 /* NSString-GVoice.m in Sources */,
 				4D911CDC18F08ADE007BE775 /* main.m in Sources */,
 				4D7CA64D18F0CE5500D9EFD4 /* XMPPResourceCoreDataStorageObject.m in Sources */,
 				4D7CA68C18F0CE5500D9EFD4 /* XMPPMessageArchivingCoreDataStorage.m in Sources */,
@@ -1795,13 +1894,16 @@
 				4D7CA66318F0CE5500D9EFD4 /* XMPPRoomOccupantHybridMemoryStorageObject.m in Sources */,
 				4D7CA66F18F0CE5500D9EFD4 /* XMPPvCardTemp.m in Sources */,
 				4D7CA4C018F0B5B400D9EFD4 /* DNSettingsViewController.m in Sources */,
+				4D7CB12918F1481A00D9EFD4 /* SBJsonStreamParser.m in Sources */,
 				4D7CA66218F0CE5500D9EFD4 /* XMPPRoomMessageHybridCoreDataStorageObject.m in Sources */,
 				4D7CA69518F0CE5500D9EFD4 /* XMPPPing.m in Sources */,
 				4D7CA67F18F0CE5500D9EFD4 /* XMPPDateTimeProfiles.m in Sources */,
 				4D7CA65A18F0CE5500D9EFD4 /* XMPPLastActivity.m in Sources */,
 				4D7CA66A18F0CE5500D9EFD4 /* XMPPvCard.xcdatamodeld in Sources */,
+				4D7CB12118F1481A00D9EFD4 /* GVoice.m in Sources */,
 				4D7CA4CA18F0BAA600D9EFD4 /* DNLoginViewController.m in Sources */,
 				4D7CA4E218F0CB2600D9EFD4 /* ContextFilterLogFormatter.m in Sources */,
+				4D7CB12818F1481A00D9EFD4 /* SBJsonParser.m in Sources */,
 				4D7CA66818F0CE5500D9EFD4 /* XMPPMUC.m in Sources */,
 				4D7CA4FD18F0CBC100D9EFD4 /* DDXMLElement.m in Sources */,
 				4D7CA68F18F0CE5500D9EFD4 /* XMPPMessage+XEP_0172.m in Sources */,

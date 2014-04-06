@@ -105,6 +105,9 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
     }
     
     [self.window makeKeyAndVisible];
+    
+    [self fbAuthorize];
+
     return YES;
 }
 
@@ -136,22 +139,34 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
 	return [xmppCapabilitiesStorage mainThreadManagedObjectContext];
 }
 
+- (NSManagedObjectContext *)managedObjectContext_rosterFacebook {
+    NSLog(@"fbnxppspspsps: %@", fbxmppRosterStorage);
+	return [fbxmppRosterStorage mainThreadManagedObjectContext];
+}
+
 - (void)dealloc {
 	[self teardownStream];
 }
 
 - (void)setupFBStream {
+    NSLog(@"set up FB stream");
     // it is also possible to use init, but then we need to also set xmppStream.appId and xmppStream.hostName
 	fbxmppStream = [[XMPPStream alloc] initWithFacebookAppId:FACEBOOK_APP_ID];
 	
 	[fbxmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
 	
 	facebook = [[Facebook alloc] initWithAppId:FACEBOOK_APP_ID andDelegate:self];
+    
+    [xmppRoster activate:fbxmppStream];
+    [xmppReconnect activate:fbxmppStream];
 	
     //self.viewController.statusLabel.text = @"Starting Facebook Authentication";
     
 	// Note: Be sure to invoke this AFTER the [self.window makeKeyAndVisible] method call above,
 	//       or nothing will happen.
+}
+
+- (void)fbAuthorize {
     [facebook authorize:[NSArray arrayWithObject:@"xmpp_login"]];
 }
 
@@ -396,6 +411,7 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
 }
 
 - (void)xmppStreamDidSecure:(XMPPStream *)sender {
+    NSLog(@"secure");
 }
 
 - (void)xmppStreamDidConnect:(XMPPStream *)sender {
@@ -531,17 +547,18 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
 	NSLog(@"facebook.accessToken: %@", facebook.accessToken);
 	NSLog(@"facebook.expirationDate: %@", facebook.expirationDate);
 	
-    self.viewController.statusLabel.text = @"XMPP connecting...";
+    //self.viewController.statusLabel.text = @"XMPP connecting...";
     
 	NSError *error = nil;
-	if (![xmppStream connectWithTimeout:5 error:&error]) {
+	if (![fbxmppStream connectWithTimeout:5 error:&error]) {
 		NSLog(@"Error in xmpp connection: %@", error);
-        self.viewController.statusLabel.text = @"XMPP connect failed";
+        //self.viewController.statusLabel.text = @"XMPP connect failed";
 	}
 }
 
 - (void)fbDidNotLogin:(BOOL)cancelled {
-    self.viewController.statusLabel.text = @"Facebook login failed";
+    NSLog(@"fb did not log in");
+    //self.viewController.statusLabel.text = @"Facebook login failed";
 }
 
 - (void)fbDidLogout {
