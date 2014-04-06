@@ -385,7 +385,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     
     newMessage.body = chatInput.text;
     NSDate *now = [[NSDate alloc] init]; newMessage.timestamp = now;
-    
+    newMessage.isOutgoing = YES;
     
     // Message to send
     NSXMLElement *body = [NSXMLElement elementWithName:@"body"];
@@ -625,7 +625,8 @@ static NSString *kMessageCell = @"MessageCell";
                                        constrainedToSize:CGSizeMake(kMessageTextWidth, CGFLOAT_MAX)
                                            lineBreakMode:UILineBreakModeWordWrap];
     UIImage *bubbleImage;
-    if (!([indexPath row] % 3)) { // right bubble
+    XMPPMessageArchiving_Message_CoreDataObject *message = (XMPPMessageArchiving_Message_CoreDataObject *)object;
+    if (message.isOutgoing) { // right bubble
         CGFloat editWidth = tableView.editing ? 32.0f : 0.0f;
         msgBackground.frame = CGRectMake(tableView.frame.size.width-size.width-34.0f-editWidth,
                                          kMessageFontSize-13.0f, size.width+34.0f,
