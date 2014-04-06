@@ -247,13 +247,14 @@ static CGFloat const kChatBarHeight4    = 94.0f;
         // Resize textView to contentHeight
         if (contentHeight != previousContentHeight) {
             if (contentHeight <= kContentHeightMax) { // limit chatInputHeight <= 4 lines
-                CGFloat chatBarHeight = contentHeight + 18.0f;
+                NSLog(@"Shrinking");
+                /*CGFloat chatBarHeight = contentHeight + 18.0f;
                 SET_CHAT_BAR_HEIGHT(chatBarHeight);
                 if (previousContentHeight > kContentHeightMax) {
                     textView.scrollEnabled = NO;
                 }
                 textView.contentOffset = CGPointMake(0.0f, 6.0f); // fix quirk
-                [self scrollToBottomAnimated:YES];
+                [self scrollToBottomAnimated:YES];*/
             } else if (previousContentHeight <= kContentHeightMax) { // grow
                 textView.scrollEnabled = YES;
                 textView.contentOffset = CGPointMake(0.0f, contentHeight-68.0f); // shift to bottom
@@ -274,11 +275,11 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     }
     
     // Enable sendButton if chatInput has non-blank text, disable otherwise.
-    if (rightTrimmedText.length > 0) {
+    /*if (rightTrimmedText.length > 0) {
         [self enableSendButton];
     } else {
         [self disableSendButton];
-    }
+    }*/
     
     previousContentHeight = contentHeight;
 }
