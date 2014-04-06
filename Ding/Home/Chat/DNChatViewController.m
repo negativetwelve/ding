@@ -63,6 +63,7 @@
     XMPPMessageArchiving_Contact_CoreDataObject *conversation = [fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = conversation.bareJidStr;
     cell.detailTextLabel.text = conversation.mostRecentMessageBody;
+    
 }
 
 - (void)viewDidUnload {
