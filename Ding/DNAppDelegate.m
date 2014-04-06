@@ -27,6 +27,9 @@
 #import "XMPPvCardAvatarModule.h"
 #import "XMPPvCardCoreDataStorage.h"
 
+NSString *const kXMPPmyGoogleJID = @"kXMPPmyGoogleJID";
+NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
+
 @interface DNAppDelegate()
 
 - (void)setupStream;
@@ -307,12 +310,12 @@
 	// myJID = @"user@gmail.com/xmppframework";
 	// myPassword = @"";
 	
-	if (myJID == nil || myPassword == nil) {
+	if (myGoogleJID == nil || myGooglePassword == nil) {
 		return NO;
 	}
     
-	[xmppStream setMyJID:[XMPPJID jidWithString:myJID]];
-	password = myPassword;
+	[xmppStream setMyJID:[XMPPJID jidWithString:myGoogleJID]];
+	password = myGooglePassword;
     
 	NSError *error = nil;
 	if (![xmppStream connectWithTimeout:XMPPStreamTimeoutNone error:&error]) {
