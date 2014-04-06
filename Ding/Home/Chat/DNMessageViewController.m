@@ -186,9 +186,12 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     cellMap = [[NSMutableArray alloc]
                initWithCapacity:[[fetchedResultsController fetchedObjects] count]*2];
     
-    
+    NSLog(@"conversation jid: %@", self.conversation.bareJid);
     for (XMPPMessageArchiving_Message_CoreDataObject *message in [fetchedResultsController fetchedObjects]) {
-        [self addMessage:message];
+        NSLog(@"message jid: %@", message.bareJid);
+        if ([message.bareJid isEqualToJID:self.conversation.bareJid]) {
+            [self addMessage:message];
+        }
     }
     
     // TODO: Implement check-box edit mode like iPhone Messages does. (Icebox)
