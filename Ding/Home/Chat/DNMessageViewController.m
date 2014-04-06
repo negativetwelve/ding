@@ -402,10 +402,15 @@ static CGFloat const kChatBarHeight4    = 94.0f;
         // TODO: Handle the error appropriately.
         NSLog(@"sendMessage error %@, %@", error, [error userInfo]);
     }
+    NSLog(@"number of chats: %d", [cellMap count]);
+    [self addMessage:newMessage];
+    [chatContent reloadData];
+    NSLog(@"number of chats: %d", [cellMap count]);
 
     [self clearChatInput];
     
     [self scrollToBottomAnimated:YES]; // must come after RESET_CHAT_BAR_HEIGHT above
+    
     // Play sound or buzz, depending on user settings.
     /*NSString *sendPath = [[NSBundle mainBundle] pathForResource:@"basicsound" ofType:@"wav"];
     CFURLRef baseURL = (CFURLRef)[NSURL fileURLWithPath:sendPath];
@@ -433,11 +438,9 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     
     // Show sentDates at most every 15 minutes.
     
-    if([cellMap count])
-    {
+    if([cellMap count]) {
         BOOL prevIsMessage = [[cellMap objectAtIndex:prevIndex] isKindOfClass:[XMPPMessageArchiving_Message_CoreDataObject class]];
-        if(prevIsMessage)
-        {
+        if(prevIsMessage) {
             XMPPMessageArchiving_Message_CoreDataObject *temp = [cellMap objectAtIndex:prevIndex];
             NSDate * previousSentDate = temp.timestamp;
             // if there has been more than a 15 min gap between this and the previous message!
@@ -447,9 +450,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
                 numberOfObjectsAdded = 2;
             }
         }
-    }
-    else
-    {
+    } else {
         // there are NO messages, definitely add a timestamp!
         [cellMap addObject:currentSentDate];
         numberOfObjectsAdded = 2;
@@ -458,7 +459,6 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     [cellMap addObject:message];
     
     return numberOfObjectsAdded;
-    
 }
 
 // Returns number of objects removed from cellMap (1 or 2).
@@ -524,7 +524,6 @@ static CGFloat const kChatBarHeight4    = 94.0f;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    //    NSLog(@"number of rows: %d", [cellMap count]);
     return [cellMap count];
 }
 
@@ -535,8 +534,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
 static NSString *kMessageCell = @"MessageCell";
 
 // Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UILabel *msgSentDate;
     UIImageView *msgBackground;
     UILabel *msgText;
@@ -691,6 +689,7 @@ static NSString *kMessageCell = @"MessageCell";
             // TODO: Handle the error appropriately.
             NSLog(@"Delete message error %@, %@", error, [error userInfo]);
         }
+        [tableView reloadData];
     }
 }
 
@@ -721,8 +720,6 @@ static NSString *kMessageCell = @"MessageCell";
 }
 
 - (void)fetchResults {
-    if (fetchedResultsController) return;
-    
     NSLog(@"fetch results (messages)");
     
     XMPPMessageArchivingCoreDataStorage *storage = [XMPPMessageArchivingCoreDataStorage sharedInstance];
@@ -753,6 +750,7 @@ static NSString *kMessageCell = @"MessageCell";
       newIndexPath:(NSIndexPath *)newIndexPath {
     
     NSArray *indexPaths;
+    NSLog(@"changed object");
     
     switch(type) {
         case NSFetchedResultsChangeInsert: {
