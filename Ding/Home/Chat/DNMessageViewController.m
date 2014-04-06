@@ -59,6 +59,8 @@ static CGFloat const kChatBarHeight4    = 94.0f;
 @synthesize managedObjectContext;
 
 - (void)viewDidUnload {
+    //self.navigationItem.title = cell.textLabel.text
+
     self.chatContent = nil;
     
     self.chatBar = nil;
@@ -82,6 +84,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSLog(@"DNMessageViewController viewDidLoad");
+    self.navigationController.navigationBar.translucent = NO;
     
     self.title = self.conversation.bareJidStr;
     
