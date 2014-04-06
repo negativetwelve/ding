@@ -243,7 +243,6 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 	
 	[xmppStream setHostName:@"talk.google.com"];
 	[xmppStream setHostPort:5222];
-	
     
 	// You may need to alter these settings depending on the server you're connecting to
 	allowSelfSignedCertificates = NO;
@@ -346,6 +345,41 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 	[xmppStream disconnect];
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark XMPPRosterDelegate
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+- (void)xmppRoster:(XMPPRoster *)sender didReceiveBuddyRequest:(XMPPPresence *)presence {
+	XMPPUserCoreDataStorageObject *user = [xmppRosterStorage userForJID:[presence from]
+	                                                         xmppStream:xmppStream
+	                                               managedObjectContext:[self managedObjectContext_roster]];
+	
+	NSString *displayName = [user displayName];
+	NSString *jidStrBare = [presence fromStr];
+	NSString *body = nil;
+	
+	if (![displayName isEqualToString:jidStrBare]) {
+		body = [NSString stringWithFormat:@"Buddy request from %@ <%@>", displayName, jidStrBare];
+	} else {
+		body = [NSString stringWithFormat:@"Buddy request from %@", displayName];
+	}
+	
+	
+	if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive) {
+		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:displayName
+		                                                    message:body
+		                                                   delegate:nil
+		                                          cancelButtonTitle:@"Not implemented"
+		                                          otherButtonTitles:nil];
+		[alertView show];
+	} else {
+		// We are not active, so use a local notification instead
+		UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+		localNotification.alertAction = @"Not implemented";
+		localNotification.alertBody = body;
+		
+		[[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+	}
+}
 							
 - (void)applicationWillResignActive:(UIApplication *)application {
   // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

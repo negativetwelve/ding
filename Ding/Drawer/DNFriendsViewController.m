@@ -46,6 +46,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (void)viewWillAppear:(BOOL)animated {
+    NSLog(@"friends view will appear");
 	[super viewWillAppear:animated];
     
 	UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 400, 44)];
@@ -79,7 +80,9 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (NSFetchedResultsController *)fetchedResultsController {
+    NSLog(@"fetched results controller called");
 	if (fetchedResultsController == nil) {
+        NSLog(@"fetched results is nil");
 		NSManagedObjectContext *moc = [[self appDelegate] managedObjectContext_roster];
 		
 		NSEntityDescription *entity = [NSEntityDescription entityForName:@"XMPPUserCoreDataStorageObject"
@@ -100,7 +103,6 @@
 		                                                                 sectionNameKeyPath:@"sectionNum"
 		                                                                          cacheName:nil];
 		[fetchedResultsController setDelegate:self];
-		
 		
 		NSError *error = nil;
 		if (![fetchedResultsController performFetch:&error]) {
@@ -142,6 +144,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    NSLog(@"number of sections in table view called %d", [[[self fetchedResultsController] sections] count]);
 	return [[[self fetchedResultsController] sections] count];
 }
 
@@ -164,6 +167,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex {
 	NSArray *sections = [[self fetchedResultsController] sections];
+    NSLog(@"number of sections: %d", [sections count]);
 	
 	if (sectionIndex < [sections count]) {
 		id <NSFetchedResultsSectionInfo> sectionInfo = [sections objectAtIndex:sectionIndex];
@@ -174,6 +178,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"get cell at index");
 	static NSString *CellIdentifier = @"Cell";
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
