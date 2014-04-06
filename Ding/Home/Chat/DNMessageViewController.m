@@ -160,7 +160,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     [chatBar addSubview:sendButton];
     
     [self.view addSubview:chatBar];
-    //[self.view sendSubviewToBack:chatBar];
+    [self.view sendSubviewToBack:chatBar];
     
     //    // Test with lots of messages.
     //    NSDate *before = [NSDate date];
