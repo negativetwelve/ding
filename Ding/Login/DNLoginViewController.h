@@ -7,6 +7,7 @@
 //
 
 #import "DNViewController.h"
+#import "DNGoogleLoginViewController.h"
 
 @interface DNLoginViewController : DNViewController
 
