@@ -30,7 +30,9 @@
     [self setupLeftMenuButton];
     [self setupRightMenuButton];
     //Create a Segmented Control tab
-    UISegmentedControl *clientControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"gChat", @"Voice", @"fb", nil]];
+    //UISegmentedControl *clientControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"gChat", @"Voice", @"fb", nil]];
+    
+    UISegmentedControl *clientControl = [[UISegmentedControl alloc] initWithItems:[self segmentViewControllers]];
     
     [self.homeNavigationController setClientControl:clientControl];
     
@@ -50,7 +52,16 @@
      [titleButtonArray addObject:[[UIBarButtonItem alloc] initWithCustomView:clientControl]];
      [titleButtonArray addObject:flexibleSpace];
      
-     self.navigationItem.leftBarButtonItems = titleButtonArray;
+    self.navigationItem.leftBarButtonItems = titleButtonArray;
+}
+
+- (NSArray *)segmentViewControllers {
+    DNChatViewController *chat = [[DNChatViewController init] alloc];
+    DNVoiceViewController *voice = [[DNVoiceViewController init] alloc];
+    DNFBChatViewController *fbchat = [[DNFBChatViewController init] alloc];
+    NSArray * viewControllers = [NSArray arrayWithObjects:chat, voice, fbchat, nil];
+    
+    return viewControllers;
 }
 
 -(void)diffClientClicked:(id)sender {
