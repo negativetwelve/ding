@@ -87,6 +87,7 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
         [drawerController setCloseDrawerGestureModeMask:MMCloseDrawerGestureModePanningCenterView];
         
         [homeViewController setDrawerController:drawerController];
+        [homeViewController setHomeNavigationController:homeNavigationController];
         
         [self.window setRootViewController:drawerController];
     }

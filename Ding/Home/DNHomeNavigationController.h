@@ -10,4 +10,5 @@
 
 @interface DNHomeNavigationController : UINavigationController
 
+@property (nonatomic, retain) UISegmentedControl *clientControl;
 @end

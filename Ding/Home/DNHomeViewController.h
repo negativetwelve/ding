@@ -14,8 +14,11 @@
 
 @interface DNHomeViewController : DNViewController {
     MMDrawerController *drawerController;
+    DNHomeNavigationController *homeNavigationController;
 }
 
-@property (nonatomic, retain) MMDrawerController *drawerController;
 
+
+@property (nonatomic, retain) MMDrawerController *drawerController;
+@property (nonatomic, retain) DNHomeNavigationController *homeNavigationController;
 @end
