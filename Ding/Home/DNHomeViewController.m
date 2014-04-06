@@ -59,7 +59,6 @@
     
     NSArray *nextViewControllers = [NSArray arrayWithObject:nextViewController];
     [self.homeNavigationController setViewControllers:nextViewControllers animated:NO];
-    
 }
 
 -(void)changeClient:(id)sender {
