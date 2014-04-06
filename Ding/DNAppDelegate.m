@@ -336,13 +336,116 @@ NSString *const kXMPPmyGooglePassword = @"kXMPPmyGooglePassword";
 		NSLog(@"Error connecting: %@", error);
 		return NO;
 	}
-    NSLog(@"no error logging in with google");
+    NSLog(@"success logging in with google");
 	return YES;
 }
 
 - (void)disconnect {
 	[self goOffline];
 	[xmppStream disconnect];
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+#pragma mark XMPPStream Delegate
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+- (void)xmppStream:(XMPPStream *)sender socketDidConnect:(GCDAsyncSocket *)socket {
+}
+
+- (void)xmppStream:(XMPPStream *)sender willSecureWithSettings:(NSMutableDictionary *)settings {
+	
+	if (allowSelfSignedCertificates)
+	{
+		[settings setObject:[NSNumber numberWithBool:YES] forKey:(NSString *)kCFStreamSSLAllowsAnyRoot];
+	}
+	
+	if (allowSSLHostNameMismatch)
+	{
+		[settings setObject:[NSNull null] forKey:(NSString *)kCFStreamSSLPeerName];
+	}
+	else
+	{
+		NSString *expectedCertName = [xmppStream.myJID domain];
+        
+		if (expectedCertName)
+		{
+			[settings setObject:expectedCertName forKey:(NSString *)kCFStreamSSLPeerName];
+		}
+	}
+}
+
+- (void)xmppStreamDidSecure:(XMPPStream *)sender {
+}
+
+- (void)xmppStreamDidConnect:(XMPPStream *)sender {
+    NSLog(@"stream connected");
+	
+	isXmppConnected = YES;
+	
+	NSError *error = nil;
+	
+	if (![[self xmppStream] authenticateWithPassword:password error:&error])
+	{
+		NSLog(@"Error authenticating: %@", error);
+	}
+}
+
+- (void)xmppStreamDidAuthenticate:(XMPPStream *)sender {
+	[self goOnline];
+}
+
+- (void)xmppStream:(XMPPStream *)sender didNotAuthenticate:(NSXMLElement *)error {
+}
+
+- (BOOL)xmppStream:(XMPPStream *)sender didReceiveIQ:(XMPPIQ *)iq {
+	return NO;
+}
+
+- (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message {
+	// A simple example of inbound message handling.
+    
+	if ([message isChatMessageWithBody])
+	{
+		XMPPUserCoreDataStorageObject *user = [xmppRosterStorage userForJID:[message from]
+		                                                         xmppStream:xmppStream
+		                                               managedObjectContext:[self managedObjectContext_roster]];
+		
+		NSString *body = [[message elementForName:@"body"] stringValue];
+		NSString *displayName = [user displayName];
+        
+		if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateActive)
+		{
+			UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:displayName
+                                                                message:body
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Ok"
+                                                      otherButtonTitles:nil];
+			[alertView show];
+		}
+		else
+		{
+			// We are not active, so use a local notification instead
+			UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+			localNotification.alertAction = @"Ok";
+			localNotification.alertBody = [NSString stringWithFormat:@"From: %@\n\n%@",displayName,body];
+            
+			[[UIApplication sharedApplication] presentLocalNotificationNow:localNotification];
+		}
+	}
+}
+
+- (void)xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence {
+}
+
+- (void)xmppStream:(XMPPStream *)sender didReceiveError:(id)error {
+}
+
+- (void)xmppStreamDidDisconnect:(XMPPStream *)sender withError:(NSError *)error {
+	if (!isXmppConnected)
+	{
+		NSLog(@"Unable to connect to server. Check xmppStream.hostName");
+	}
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -31,6 +31,8 @@
 - (void)signOutButtonPressed: (id)selector {
     NSLog(@"Sign Out called");
     [self.appDelegate disconnect];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kXMPPmyGoogleJID];
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kXMPPmyGooglePassword];
 }
 
 - (void)viewDidLoad {

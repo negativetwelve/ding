@@ -69,8 +69,8 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-	[[self appDelegate] disconnect];
-	[[[self appDelegate] xmppvCardTempModule] removeDelegate:self];
+//	[[self appDelegate] disconnect];
+//	[[[self appDelegate] xmppvCardTempModule] removeDelegate:self];
 	
 	[super viewWillDisappear:animated];
 }
@@ -80,7 +80,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (NSFetchedResultsController *)fetchedResultsController {
-    NSLog(@"fetched results controller called");
 	if (fetchedResultsController == nil) {
         NSLog(@"fetched results is nil");
 		NSManagedObjectContext *moc = [[self appDelegate] managedObjectContext_roster];
@@ -115,6 +114,7 @@
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
+    NSLog(@"controller did change content");
 	[[self tableView] reloadData];
 }
 
@@ -144,7 +144,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSLog(@"number of sections in table view called %d", [[[self fetchedResultsController] sections] count]);
 	return [[[self fetchedResultsController] sections] count];
 }
 
@@ -167,7 +166,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)sectionIndex {
 	NSArray *sections = [[self fetchedResultsController] sections];
-    NSLog(@"number of sections: %d", [sections count]);
 	
 	if (sectionIndex < [sections count]) {
 		id <NSFetchedResultsSectionInfo> sectionInfo = [sections objectAtIndex:sectionIndex];
@@ -178,7 +176,6 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSLog(@"get cell at index");
 	static NSString *CellIdentifier = @"Cell";
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
