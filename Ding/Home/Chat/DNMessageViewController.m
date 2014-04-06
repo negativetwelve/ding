@@ -186,9 +186,7 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     cellMap = [[NSMutableArray alloc]
                initWithCapacity:[[fetchedResultsController fetchedObjects] count]*2];
     
-    NSLog(@"conversation jid: %@", self.conversation.bareJid);
     for (XMPPMessageArchiving_Message_CoreDataObject *message in [fetchedResultsController fetchedObjects]) {
-        NSLog(@"message jid: %@", message.bareJid);
         if ([message.bareJid isEqualToJID:self.conversation.bareJid]) {
             [self addMessage:message];
         }
@@ -366,17 +364,16 @@ static CGFloat const kChatBarHeight4    = 94.0f;
 
 - (void)sendMessage {
     //    // TODO: Show progress indicator like iPhone Message app does. (Icebox)
-    //    [activityIndicator startAnimating];
+    //[activityIndicator startAnimating];
     
     //NO TRIMMED MESSSAGES
-    /*NSString *rightTrimmedMessage =
-    [chatInput.text stringByTrimmingTrailingWhitespaceAndNewlineCharacters];
+    NSString *rightTrimmedMessage = [chatInput.text stringByTrimmingTrailingWhitespaceAndNewlineCharacters];
     
     // Don't send blank messages.
     if (rightTrimmedMessage.length == 0) {
         [self clearChatInput];
         return;
-    }*/
+    }
     
     // Create new message and save to Core Data.
     XMPPMessageArchivingCoreDataStorage *storage = [XMPPMessageArchivingCoreDataStorage sharedInstance];
@@ -405,11 +402,10 @@ static CGFloat const kChatBarHeight4    = 94.0f;
         // TODO: Handle the error appropriately.
         NSLog(@"sendMessage error %@, %@", error, [error userInfo]);
     }
-    
+
     [self clearChatInput];
     
     [self scrollToBottomAnimated:YES]; // must come after RESET_CHAT_BAR_HEIGHT above
-    
     // Play sound or buzz, depending on user settings.
     /*NSString *sendPath = [[NSBundle mainBundle] pathForResource:@"basicsound" ofType:@"wav"];
     CFURLRef baseURL = (CFURLRef)[NSURL fileURLWithPath:sendPath];
