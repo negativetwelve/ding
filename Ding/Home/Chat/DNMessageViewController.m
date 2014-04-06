@@ -173,14 +173,14 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     //    }
     //    NSLog(@"Saving messages to disc takes %f seconds", [before timeIntervalSinceNow]);
     
-    //[self fetchResults]; meow
+    [self fetchResults];
     
     // Construct cellMap from fetchedObjects.
     cellMap = [[NSMutableArray alloc]
                initWithCapacity:[[fetchedResultsController fetchedObjects] count]*2];
     
     
-    for (DNMessage *message in [fetchedResultsController fetchedObjects]) {
+    for (XMPPMessageArchiving_Message_CoreDataObject *message in [fetchedResultsController fetchedObjects]) {
         [self addMessage:message];
     }
     
@@ -402,10 +402,10 @@ static CGFloat const kChatBarHeight4    = 94.0f;
     }
 }
 
-- (NSUInteger)addMessage:(DNMessage *)message
+- (NSUInteger)addMessage:(XMPPMessageArchiving_Message_CoreDataObject *)message
 {
     // Show sentDates at most every 15 minutes.
-    NSDate *currentSentDate = message.sentDate;
+    NSDate *currentSentDate = message.timestamp;
     NSUInteger numberOfObjectsAdded = 1;
     NSUInteger prevIndex = [cellMap count] - 1;
     
@@ -598,7 +598,7 @@ static NSString *kMessageCell = @"MessageCell";
     }
     
     // Configure the cell to show the message in a bubble. Layout message cell & its subviews.
-    CGSize size = [[(DNMessage *)object text] sizeWithFont:[UIFont systemFontOfSize:kMessageFontSize]
+    CGSize size = [[(XMPPMessageArchiving_Message_CoreDataObject *)object body] sizeWithFont:[UIFont systemFontOfSize:kMessageFontSize]
                                        constrainedToSize:CGSizeMake(kMessageTextWidth, CGFLOAT_MAX)
                                            lineBreakMode:UILineBreakModeWordWrap];
     UIImage *bubbleImage;
@@ -625,18 +625,21 @@ static NSString *kMessageCell = @"MessageCell";
         msgText.autoresizingMask = UIViewAutoresizingFlexibleRightMargin;
     }
     msgBackground.image = bubbleImage;
-    msgText.text = [(DNMessage *)object text];
+    msgText.text = [(XMPPMessageArchiving_Message_CoreDataObject *)object body];
     
     // Mark message as read.
     // Let's instead do this (asynchronously) from loadView and iterate over all messages
-    if (![(DNMessage *)object read]) { // not read, so save as read
-        [(DNMessage *)object setRead:[NSNumber numberWithBool:YES]];
+    
+    /*
+    if (![(XMPPMessageArchiving_Message_CoreDataObject *)object read]) { // not read, so save as read
+        [(XMPPMessageArchiving_Message_CoreDataObject *)object setRead:[NSNumber numberWithBool:YES]];
         NSError *error;
         if (![managedObjectContext save:&error]) {
             // TODO: Handle the error appropriately.
             NSLog(@"Save message as read error %@, %@", error, [error userInfo]);
         }
     }
+     */
     
     return cell;
 }
@@ -679,7 +682,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     }
     
     // Set MessageCell height.
-    CGSize size = [[(DNMessage *)object text] sizeWithFont:[UIFont systemFontOfSize:kMessageFontSize]
+    CGSize size = [[(XMPPMessageArchiving_Message_CoreDataObject *)object body] sizeWithFont:[UIFont systemFontOfSize:kMessageFontSize]
                                        constrainedToSize:CGSizeMake(kMessageTextWidth, CGFLOAT_MAX)
                                            lineBreakMode:UILineBreakModeWordWrap];
     return size.height + 17.0f;
@@ -696,33 +699,30 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)fetchResults {
     if (fetchedResultsController) return;
-    managedObjectContext = [(DNAppDelegate *)[[UIApplication sharedApplication] delegate]managedObjectContext_roster];
-    // Create and configure a fetch request.
+    
+    NSLog(@"fetch results (messages)");
+    
+    XMPPMessageArchivingCoreDataStorage *storage = [XMPPMessageArchivingCoreDataStorage sharedInstance];
+    NSManagedObjectContext *moc = [storage mainThreadManagedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"XMPPMessageArchiving_Message_CoreDataObject"
+                                              inManagedObjectContext:moc];
+    
+    NSSortDescriptor *sd1 = [[NSSortDescriptor alloc] initWithKey:@"timestamp" ascending:YES];
+    
+    NSArray *sortDescriptors = [NSArray arrayWithObjects:sd1, nil];
+    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Message"
-                                              inManagedObjectContext:managedObjectContext];
     [fetchRequest setEntity:entity];
-    [fetchRequest setFetchBatchSize:20];
-    
-    
-    // Create the sort descriptors array.
-    NSSortDescriptor *tsDesc = [[NSSortDescriptor alloc] initWithKey:@"sentDate" ascending:YES];
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:tsDesc, nil];
     [fetchRequest setSortDescriptors:sortDescriptors];
     
-    // Create and initialize the fetchedResultsController.
-    fetchedResultsController = [[NSFetchedResultsController alloc]
-                                initWithFetchRequest:fetchRequest
-                                managedObjectContext:managedObjectContext
-                                sectionNameKeyPath:nil /* one section */ cacheName:@"Message"];
-    
-    fetchedResultsController.delegate = self;
+    fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:moc sectionNameKeyPath:nil cacheName:@"MessageListCache"];
     
     NSError *error;
-    /*if (![fetchedResultsController performFetch:&error]) {
-        // TODO: Handle the error appropriately.
-        NSLog(@"fetchResults error %@, %@", error, [error userInfo]);
-    }*/
+    BOOL rval = [fetchedResultsController performFetch:&error];
+    
+    if (!rval) {
+        NSLog(@"error: %@", error);
+    }
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject

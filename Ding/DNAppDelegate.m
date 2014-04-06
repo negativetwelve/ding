@@ -76,7 +76,7 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
     
     // Setup the XMPP stream
 	[self setupStream];
-    [self setupFBStream];
+    //[self setupFBStream];
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
         NSLog(@"Device is iPad");
@@ -109,7 +109,7 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
     
     [self.window makeKeyAndVisible];
     
-    [self fbAuthorize];
+    //[self fbAuthorize];
 
     return YES;
 }
@@ -167,7 +167,7 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
     
     // Send an SMS. Replace TEXT_PHONE_NUMBER with a proper 10-digit phone number
     // capable of receiving SMS messages
-    //res = [voice sendSmsText: @"Testing 1, 2, 3" toNumber: @"9164204682"];
+    // res = [voice sendSmsText: @"Testing 1, 2, 3" toNumber: @"9164204682"];
     
     if (!res) {
         NSLog(@"did not send message");
@@ -461,6 +461,7 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
 	}
     
     // Facebook
+    /*
     if (![fbxmppStream isSecure]) {
         NSError *error = nil;
         BOOL result = [fbxmppStream secureConnection:&error];
@@ -476,6 +477,7 @@ NSString *const kXMPPmyFBPassword = @"kXMPPmyFBPassword";
             NSLog(@"Error in xmpp auth: %@", error);
         }
     }
+     */
 }
 
 - (void)xmppStreamDidAuthenticate:(XMPPStream *)sender {
