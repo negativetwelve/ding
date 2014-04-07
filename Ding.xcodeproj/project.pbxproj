@@ -201,6 +201,7 @@
 		4D96DB3F18F24CAA00034E40 /* DNRequestFacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D96DB3E18F24CAA00034E40 /* DNRequestFacebookManager.m */; };
 		4D96DB4218F24CBD00034E40 /* DNAuthFacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D96DB4118F24CBD00034E40 /* DNAuthFacebookManager.m */; };
 		4D96DB4518F24D1300034E40 /* DNSocialRequestBaseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D96DB4418F24D1300034E40 /* DNSocialRequestBaseClient.m */; };
+		4D96DB4C18F24FF300034E40 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D96DB4A18F24FF200034E40 /* NSString+Additions.m */; };
 		DE3613BFCCC4458B870F7E2F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA3209F8B0D4B028BC98960 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -598,6 +599,10 @@
 		4D96DB4118F24CBD00034E40 /* DNAuthFacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNAuthFacebookManager.m; path = Login/FacebookLogin/FacebookManager/DNAuthFacebookManager.m; sourceTree = "<group>"; };
 		4D96DB4318F24D1300034E40 /* DNSocialRequestBaseClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNSocialRequestBaseClient.h; path = Login/FacebookLogin/FacebookManager/DNSocialRequestBaseClient.h; sourceTree = "<group>"; };
 		4D96DB4418F24D1300034E40 /* DNSocialRequestBaseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNSocialRequestBaseClient.m; path = Login/FacebookLogin/FacebookManager/DNSocialRequestBaseClient.m; sourceTree = "<group>"; };
+		4D96DB4818F24FF200034E40 /* BlocksTypedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlocksTypedefs.h; path = ../Utils/BlocksTypedefs.h; sourceTree = "<group>"; };
+		4D96DB4918F24FF200034E40 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Additions.h"; path = "../Utils/NSString+Additions.h"; sourceTree = "<group>"; };
+		4D96DB4A18F24FF200034E40 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Additions.m"; path = "../Utils/NSString+Additions.m"; sourceTree = "<group>"; };
+		4D96DB4B18F24FF200034E40 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Singleton.h; path = ../Utils/Singleton.h; sourceTree = "<group>"; };
 		7721FE381EB14A81A947318C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1636,6 +1641,7 @@
 				4D911CDE18F08ADE007BE775 /* DNAppDelegate.h */,
 				4D911CDF18F08ADE007BE775 /* DNAppDelegate.m */,
 				4D911CEA18F08ADE007BE775 /* Images.xcassets */,
+				4D96DB4618F24FCE00034E40 /* Utils */,
 				4D911CD618F08ADE007BE775 /* Supporting Files */,
 			);
 			path = Ding;
@@ -1725,6 +1731,17 @@
 				4D96DB4418F24D1300034E40 /* DNSocialRequestBaseClient.m */,
 			);
 			name = FacebookManager;
+			sourceTree = "<group>";
+		};
+		4D96DB4618F24FCE00034E40 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				4D96DB4818F24FF200034E40 /* BlocksTypedefs.h */,
+				4D96DB4918F24FF200034E40 /* NSString+Additions.h */,
+				4D96DB4A18F24FF200034E40 /* NSString+Additions.m */,
+				4D96DB4B18F24FF200034E40 /* Singleton.h */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2011,6 +2028,7 @@
 				4D7CB12618F1481A00D9EFD4 /* NSString-GVoice.m in Sources */,
 				4D911CDC18F08ADE007BE775 /* main.m in Sources */,
 				3FF5C90A18F121C200B2194E /* DNMessageViewController.m in Sources */,
+				4D96DB4C18F24FF300034E40 /* NSString+Additions.m in Sources */,
 				4D7CA64D18F0CE5500D9EFD4 /* XMPPResourceCoreDataStorageObject.m in Sources */,
 				4D7CA68C18F0CE5500D9EFD4 /* XMPPMessageArchivingCoreDataStorage.m in Sources */,
 				4D7CA68718F0CE5500D9EFD4 /* XMPPCapsResourceCoreDataStorageObject.m in Sources */,
