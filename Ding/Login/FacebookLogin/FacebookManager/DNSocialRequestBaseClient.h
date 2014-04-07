@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DNSocialRequestBaseClient : NSObject
-// Used to inherit from AFHTTPClient
+#import "AFHTTPClient.h"
+
+@interface DNSocialRequestBaseClient : AFHTTPClient
++ (DNSocialRequestBaseClient *)sharedClient;
 
 @end
