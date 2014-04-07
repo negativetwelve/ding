@@ -7,7 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "XMPP.h"
 
 @interface DNBaseChatRequestManager : NSObject
+@property (readonly, nonatomic, strong) XMPPStream *xmppStream;
 
+- (void)sendMessageToFacebook:(NSString*)textMessage
+         withFriendFacebookID:(NSString*)friendID;
 @end
