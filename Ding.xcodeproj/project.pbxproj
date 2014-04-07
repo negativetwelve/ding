@@ -14,7 +14,6 @@
 		3FF5C90A18F121C200B2194E /* DNMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5C90918F121C200B2194E /* DNMessageViewController.m */; };
 		3FF5C90D18F1230300B2194E /* DNMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5C90C18F1230300B2194E /* DNMessage.m */; };
 		3FF5C91018F1232F00B2194E /* DNChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5C90F18F1232F00B2194E /* DNChat.m */; };
-		3FF5C91418F12CC400B2194E /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5C91318F12CC400B2194E /* NSString+Additions.m */; };
 		3FF5C91718F1B9B900B2194E /* DNVoiceMessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF5C91618F1B9B900B2194E /* DNVoiceMessageViewController.m */; };
 		4D5C6EC718F0A21B00C8B392 /* DNNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C6EC618F0A21B00C8B392 /* DNNavigationController.m */; };
 		4D5C6ECA18F0A22C00C8B392 /* DNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5C6EC918F0A22C00C8B392 /* DNViewController.m */; };
@@ -231,8 +230,6 @@
 		3FF5C90C18F1230300B2194E /* DNMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNMessage.m; path = Models/DNMessage.m; sourceTree = "<group>"; };
 		3FF5C90E18F1232F00B2194E /* DNChat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNChat.h; path = Models/DNChat.h; sourceTree = "<group>"; };
 		3FF5C90F18F1232F00B2194E /* DNChat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNChat.m; path = Models/DNChat.m; sourceTree = "<group>"; };
-		3FF5C91218F12C9700B2194E /* NSString+Additions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Additions.h"; sourceTree = "<group>"; };
-		3FF5C91318F12CC400B2194E /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
 		3FF5C91518F1B9B900B2194E /* DNVoiceMessageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNVoiceMessageViewController.h; path = Home/Voice/DNVoiceMessageViewController.h; sourceTree = "<group>"; };
 		3FF5C91618F1B9B900B2194E /* DNVoiceMessageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNVoiceMessageViewController.m; path = Home/Voice/DNVoiceMessageViewController.m; sourceTree = "<group>"; };
 		4D5C6EC518F0A21B00C8B392 /* DNNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNNavigationController.h; path = Base/DNNavigationController.h; sourceTree = "<group>"; };
@@ -741,8 +738,6 @@
 				3FF5C90C18F1230300B2194E /* DNMessage.m */,
 				3FF5C90E18F1232F00B2194E /* DNChat.h */,
 				3FF5C90F18F1232F00B2194E /* DNChat.m */,
-				3FF5C91218F12C9700B2194E /* NSString+Additions.h */,
-				3FF5C91318F12CC400B2194E /* NSString+Additions.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -2034,7 +2029,6 @@
 				4D7CA68718F0CE5500D9EFD4 /* XMPPCapsResourceCoreDataStorageObject.m in Sources */,
 				4D7CA67818F0CE5500D9EFD4 /* XMPPResultSet.m in Sources */,
 				4D7CA68218F0CE5500D9EFD4 /* XMPPTransports.m in Sources */,
-				3FF5C91418F12CC400B2194E /* NSString+Additions.m in Sources */,
 				4D7CA66C18F0CE5500D9EFD4 /* XMPPvCardCoreDataStorage.m in Sources */,
 				4D7CA54918F0CCE700D9EFD4 /* XMPPDigestMD5Authentication.m in Sources */,
 				4D7CA66318F0CE5500D9EFD4 /* XMPPRoomOccupantHybridMemoryStorageObject.m in Sources */,
