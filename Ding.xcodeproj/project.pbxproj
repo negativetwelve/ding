@@ -195,6 +195,12 @@
 		4D96DB2D18F1A6F900034E40 /* ChatBubbleGreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D96DB2718F1A6F900034E40 /* ChatBubbleGreen.png */; };
 		4D96DB2E18F1A6F900034E40 /* ChatBubbleGreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D96DB2818F1A6F900034E40 /* ChatBubbleGreen@2x.png */; };
 		4D96DB2F18F1A6F900034E40 /* SendButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 4D96DB2918F1A6F900034E40 /* SendButton.png */; };
+		4D96DB3318F24AC200034E40 /* DNFacebookAPIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D96DB3218F24AC200034E40 /* DNFacebookAPIController.m */; };
+		4D96DB3918F24C6100034E40 /* DNChatDataStoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D96DB3818F24C6100034E40 /* DNChatDataStoreManager.m */; };
+		4D96DB3C18F24C8000034E40 /* DNBaseChatRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D96DB3B18F24C8000034E40 /* DNBaseChatRequestManager.m */; };
+		4D96DB3F18F24CAA00034E40 /* DNRequestFacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D96DB3E18F24CAA00034E40 /* DNRequestFacebookManager.m */; };
+		4D96DB4218F24CBD00034E40 /* DNAuthFacebookManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D96DB4118F24CBD00034E40 /* DNAuthFacebookManager.m */; };
+		4D96DB4518F24D1300034E40 /* DNSocialRequestBaseClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D96DB4418F24D1300034E40 /* DNSocialRequestBaseClient.m */; };
 		DE3613BFCCC4458B870F7E2F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA3209F8B0D4B028BC98960 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -580,6 +586,18 @@
 		4D96DB2718F1A6F900034E40 /* ChatBubbleGreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ChatBubbleGreen.png; sourceTree = "<group>"; };
 		4D96DB2818F1A6F900034E40 /* ChatBubbleGreen@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ChatBubbleGreen@2x.png"; sourceTree = "<group>"; };
 		4D96DB2918F1A6F900034E40 /* SendButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SendButton.png; sourceTree = "<group>"; };
+		4D96DB3118F24AC200034E40 /* DNFacebookAPIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNFacebookAPIController.h; path = Login/FacebookLogin/DNFacebookAPIController.h; sourceTree = "<group>"; };
+		4D96DB3218F24AC200034E40 /* DNFacebookAPIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNFacebookAPIController.m; path = Login/FacebookLogin/DNFacebookAPIController.m; sourceTree = "<group>"; };
+		4D96DB3718F24C6100034E40 /* DNChatDataStoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNChatDataStoreManager.h; path = Login/FacebookLogin/FacebookDatabaseManager/DNChatDataStoreManager.h; sourceTree = "<group>"; };
+		4D96DB3818F24C6100034E40 /* DNChatDataStoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNChatDataStoreManager.m; path = Login/FacebookLogin/FacebookDatabaseManager/DNChatDataStoreManager.m; sourceTree = "<group>"; };
+		4D96DB3A18F24C8000034E40 /* DNBaseChatRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNBaseChatRequestManager.h; path = Login/FacebookLogin/FacebookChatRequestManager/DNBaseChatRequestManager.h; sourceTree = "<group>"; };
+		4D96DB3B18F24C8000034E40 /* DNBaseChatRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNBaseChatRequestManager.m; path = Login/FacebookLogin/FacebookChatRequestManager/DNBaseChatRequestManager.m; sourceTree = "<group>"; };
+		4D96DB3D18F24CAA00034E40 /* DNRequestFacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNRequestFacebookManager.h; path = Login/FacebookLogin/FacebookManager/DNRequestFacebookManager.h; sourceTree = "<group>"; };
+		4D96DB3E18F24CAA00034E40 /* DNRequestFacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNRequestFacebookManager.m; path = Login/FacebookLogin/FacebookManager/DNRequestFacebookManager.m; sourceTree = "<group>"; };
+		4D96DB4018F24CBD00034E40 /* DNAuthFacebookManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNAuthFacebookManager.h; path = Login/FacebookLogin/FacebookManager/DNAuthFacebookManager.h; sourceTree = "<group>"; };
+		4D96DB4118F24CBD00034E40 /* DNAuthFacebookManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNAuthFacebookManager.m; path = Login/FacebookLogin/FacebookManager/DNAuthFacebookManager.m; sourceTree = "<group>"; };
+		4D96DB4318F24D1300034E40 /* DNSocialRequestBaseClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNSocialRequestBaseClient.h; path = Login/FacebookLogin/FacebookManager/DNSocialRequestBaseClient.h; sourceTree = "<group>"; };
+		4D96DB4418F24D1300034E40 /* DNSocialRequestBaseClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNSocialRequestBaseClient.m; path = Login/FacebookLogin/FacebookManager/DNSocialRequestBaseClient.m; sourceTree = "<group>"; };
 		7721FE381EB14A81A947318C /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -658,6 +676,7 @@
 		4D5C6EC218F0A18C00C8B392 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				4D96DB3018F24A9500034E40 /* FacebookLogin */,
 				4D7CA6A118F0CF9F00D9EFD4 /* GoogleLogin */,
 				4D5C6ECE18F0A71A00C8B392 /* DNLoginNavigationController.h */,
 				4D5C6ECF18F0A71A00C8B392 /* DNLoginNavigationController.m */,
@@ -1665,6 +1684,49 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
+		4D96DB3018F24A9500034E40 /* FacebookLogin */ = {
+			isa = PBXGroup;
+			children = (
+				4D96DB3618F24B2D00034E40 /* FacebookManager */,
+				4D96DB3518F24B1D00034E40 /* FacebookDatabaseManager */,
+				4D96DB3418F24AF600034E40 /* FacebookChatRequestManager */,
+				4D96DB3118F24AC200034E40 /* DNFacebookAPIController.h */,
+				4D96DB3218F24AC200034E40 /* DNFacebookAPIController.m */,
+			);
+			name = FacebookLogin;
+			sourceTree = "<group>";
+		};
+		4D96DB3418F24AF600034E40 /* FacebookChatRequestManager */ = {
+			isa = PBXGroup;
+			children = (
+				4D96DB3A18F24C8000034E40 /* DNBaseChatRequestManager.h */,
+				4D96DB3B18F24C8000034E40 /* DNBaseChatRequestManager.m */,
+			);
+			name = FacebookChatRequestManager;
+			sourceTree = "<group>";
+		};
+		4D96DB3518F24B1D00034E40 /* FacebookDatabaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				4D96DB3718F24C6100034E40 /* DNChatDataStoreManager.h */,
+				4D96DB3818F24C6100034E40 /* DNChatDataStoreManager.m */,
+			);
+			name = FacebookDatabaseManager;
+			sourceTree = "<group>";
+		};
+		4D96DB3618F24B2D00034E40 /* FacebookManager */ = {
+			isa = PBXGroup;
+			children = (
+				4D96DB3D18F24CAA00034E40 /* DNRequestFacebookManager.h */,
+				4D96DB3E18F24CAA00034E40 /* DNRequestFacebookManager.m */,
+				4D96DB4018F24CBD00034E40 /* DNAuthFacebookManager.h */,
+				4D96DB4118F24CBD00034E40 /* DNAuthFacebookManager.m */,
+				4D96DB4318F24D1300034E40 /* DNSocialRequestBaseClient.h */,
+				4D96DB4418F24D1300034E40 /* DNSocialRequestBaseClient.m */,
+			);
+			name = FacebookManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1815,6 +1877,7 @@
 				4D7CA66E18F0CE5500D9EFD4 /* XMPPvCardTempCoreDataStorageObject.m in Sources */,
 				4D7CA55A18F0CCE700D9EFD4 /* GCDMulticastDelegate.m in Sources */,
 				4D7CA65018F0CE5500D9EFD4 /* XMPPUserCoreDataStorageObject.m in Sources */,
+				4D96DB3318F24AC200034E40 /* DNFacebookAPIController.m in Sources */,
 				4D911CE018F08ADE007BE775 /* DNAppDelegate.m in Sources */,
 				4D7CA64A18F0CE5500D9EFD4 /* XMPPProcessOne.m in Sources */,
 				4D7CA68B18F0CE5500D9EFD4 /* XMPPMessageArchiving_Message_CoreDataObject.m in Sources */,
@@ -1889,6 +1952,7 @@
 				4D7CA4C318F0B63800D9EFD4 /* DNFriendsViewController.m in Sources */,
 				4D7CA68818F0CE5500D9EFD4 /* XMPPCapabilities.m in Sources */,
 				4D7CA64718F0CE5500D9EFD4 /* XMPPBandwidthMonitor.m in Sources */,
+				4D96DB4218F24CBD00034E40 /* DNAuthFacebookManager.m in Sources */,
 				3FF5C90D18F1230300B2194E /* DNMessage.m in Sources */,
 				4D7CA54B18F0CCE700D9EFD4 /* XMPPSCRAMSHA1Authentication.m in Sources */,
 				4D7CA65218F0CE5500D9EFD4 /* XMPPRosterMemoryStorage.m in Sources */,
@@ -1914,11 +1978,13 @@
 				4D7CB12718F1481A00D9EFD4 /* ParsingUtils.m in Sources */,
 				3F6E770B18F0A75600D798BC /* DNHomeNavigationController.m in Sources */,
 				4D7CA67618F0CE5500D9EFD4 /* XMPPvCardTempTel.m in Sources */,
+				4D96DB4518F24D1300034E40 /* DNSocialRequestBaseClient.m in Sources */,
 				4D7CA55218F0CCE700D9EFD4 /* XMPPIQ.m in Sources */,
 				4D7CA69618F0CE5500D9EFD4 /* XMPPAutoTime.m in Sources */,
 				4D7CA67918F0CE5500D9EFD4 /* XMPPIQ+XEP_0060.m in Sources */,
 				3FBA665F18F0C2D9008B5640 /* DNVoiceViewController.m in Sources */,
 				4D7CA55718F0CCE700D9EFD4 /* XMPPPresence.m in Sources */,
+				4D96DB3C18F24C8000034E40 /* DNBaseChatRequestManager.m in Sources */,
 				4D7CB12E18F1481A00D9EFD4 /* SBJsonTokeniser.m in Sources */,
 				4D7CA4FE18F0CBC100D9EFD4 /* DDXMLNode.m in Sources */,
 				4D7CA66B18F0CE5500D9EFD4 /* XMPPvCardAvatarCoreDataStorageObject.m in Sources */,
@@ -1939,6 +2005,7 @@
 				4D7CA67518F0CE5500D9EFD4 /* XMPPvCardTempModule.m in Sources */,
 				4D7CA65718F0CE5500D9EFD4 /* XMPPIQ+JabberRPCResonse.m in Sources */,
 				4D7CA67B18F0CE5500D9EFD4 /* TURNSocket.m in Sources */,
+				4D96DB3F18F24CAA00034E40 /* DNRequestFacebookManager.m in Sources */,
 				4D7CA6A418F0CFB600D9EFD4 /* DNGoogleLoginViewController.m in Sources */,
 				4D7CA66718F0CE5500D9EFD4 /* XMPPMessage+XEP0045.m in Sources */,
 				4D7CB12618F1481A00D9EFD4 /* NSString-GVoice.m in Sources */,
@@ -1972,6 +2039,7 @@
 				4D7CA65B18F0CE5500D9EFD4 /* XMPPPrivacy.m in Sources */,
 				4D7CA66418F0CE5500D9EFD4 /* XMPPRoomMemoryStorage.m in Sources */,
 				4D7CA68518F0CE5500D9EFD4 /* XMPPCapabilitiesCoreDataStorage.m in Sources */,
+				4D96DB3918F24C6100034E40 /* DNChatDataStoreManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
