@@ -10,4 +10,7 @@
 
 @interface DNRequestFacebookManager : NSObject
 
+- (void)requestGraphMeWithCompletion:(CompletionBlock)completion;
+- (void)requestGraphFriendsWithCompletion:(CompletionBlock)completion;
+
 @end
