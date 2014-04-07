@@ -67,7 +67,7 @@
 	
     NSLog(@"XMPP connecting...");
 	NSError *error = nil;
-	if (![[[DNFacebookAPIController sharedInstance] chatRequestManager].xmppStream connect:&error]) {
+	if (![[[DNFacebookAPIController sharedInstance] chatRequestManager].xmppStream connectWithTimeout:XMPPStreamTimeoutNone error:&error]) {
 		NSLog(@"Error in xmpp connection: %@", error);
         NSLog(@"XMPP connect failed");
         if (self.facebookAuthHandler) {
