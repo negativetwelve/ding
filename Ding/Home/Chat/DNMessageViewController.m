@@ -734,8 +734,6 @@ static NSString *kMessageCell = @"MessageCell";
 }
 
 - (void)fetchResults {
-    NSLog(@"fetch results (messages)");
-    
     XMPPMessageArchivingCoreDataStorage *storage = [XMPPMessageArchivingCoreDataStorage sharedInstance];
     NSManagedObjectContext *moc = [storage mainThreadManagedObjectContext];
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"XMPPMessageArchiving_Message_CoreDataObject"

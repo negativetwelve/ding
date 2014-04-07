@@ -740,9 +740,9 @@ static NSString *kMessageCell = @"MessageCell";
 }
 
 - (void)fetchResults {
-    if (fetchedResultsController) return;
-    
-    NSLog(@"fetch results (messages)");
+    if (fetchedResultsController) {
+        return;
+    }
     
     XMPPMessageArchivingCoreDataStorage *storage = [XMPPMessageArchivingCoreDataStorage sharedInstance];
     NSManagedObjectContext *moc = [storage mainThreadManagedObjectContext];

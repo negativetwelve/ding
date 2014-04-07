@@ -69,8 +69,6 @@
     XMPPMessageArchiving_Contact_CoreDataObject *conversation = [fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = conversation.bareJidStr;
     cell.detailTextLabel.text = conversation.mostRecentMessageBody;
-    NSLog(@"OHHEY:%@", conversation.mostRecentMessageBody);
-    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

@@ -127,7 +127,6 @@
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    NSLog(@"controller did change content");
 	[[self tableView] reloadData];
 }
 

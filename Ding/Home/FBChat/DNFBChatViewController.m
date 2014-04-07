@@ -84,7 +84,7 @@
     /*XMPPMessageArchiving_Contact_CoreDataObject *conversation = [fetchedResultsController objectAtIndexPath:indexPath];
     cell.textLabel.text = conversation.bareJidStr;
     cell.detailTextLabel.text = conversation.mostRecentMessageBody;
-    NSLog(@"OHHEY:%@", conversation.mostRecentMessageBody);*/
+     */
     cell.textLabel.text = [names objectAtIndex:indexPath.row];
     cell.detailTextLabel.text = [msgs objectAtIndex:indexPath.row];
     NSLog(@"in config: %@", cell.textLabel.text);
